@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>member registration</title>
+    <link rel="stylesheet" href="add.css">
+    <script src="memadd.js" defer></script>
+    <script src="addmembervalidator.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <nav class="navbar">
+        <span>Online Procturing System</span>
+        <span class="homelink"><a href="../admin_home/admin_home.html">Home</a></span>
+    </nav>
+
+    <div class="container">
+        <div class="bg"></div>
+        <div class="form-wrapper card">
+            <div class="chooser">
+                <div class="chooser-faculty chooser-active">faculty</div>
+                <div class="chooser-student">student</div>
+            </div>
+            <div class="form-slide">
+                <form action="#" class="faculty-form visible">
+                    <div class="input-wrapper awesome-input ">
+                        <input type="text" name="anitid" class=" input-box">
+                        <label class="placeholders">registration number</label>
+                        <img class="error-img" src="./icons/ios-alert.svg" alt="error" />
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" name="name" class="input-box">
+                        <label class="placeholders">name</label>
+                        <img class="error-img" src="./icons/ios-alert.svg" alt="error" />
+
+                    </div>
+                    <div class="input-wrapper select-box">
+                        <select name="dep" id="dep" class="input_select">
+                            <option value="" selected>choose department</option>
+                            <option value="cse">computer science engg.</option>
+                            <option value="mech">mechanical engg.</option>
+                            <option value="ece">electronics and communication engg.</option>
+                            <option value="eee">electrical engg.</option>
+                        </select>
+                        <img class="error-img" src="./icons/ios-alert.svg" alt="error" />
+
+                        <!-- <input type="text" name="department" class="input-box">
+                        <label class="placeholders"></label> -->
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" name="exp" class="input-box">
+                        <label class="placeholders">experience</label>
+                        <img class="error-img" src="./icons/ios-alert.svg" alt="error" />
+
+                    </div>
+                </form>
+                <form action="#" class="student-form invisible">
+                    <div class="input-wrapper">
+                        <input type="text" name="reg_id" class="input-box">
+                        <label class="placeholders">registration number</label>
+                        <img class="error-img" src="./icons/ios-alert.svg" alt="error" />
+
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" name="name" class="input-box">
+                        <label class="placeholders">name</label>
+                        <img class="error-img" src="./icons/ios-alert.svg" alt="error" />
+
+                    </div>
+                    <div class="input-wrapper select-box">
+                        <select name="dep" id="dep" class="input_select">
+                            <option value="">choose department</option>
+                            <option value="cse">computer science engg.</option>
+                            <option value="mech">mechanical engg.</option>
+                            <option value="ece">electronics and communication engg.</option>
+                            <option value="eee">electrical engg.</option>
+                        </select>
+                        <img class="error-img" src="./icons/ios-alert.svg" alt="error" />
+
+                        <!-- <input type="text" name="department" class="input-box"> -->
+                        <!-- <label class="placeholders">department</label> -->
+                    </div>
+                    <div class="input-wrapper select-box">
+                        <select name="year" id="year" class="input_select">
+                            <option value="" selected>choose year</option>
+                            <option value="1">first year</option>
+                            <option value="2">second year</option>
+                            <option value="3">third year</option>
+                            <option value="4">fourth year</option>
+                        </select>
+                        <img class="error-img" src="./icons/ios-alert.svg" alt="error" />
+
+                        <!-- <input type="text" name="year" class="input-box">
+                        <label class="placeholders"></label> -->
+                    </div>
+                </form>
+            </div>
+            <!--form -chooser-->
+            <div class="submit">
+                <input type="submit" value="submit">
+            </div>
+
+        </div>
+        <!--form conainer-->
+
+    </div>
+</body>
+<!-- ANITS REGD ID  
+NAME  
+DEPARTMENT  
+DATE OF JOINING  
+SPECIALIZATIONS -->
+
+<!-- ANITS REGD ID  
+NAME  
+DEPARTMENT  
+YEAR -->
+
+</html>

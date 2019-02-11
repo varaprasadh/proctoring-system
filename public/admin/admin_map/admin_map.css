@@ -1,0 +1,302 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+    /* justify-content: center; */
+}
+
+nav {
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    filter: drop-shadow(1px 5px 10px black);
+    background: white;
+}
+
+nav>div {
+    margin: 0.5em 1em;
+    font-size: 2em;
+    font-weight: bold;
+    color: blue;
+}
+
+nav>div>a {
+    text-decoration: none;
+    color: green;
+}
+
+.container>div {
+    text-align: center;
+    background: linear-gradient(45deg, blue, pink);
+}
+
+.fac-controller {
+    display: flex;
+    flex-direction: column;
+}
+
+.fac-controller>div {
+    flex: 1 0 300px;
+    background: linear-gradient(45deg, blue, red);
+    padding: 0.3em 1em;
+}
+
+.fac-controller .fac-search {
+    flex: 1 0 150px;
+    background: rgb(18, 59, 71);
+}
+
+.fac-controller .fac-list {
+    flex: 7 0 300px;
+    overflow-y: scroll;
+    margin-bottom: 3em;
+    padding: 0 0 2em 0;
+}
+
+.fac-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.fac-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.fac-list::-webkit-scrollbar-thumb {
+    background-color: red;
+    outline: 1px solid rgb(8, 3, 71);
+}
+
+.card {
+    box-shadow: 5px 5px 5px solid black;
+    padding: 0.5em 1em;
+    margin: .2em 0 0 0;
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: 1em;
+    text-transform: capitalize;
+    text-align: left;
+    display: flex;
+    filter: drop-shadow(1px 5px 5px solid black);
+}
+
+.card:hover {
+    outline: 5px solid blue;
+}
+
+.card>div {
+    margin: 0 1em 0 0;
+}
+
+.fac-name {
+    color: black;
+}
+
+.fac-id {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 0.8em;
+    align-self: flex-end;
+}
+
+.fac-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fac-search>* {
+    margin-top: 10px;
+}
+
+.fac-search>#fac-id,
+.fac-search #department {
+    width: 300px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    filter: drop-shadow(5px 5px 5px black);
+}
+
+select option {
+    background: black;
+    color: white;
+}
+
+#fac-search-btn,
+#std-search-btn {
+    width: 300px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    filter: drop-shadow(1px 1px 10px black);
+    width: 200px;
+    background: rgb(84, 161, 84);
+    color: black;
+    padding: 10px 10px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.fac-search>#fac-id:focus,
+.fac-search>#department:focus,
+#fac-search-btn:focus,
+#std-search-btn:focus {
+    outline: none;
+    filter: drop-shadow(1px 1px 5px black);
+}
+
+.student-controller {
+    display: flex;
+    flex-direction: column;
+}
+
+.student-search {
+    flex: 1 0 100px;
+}
+
+.student-list {
+    flex: 7 0 200px;
+    padding: 10px 1em 30px;
+    margin: 3em 0;
+    overflow-y: scroll;
+}
+
+.student-card {
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 10px black);
+    background: white;
+}
+
+.student-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3em;
+    padding: .5em 1em;
+    margin: .5em 0 0 0;
+}
+
+.student-data {
+    display: flex;
+    justify-content: space-around;
+}
+
+.student-name {
+    font-size: 1.2em;
+}
+
+.student-data>div {
+    margin-right: 2em;
+}
+
+.student-item {
+    font-size: 1em;
+}
+
+#std-selected {
+    justify-self: flex-end;
+    width: 50px;
+    height: 50px;
+}
+
+.student-search>div {
+    margin: 1em 1em;
+}
+
+.student-search select {
+    width: 300px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    filter: drop-shadow(5px 5px 5px black);
+}
+
+.student-search select:focus {
+    outline: none;
+}
+
+.student-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.student-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.student-list::-webkit-scrollbar-thumb {
+    background-color: rgb(77, 20, 116);
+    outline: 1px solid rgb(89, 4, 92);
+}
+
+.student-item:hover {
+    outline: 2px solid red;
+}
+
+.map {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    background: rgb(236, 236, 236);
+    transform: translate(-50%, 0%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    filter: drop-shadow(5px 5px 10px black);
+    /* border: 2px solid green; */
+    animation: anime 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.map:hover {
+    transform: translate(-50%, 0%) scale(1.2, 1.2);
+}
+
+.map svg {
+    fill: green;
+}
+
+@keyframes anime {
+    0% {}
+}
+
+.fac-item,
+.student-item {
+    animation: pop 3s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
+}
+
+@keyframes pop {
+    0% {
+        opacity: 0;
+        transform: rotateX(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+}
+
+.facSelected {
+    background: rgb(21, 179, 118);
+    color: rgb(248, 248, 248);
+}
+
+.studentSelected {
+    background: blueviolet;
+    color: white !important;
+}
+
+.facSelected>* {
+    color: rgb(248, 248, 248);
+}

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<style>
+body {
+background-image: radial-gradient(circle,white,#A1D6F4);
+ color:#008CBA;   ;
+  font-family:Times;
+  font-size:25px;
+}
+ .split {
+background-image: radial-gradient(circle,white,#A1D6F4);
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+ }
+
+.right {
+  right: 0;
+ }
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  heigth: 500px;
+  width: 500px;
+  border-radius: 150%;
+}
+.button{
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA; 
+  font-size: 10spx;
+  padding: 8px 18px;
+border-radius: 12px;
+  }
+ 
+</style>
+<script language="javascript">
+function validate()
+{
+var  un=/^[a-zA-Z0-9]+$/;
+if(f3.npwd.value==""){
+	alert("Password Field Must Not Be Empty");
+	return false;
+	}
+	if(!(f3.npwd.value.match(un)))
+      {
+      alert("Password Must Be Alphabets and Numbers");
+      return false;
+      }
+	if(f3.cpwd.value==""){
+	alert("Confirm Password Field Must Not Be Empty");
+	return false;
+	}
+	if(!(f3.cpwd.value.match(un)))
+      {
+      alert("Confirm Password Must Be Alphabets and Numbers");
+      return false;
+      }
+	if(f3.cpwd.value!=f3.npwd.value){
+	alert("Password MisMatch");
+	return false;
+         }
+   else{
+alert("Password changed successfully");
+return false;
+}
+
+}
+</script>
+<div class="split left">
+<div class="centered">
+    <img src="Pass_Reset.JPG"  alt="No image"  height=400 width=500>    
+</div> </div>
+
+<div class="split right">
+<form name="f3">
+<br>
+<table  cellspacing="20" align="center">
+<marquee behavior="alternate" direction="right"><h2><i>RESET YOUR PASSWORD</i></h2></marquee>
+<tr>
+ <td>New password:&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</td>
+<td><input type="password" name="npwd" style="width: 300px ;height: 25px;"/></td><br><br></tr>
+<tr>
+<td>Confirm Password:&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</td>
+<td><input type="password"  name="cpwd"  style="width: 300px ;height: 25px;"/></td><br></tr>
+</table>
+<br>
+<CENTER><button class="button" name="confirm" onclick="validate()">CONFIRM</button></CENTER>
+</form>
+</div>
+</body>
+</html>

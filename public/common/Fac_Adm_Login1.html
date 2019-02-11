@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+background-image: radial-gradient(circle,#A1D6F4,white);
+}
+
+.split {
+background-image: radial-gradient(circle,#A1D6F4,white);
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+ }
+
+.right {
+  right: 0;
+  }
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  heigth: 500px;
+  width: 500px;
+  border-radius: 100%;
+}
+</style>
+</head>
+<body>
+<div class="split left">
+<div class="centered">
+    <img src="admin_bw.jpg" alt="No image">   
+    <br>
+   <br>
+   <a href="./admin_login/admin_login.html"  target="_self">ADMIN</a> 
+</div> </div>
+<div class="split right">
+<div class="centered">
+    <img src="facs_staff_login.jpg" alt="No image">   
+    <br>
+   <br>
+   <a href="./faculty_login/login_Common.html"  target="_self">FACULTY</a> 
+</div> </div>
+</body>
+</html>

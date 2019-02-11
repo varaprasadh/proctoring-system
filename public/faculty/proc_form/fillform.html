@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<style>
+body {
+background-image: radial-gradient(circle,white,#A1D6F4);
+ color:#008CBA;   ;
+  font-family:Times;
+  font-size:25px;
+}
+
+.split {
+background-image: radial-gradient(circle,white,#A1D6F4);
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  font-size:30px;
+ }
+
+.right {
+  right: 0;
+  }
+.ScrollStyle
+{
+    max-height: 150px;
+    overflow-y: auto;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  heigth: 500px;
+  width: 500px;
+  border-radius: 150%;
+}
+</style>
+
+<script language="javascript">
+function validate()
+{
+var  un=/^[a-zA-Z0-9]+$/;
+document.getElementById("tx1").value = "Fifth Avenue, New York City";;
+}
+</script>
+
+<div class="split left">
+<div class="centered">
+    <img src="proc1.jpg" alt="No image" height=400 width=400> 
+<br>
+<br>
+   <center> PROCTORING </center>   
+</div> </div>
+<div class="ScrollStyle">
+<div class="split right">
+    <form name="f3">
+    <table align="center">
+    <tr> <h3> Personal Information: </h3>  </tr>
+    <tr>
+    <td>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </td>
+    <td> <input type="text" id="sname" name="sname" maxlength="50" size="30"> </input></td> 
+    </tr>
+    <tr>
+    <td>Roll Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </td>
+    <td> <input type="text" id="srno" name="srno" maxlength="50" size="30"> </input></td> 
+    </tr>
+     <tr> <td> <h3> Issues: </h3> </td> </tr>
+     <tr>
+     <td> Ambiance Issues: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+   <tr>
+     <td> <textarea cols="25" rows="6" id="tx1" name="tx1" type="text"> </textarea></td>
+     <td> <textarea cols="25" rows="6" id="tx2"name="tx2"> </textarea> </td>
+     </tr>
+     <tr>
+     <td> Academic Issues: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     </tr>
+     <tr>
+     <td> <textarea cols="25" rows="6" id="tx3" name="tx3"> </textarea></td>
+     <td> <textarea cols="25" rows="6" id="tx4" name="tx4"> </textarea> </td>
+     </tr>
+     <tr>
+     <tr> <td> <h3> Attendance: </h3> </td> </tr>
+     <tr>
+     <td> Attendance Percantage: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     </tr>
+      <tr>
+     <td> <textarea cols="25" rows="4" id="tx5" name="tx5"> </textarea></td>
+     <td> <textarea cols="25" rows="4" id="tx6"name="tx6"> </textarea> </td>
+     </tr>
+     </table>
+     <br>
+     <center>
+   <input type="submit" name="subData" id="b1" value="SUBMIT" onclick="validate()"/>
+     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+     <input type="reset" name="resData" id="b2" value="RESET"/>
+     </center>
+     </form>
+    <br>
+   <br>
+     </div>
+    </div>
+     </body>
+     </html>
+ 

@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {
+background-image: radial-gradient(circle,white,#A1D6F4);
+ color:#008CBA;   ;
+  font-family:Times;
+  font-size:25px;
+}
+ .split {
+background-image: radial-gradient(circle,#A1D6F4,white);
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+ }
+
+.right {
+  right: 0;
+ }
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  heigth: 500px;
+  width: 500px;
+  border-radius: 150%;
+}
+.but{
+  background-color: white;
+  color: blue;
+  border: 2px solid #008CBA; 
+  font-size: 16px;
+  padding: 11px 20px;
+border-radius: 12px;
+  }
+ 
+</style>
+</head>
+<body>
+<script language="javascript">
+
+window.onload=function(){
+	document.querySelector('.btn-submit').addEventListener('click',e=>validate(e));
+}
+
+function validate(e)
+{   e.preventDefault();
+	var  un=/^[a-zA-Z0-9]+$/;
+	if(f1.username.value==""){
+	alert("User Name Field Must Not Be Empty");
+	return false;
+	}
+	if(!(f1.username.value.match(un)))
+      {
+      alert("Name Must Be  Alphabets and Numbers");
+      return false;
+}
+if(f1.password.value==""){
+	alert("Password Field Must Not Be Empty");
+	return false;
+	}
+	if(!(f1.password.value.match(un)))
+      {
+      alert("Password Must Be Alphabets and Numbers");
+      return false;
+}
+if(f1.username.value!="" && f1.password!=""){
+//alert("Login Successfull");
+     redirectPage();
+   
+}
+
+}
+
+function redirectPage(){
+  location.assign('../../admin/admin_home/admin_home.html');
+}
+</script>
+<div class="split left">
+<div class="centered">
+    <img src="login.JPG"  alt="No image"  height=500 width=500>    
+</div> </div>
+
+<div class="split right">
+<center>
+<form name="f1" method="post">
+<center><h2><i>WELCOME TO ONLINE PROCTORING</i></h2></center>
+<br>
+<h3><CENTER>LOGIN</CENTER></h3>
+<table  cellspacing="50" align="center">
+<tr>
+ <td>USER NAME:&nbsp;</td>
+<td><input type="text"  placeholder="Enter User Name" name="username" style="width: 300px ;height: 25px;"/></td></Tr>
+<tr>
+<td>PASSWORD:&nbsp;</td>
+<td><input type="password"   placeholder="Enter  Password"  name="password"  style="width: 300px ;height: 25px;"/></td></TR>
+</tr>
+</table>
+<br>
+<!-- onclick="validate(e)" -->
+           <button class="btn-submit" >SUBMIT</button>
+</form>
+</center>
+</div>
+</body>
+</html>

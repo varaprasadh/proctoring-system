@@ -1,0 +1,109 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container>.header {
+    height: 80px;
+    background: linear-gradient(to right, #FC354C 10%, #0ABFBC);
+}
+
+.container>.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+
+.container>.admin-options {
+    height: 400px;
+    background: linear-gradient(#ddd6f3, #faaca8);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 30px;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+    border-radius: 20px;
+    flex-basis: 100%;
+    align-self: stretch;
+    box-shadow: 2px 2px 10px black;
+    margin: 0 20px;
+    background: #ecf0f1;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card:hover {
+    transform: scale(1.2);
+}
+
+.footer {
+    height: 200px;
+    justify-content: stretch;
+    align-self: stretch;
+    /* background: blue; */
+    display: flex;
+}
+
+.footer>div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2c3e50;
+    /* background: linear-gradient(60deg, #6b8d60, #ffc500); */
+}
+
+.footer>div:first-child {
+    border-right: 1px solid palevioletred;
+}
+
+.anime_left {
+    /* animation: animate 2s 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1; */
+}
+
+.anime_right {
+    /* animation: animate 1s 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1; */
+}
+
+
+/* .footer img {
+    background: #27ae60;
+} */
+
+@keyframes animate {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 50%;
+    }
+}
