@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>user login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./login.css">
+    <script src="./loginNet.js"></script>
+    <script src="./loginUi.js"></script>
+    <script src="./loginValidation.js"></script>
+
+</head>
+
+<body>
+    <template class="form-template">
+    <div class="form">
+        <div class="back">back</div>
+        <div class="logo">
+            <img src="./icons/blue-classic-lock.svg" alt="lock logo">
+        </div>
+        <div class="input-wrapper">
+            <div class="userid-label">User ID</div>
+            <input class="userid" placeholder="enter user id" type="text">
+            <span class="border-line"></span>
+            <span class="light-line"></span>
+        </div>
+        <div class="input-wrapper">
+            <div class="password-label">Password</div>
+            <input type="text" placeholder="enter password" class="password">
+            <span class="border-line"></span>
+            <span class="light-line"></span>
+        </div>
+        <div class="submit">
+            <div class="login">login</div>
+            <div class="forget">Forget Password?</div>
+        </div>
+    </div>
+    </template>
+
+    <template class="user-select">
+    <div class="wrapper">
+        <div class="logo">
+            <img src="./icons/awesome-secure-logo.svg" alt="secure logo">
+        </div>
+        <div class="select-wrapper">
+            <div class="user admin" data-user="admin">
+                <img src="./icons/admin.svg" alt="admin">
+                <div class="label">Admin</div>
+            </div>
+            <div class="user faculty" data-user="faculty">
+                <img src="./icons/faculty.svg" alt="faculty">
+                <div class="label">Faculty </div>
+            </div>
+        </div>
+    </div>
+    </template>
+
+    <template class="forget-password-dialog">
+    <div class="dialog-container">
+        <div class="dialog">
+           a mail associated with a link has been sent to your mail id,
+           follow that link to proceed resetting your password.    
+        </div>
+    </div>
+</template>
+
+    <!-- here is the journey begins -->
+    <nav class="navbar">
+        <div class="controls"></div>
+        <div class="logo">Online Procturing System</div>
+    </nav>
+    <div class="container">
+
+    </div>
+</body>
+
+</html>

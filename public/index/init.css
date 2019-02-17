@@ -1,0 +1,221 @@
+@font-face {
+    font-family: "fonth";
+    src: url("FONTH.woff") format('woff');
+}
+
+@font-face {
+    font-family: "cobalAlien";
+    src: url("cobaltaliensuperital.woff") format('woff');
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* background: rebeccapurple; */
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    -webkit-clip-path: polygon(30% 0, 62% 43%, 100% 100%, 50% 100%, 0 100%, 0 0);
+    clip-path: polygon(30% 0, 62% 43%, 100% 100%, 50% 100%, 0 100%, 0 0);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    filter: drop-shadow(1px 2px 10px black);
+    background: white;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2em;
+    font-family: cobalAlien;
+}
+
+.label {
+    margin-left: 1em;
+}
+
+.anime {
+    flex: 1 0 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2em;
+    flex-direction: column;
+}
+
+.content {
+    perspective: 1000px;
+    flex: 1 0 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2em;
+}
+
+.card {
+    transform: rotateY(-20deg) rotateX(5deg);
+    padding: 1.5em;
+    background: white;
+    filter: drop-shadow(5px 5px 10px rgb(0, 0, 0));
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5em;
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+    animation: dpShadow 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
+}
+
+@keyframes dpShadow {
+    0% {
+        filter: drop-shadow(5px 5px 10px rgb(0, 0, 0));
+    }
+    100% {
+        filter: drop-shadow(1px 1px 2px rgb(0, 0, 0));
+    }
+}
+
+.card:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sign-in {
+    padding: 10px;
+    background: green;
+    font-size: 1.2em;
+    border-radius: 20px;
+    color: azure;
+    filter: drop-shadow(5px 5px 10px black);
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.sign-in:hover {
+    filter: drop-shadow(0px 0px 2px black);
+}
+
+.anime .vectors {
+    width: 25vw;
+    font-family: cobalAlien;
+    font-size: 1.5em;
+}
+
+.vectors {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.vectors>div {
+    /* width: 100%; */
+    perspective: 1000px;
+}
+
+.svg-person {
+    position: absolute;
+    height: 300px;
+    top: -220px;
+    right: 20px;
+    animation: personSlide 1s ease-in 1s infinite alternate;
+}
+
+.svg-desk {
+    margin-top: -200px;
+    position: absolute;
+    height: 500px;
+    filter: drop-shadow(2px 3px 10px black);
+    animation: updown 1s ease 2s infinite alternate;
+}
+
+.svg-msg {
+    position: absolute;
+    height: 50px;
+    top: -100px;
+    left: 100px;
+    animation: slide 1s ease-in-out infinite alternate;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate(0%, 0px);
+    }
+    100% {
+        transform: translate(100%, -5px);
+    }
+}
+
+@keyframes personSlide {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    100% {
+        transform: translate(-20px, 20px);
+    }
+}
+
+@keyframes updown {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+.card {
+    position: relative;
+}
+
+.card-line {
+    position: absolute;
+    stroke: linear-gradient(45deg, red, orange);
+    fill: none;
+    width: 100%;
+    height: 100%;
+    stroke-width: 10px;
+    right: 0px;
+    left: 0px;
+    top: 0%;
+    bottom: 0%;
+    border-radius: 20px;
+    stroke-dasharray: 2000px;
+    stroke-dashoffset: 2000px;
+    transition: all 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.card-line:hover {
+    stroke-dashoffset: 0px;
+}
+
+.card-line rect {
+    width: 100%;
+    height: 100%;
+}

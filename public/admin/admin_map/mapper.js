@@ -1,6 +1,6 @@
 var selected_faculty = '';
 var selected_students;
-
+var dragstarted=false;
 var initListEventHandlers = {
     facultyEventHandler: function() {
         var fac_items = document.querySelectorAll('.fac-item');
@@ -22,6 +22,12 @@ var initListEventHandlers = {
         });
     },
     studentEventHandler: function() {
+        student_list.addEventListener('mousedown',e=>{
+            dragstarted=true;
+        })
+        student_list.addEventListener('mouseup',e=>{
+            dragstarted=false;
+        })
         var student_items = document.querySelectorAll('.student-item');
         student_items.forEach(item => {
             item.addEventListener('click', (e) => {
@@ -33,6 +39,18 @@ var initListEventHandlers = {
                     cb.checked = true;
                 }
 
+            })
+            item.addEventListener('mouseover',(e)=>{
+                console.log("mouse over",e);
+                if(dragstarted ){
+                    console.log(item);
+                    var cb = item.querySelector('input');
+                    item.classList.add('studentSelected');
+                    cb.checked = false;
+                    if (item.classList.contains('studentSelected')) {
+                        cb.checked = true;
+                    }
+                }
             })
         })
     }
@@ -69,7 +87,7 @@ mapBtn.addEventListener('click', (e) => {
     console.log(body);
 
 
-    if (fac_id != '' && student_ids.length > 0) {
+    if (fac_id  && student_ids.length > 0) {
         fetch(`http://localhost:9999/map/${body}`).then(res => {
             alert("woolah");
         }).catch(err => console.log(err));

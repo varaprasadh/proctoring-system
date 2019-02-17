@@ -1,0 +1,283 @@
+@font-face {
+    font-family: "actor";
+    src: url("Actor-Regular.ttf") format('ttf');
+}
+
+@font-face {
+    font-family: "aldrich";
+    src: url("Aldrich-Regular.ttf");
+}
+
+@font-face {
+    font-family: "alfaslabone";
+    src: url("AlfaSlabOne-Regular.ttf");
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(./icons/cup-of-coffee-1280537_1920.jpg);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    max-width: 1000px;
+    flex: 1;
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    height: 300px;
+    border-radius: 30px;
+}
+
+.logo {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, 90%);
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.select-wrapper {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.user {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    flex: 1 0 300px;
+    margin: 0 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.user img {
+    flex: 1;
+    align-self: center;
+}
+
+.user .label {
+    flex: 1;
+    font-size: 2em;
+    align-self: center;
+}
+
+.user:hover {
+    filter: drop-shadow(1px 2px 10px white) grayscale(0%);
+}
+
+.form {
+    flex: 1 0 500px;
+    max-width: 600px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    padding: 50px 20px 10px 20px;
+    filter: drop-shadow(1px 2px 10px black);
+}
+
+.form .input-wrapper {
+    flex: 1;
+    width: 500px;
+    margin-bottom: 5px;
+    font-family: alfaslabone;
+    color: rgb(63, 48, 48);
+}
+
+.input-wrapper input {
+    position: relative;
+    width: 100%;
+    border: none;
+    height: 30px;
+    padding: 5px 0px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 2em;
+    font-family: aldrich;
+    color: blueviolet;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border: none;
+}
+
+.submit {
+    display: flex;
+}
+
+.login,
+.forget {
+    background: rgb(32, 194, 32);
+    padding: 5px;
+    border-radius: 10px;
+    padding: 5px 50px;
+    margin: 20px 0 0 0;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.forget:hover {
+    filter: drop-shadow(1px 1px 10px black);
+}
+
+.login {
+    color: white;
+    filter: drop-shadow(1px 1px 5px black);
+}
+
+.login:hover {
+    filter: drop-shadow(1px 1px 2px black);
+}
+
+.forget {
+    color: rgb(255, 1, 1);
+    background: none;
+    font-weight: bold;
+}
+
+.light-line,
+.border-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: rgb(110, 106, 106);
+}
+
+.light-line {
+    height: 3px;
+    background: green;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.border-line {
+    margin-bottom: -3px;
+}
+
+input:focus~.light-line {
+    transform: scaleX(1);
+}
+
+input:focus+.border-line {
+    transform: scaleX(0);
+}
+
+::-webkit-input-placeholder {
+    color: orange;
+    font-size: 20px;
+}
+
+.form .logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: white;
+    filter: drop-shadow(1px 1px 5px black);
+    padding: 5px;
+    margin-top: -20px;
+}
+
+
+/* 
+.navbar {
+    position: absolute;
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    background: white;
+    z-index: 999;
+    align-items: center;
+}
+
+.navbar .logo {
+    color: green;
+    flex: 1 0 300px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.navbar .controls {
+    margin-right: -10px;
+} */
+
+.back {
+    position: absolute;
+    widows: 100px;
+    top: 10%;
+    right: 10%;
+    background: rgb(255, 187, 0);
+    padding: 10px 20px;
+    border-radius: 10px;
+    filter: drop-shadow(1px 1px 5px black);
+    color: black;
+    font-weight: bold;
+}
+
+.back:hover {
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.error {
+    animation: coloris 2s linear 1;
+}
+
+@keyframes coloris {
+    0% {
+        background: white;
+    }
+    100% {
+        background: red;
+    }
+}
+
+.dialog-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog {
+    padding: 20px 40px;
+    background: white;
+    filter: drop-shadow(2px 2px 10px black);
+    flex-basis: 300px;
+    border-radius: 20px;
+    font-family: actor;
+    font-size: 1.2em;
+    color: green;
+}

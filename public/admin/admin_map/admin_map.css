@@ -36,23 +36,23 @@ nav>div>a {
 
 .container>div {
     text-align: center;
-    background: linear-gradient(45deg, blue, pink);
+    background: linear-gradient(45deg, blue, red);
 }
 
 .fac-controller {
     display: flex;
+    background: linear-gradient(45deg, blue, red);
     flex-direction: column;
 }
 
 .fac-controller>div {
     flex: 1 0 300px;
-    background: linear-gradient(45deg, blue, red);
     padding: 0.3em 1em;
 }
 
 .fac-controller .fac-search {
     flex: 1 0 150px;
-    background: rgb(18, 59, 71);
+    /* background: rgb(18, 59, 71); */
 }
 
 .fac-controller .fac-list {
@@ -185,6 +185,7 @@ select option {
     height: 3em;
     padding: .5em 1em;
     margin: .5em 0 0 0;
+    user-select: none;
 }
 
 .student-data {
