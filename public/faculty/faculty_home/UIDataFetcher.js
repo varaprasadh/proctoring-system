@@ -12,6 +12,7 @@ function fetchData_UpdateUI() {
         updatePic(resData);
     })
 }
+
 function updateInfo(data) {
     document.querySelector('.name').innerHTML = data.name;
     document.querySelector('.regdNo').innerHTML = data.regdNo;
@@ -19,6 +20,9 @@ function updateInfo(data) {
     document.querySelector('.email').innerHTML = data.email;
     document.querySelector('.mobile').innerHTML = data.mobile;
 }
+
 function updatePic(data) {
-    document.querySelector('.fac-img').src = data.dataUrl;
+    if (data.dataUrl != undefined) {
+        document.querySelector('.fac-img').src = data.dataUrl;
+    }
 }

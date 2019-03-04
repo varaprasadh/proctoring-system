@@ -1,7 +1,7 @@
 const express=require('express');
 const Router=express.Router();
 const path=require('path');
-const connection = require('../dbconnection').connection;
+const connection = require('../../dbconnection').connection;
 // const crypto=require('crypto');
 
 Router.get('/',(req,res)=>{

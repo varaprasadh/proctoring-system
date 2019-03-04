@@ -6,7 +6,7 @@ const cors=require('cors');
 const bodyParser=require('body-parser');
 
 const Auth=require('./rotes/Auth');
-const getRouter=require('./rotes/getroutes');
+// const getRouter=require('./rotes/getroutes');
 const dataSender=require('./rotes/dataSender').Router;
 const mapHandler=require('./rotes/mapHandler');
 const checkUser=require('./rotes/checkUser');
@@ -23,15 +23,21 @@ app.use(bodyParser.json({ limit: '2mb' }));
 app.use(bodyParser.urlencoded({ limit: '2mb', extended: true }))
 
 app.use(express.static(path.join(__dirname,'public')));
-app.use(Auth);
-app.use(checkUser);
-app.use(getRouter);
-app.use(dataSender);
-app.use(mapHandler);
-app.use(RegisterUser);
-app.use(ProfilePic);
-app.use(updatePassword);
-app.use(FacultyInfo);
+
+//uselessRoutes
+// app.use(getRouter);
+
+
+app.use(Auth); //actual authentication checkes id and password and returns status
+app.use(checkUser); //email verification link thing
+app.use(dataSender); //servers data for the mapping 
+app.use(mapHandler); //puts the mapped data;
+app.use(RegisterUser); //faculty registration
+app.use(ProfilePic); //servers profilepics
+app.use(updatePassword); //password update 
+app.use(FacultyInfo); //servers the faculty information
+
+
 app.listen(port, "localhost",() => {
   console.log("listening at lol " + port);
 });

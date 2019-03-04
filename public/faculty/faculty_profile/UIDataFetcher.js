@@ -19,5 +19,7 @@ function fetchData_UpdateUI() {
     document.querySelector('.mobile').innerHTML = data.mobile;
 }
 function updatePic(data) {
-    document.querySelector('.fac-img').src = data.dataUrl;
+    if (data.dataUrl != undefined) {
+        document.querySelector('.fac-img').src = data.dataUrl;
+    }
 }
