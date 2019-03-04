@@ -1,0 +1,184 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    filter: drop-shadow(1px 5px 10px black);
+    justify-content: space-between;
+}
+
+nav .label {
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+.container {
+    margin-top: 80px;
+    height: 100%;
+}
+
+.controls {
+    display: flex;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.home {
+    color: blue;
+    padding: 5px 20px;
+}
+
+.home:hover {
+    filter: brightness(10%);
+}
+
+.logout {
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    background: red;
+    filter: drop-shadow(5px 5px 10px black);
+}
+
+.logout:hover {
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    background: rgb(10, 10, 29);
+    min-height: 100vh;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.photo {
+    width: 250px;
+    height: 250px;
+    align-self: center;
+    border-radius: 50%;
+    filter: drop-shadow(5px 5px 10px black);
+}
+
+.details {
+    align-self: center;
+    padding: 20px;
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+}
+
+.row label {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: rgb(105, 105, 105);
+    margin-right: 20px;
+    opacity: 0.7;
+}
+
+.password {
+    background: red;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    filter: drop-shadow(5px 5px 10px rgb(0, 247, 255));
+    cursor: pointer;
+}
+
+.password:hover {
+    filter: drop-shadow(0px 0px 1px rgb(0, 247, 255));
+}
+
+.password .text {
+    text-align: center;
+}
+
+
+/* .footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px 0px;
+    background: blue;
+} */
+
+.password-form {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    height: 0px;
+    overflow: hidden;
+}
+
+.password-form input {
+    width: 100%;
+}
+
+input {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-bottom: 2px solid rgb(255, 0, 140);
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.error {
+    height: 0px;
+    color: red;
+    overflow: hidden;
+    transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.update {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update .text {
+    text-align: center;
+    padding: 10px 30px;
+    background: green;
+    color: white;
+    filter: drop-shadow(2px 2px 10px black);
+    cursor: pointer;
+}
+
+.update .text:hover {
+    filter: brightness(70%);
+}

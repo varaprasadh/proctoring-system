@@ -281,3 +281,28 @@ input:focus+.border-line {
     font-size: 1.2em;
     color: green;
 }
+
+.hide {
+    display: none;
+}
+
+.faculty-reg-btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+
+.faculty-reg-btn .btn-text {
+    background: rgb(255, 94, 0);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.faculty-reg-btn .btn-text:hover {
+    filter: brightness(70%);
+}

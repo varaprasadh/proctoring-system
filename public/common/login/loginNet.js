@@ -1,5 +1,5 @@
 console.log("from net");
-
+//authentication process
 function checkCredentials(credintials){
     return fetch('http://localhost:9999/signin', {
         method: "POST",
@@ -15,6 +15,7 @@ function checkCredentials(credintials){
     ).catch(err => err);
 }
 
+//check whether the user id is present or not for forget password email verification
 function checkUser(details){
     
     return fetch('http://localhost:9999/checkUser', {

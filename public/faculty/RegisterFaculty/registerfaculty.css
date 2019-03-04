@@ -5,11 +5,33 @@ html {
 }
 
 .container {
+    margin-top: 80px;
     display: flex;
     min-height: 100vh;
     justify-content: center;
     align-items: center;
     padding: 40px 0px;
+    background: linear-gradient(45deg, blue, pink);
+}
+
+nav {
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background: white;
+    z-index: 999;
+    filter: drop-shadow(1px 5px 10px black);
+}
+
+nav .label {
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 10px;
+    text-transform: capitalize;
 }
 
 form {

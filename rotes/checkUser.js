@@ -66,9 +66,11 @@ Router.post('/checkUser',(req,res)=>{
         });
     }
     else{
-        var sql = `select email from faculty where reg_no='${reqData.userid}'`
+        var sql = `select email from faculty where regdNo='${reqData.userid}'`
         connection.query(sql, (err, result) => { 
-           if(result.length>0 && result[0].email){
+         console.log(result);
+         
+           if(result && result[0].email){
                if (err) throw (err)
                var email_ = result[0].email;
                console.log(email_);
@@ -78,7 +80,7 @@ Router.post('/checkUser',(req,res)=>{
                    type: reqData.type,
                    email: email_,
                    reset_key: String(key)
-               }
+               } 
               // console.log(row);
                var sql = `select * from password_reset_pending where uid='${reqData.userid}'`
                connection.query(sql, (err, result) => {

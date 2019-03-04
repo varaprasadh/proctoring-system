@@ -26,12 +26,23 @@ function populate_login_form() {
     var formTemplate = document.querySelector('.form-template');
     var form = document.importNode(formTemplate.content, true);
     console.log(form);
+    console.log(user);
+    
+    
     document.querySelector('.container').appendChild(form);
+    if (user == 'faculty') {
+        document.querySelector('.faculty-reg-btn').style.display = 'flex';
+    } else {
+        document.querySelector('.faculty-reg-btn').style.display = 'none';
+    }
+
     var backbtn = document.querySelector('.back');
     backbtn.addEventListener('click', e => {
         0
         populate_user_select_form();
     })
+
+
     var login_btn = document.querySelector('.login');
     var forget_btn = document.querySelector('.forget');
     login_btn.addEventListener('click',async e => {
@@ -51,8 +62,9 @@ function populate_login_form() {
            //add cookie {preffered}
            //localstorage
            console.log("succeed");
+           console.log(res);
            localStorage.setItem('auth',JSON.stringify(res));
-            location.assign(res.redirectUri);   
+           location.assign("../../faculty/faculty_home/facultyHome.html");   
         }
         else{
             console.log("cat cat");
@@ -85,6 +97,11 @@ function populate_login_form() {
         }
 
     })
+    var registerBtn=document.querySelector('.faculty-reg-btn');
+    registerBtn.addEventListener('click',e=>{
+        window.location.assign('../../faculty/RegisterFaculty/registerfaculty.html');
+    })
+
 }
 
 function clearContainer() {

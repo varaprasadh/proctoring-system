@@ -1,3 +1,3 @@
-- faculty home page
-- admin home page
--   
+facultyProfile/populate students
+facultyProfile/profilepage
+

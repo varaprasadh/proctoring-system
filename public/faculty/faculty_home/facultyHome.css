@@ -1,0 +1,189 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* overflow-x: hidden; */
+}
+
+nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    filter: drop-shadow(1px 5px 10px black);
+    justify-content: space-between;
+}
+
+nav .label {
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+.controls {
+    display: flex;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.home {
+    color: blue;
+    padding: 5px 20px;
+}
+
+.home:hover {
+    filter: brightness(10%);
+}
+
+.logout {
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    background: red;
+    filter: drop-shadow(5px 5px 10px black);
+}
+
+.logout:hover {
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.container {
+    margin-top: 80px;
+    width: 100%;
+    height: 100vh;
+    color: rgb(0, 0, 0);
+}
+
+.faculty-card {
+    color: white;
+    width: 100%;
+    display: flex;
+    background: rgb(4, 4, 14);
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.faculty-photo-wrapper {
+    flex-basis: 250px;
+}
+
+.details-wrapper {
+    margin-left: 30px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.details>div {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.profile {
+    margin-top: 40px;
+    padding: 10px 0px;
+    background: rgb(0, 158, 0);
+    cursor: pointer;
+    text-align: center;
+}
+
+.profile:hover {
+    filter: brightness(70%);
+}
+
+.student-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: rgb(120, 138, 155);
+    padding: 20px;
+}
+
+.student-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    height: 100%;
+    grid-gap: 20px;
+}
+
+.student-list-wrapper .label {
+    margin: 20px 0px;
+    font-weight: bold;
+    font-size: 2em;
+    color: rgb(8, 2, 41);
+}
+
+.student-item {
+    margin: 0 10px;
+    background: rgb(8, 4, 27);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    filter: drop-shadow(5px 5px 10px black);
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.student-item:hover {
+    border: 3px solid rgb(0, 238, 255);
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.student-item .student-img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    filter: drop-shadow(1px 1px 1px pink);
+}
+
+.student-img img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.st-details {
+    font-size: 1.2em;
+    color: white;
+}
+
+.st-details>div {
+    margin-top: 10px;
+}
+
+.footer {
+    color: white;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100px;
+    background: rgb(5, 1, 14);
+}

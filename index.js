@@ -11,6 +11,8 @@ const dataSender=require('./rotes/dataSender').Router;
 const mapHandler=require('./rotes/mapHandler');
 const checkUser=require('./rotes/checkUser');
 const RegisterUser=require('./rotes/RegisterUser');
+const ProfilePic=require('./rotes/ProfilePic');
+const updatePassword=require('./rotes/updatePassword');
 
 const port=process.env.port||9999;
 app.use(cors());
@@ -26,6 +28,8 @@ app.use(getRouter);
 app.use(dataSender);
 app.use(mapHandler);
 app.use(RegisterUser);
+app.use(ProfilePic);
+app.use(updatePassword);
 
 app.listen(port, "localhost",() => {
   console.log("listening at lol " + port);

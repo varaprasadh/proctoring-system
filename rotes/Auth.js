@@ -36,7 +36,7 @@ Router.post('/signin',(req,res)=>{
     })
   }
   else{
-    var sql = `select * from faculty_passwords where fac_id='${reqData.userid}'`
+    var sql = `select * from faculty_passwords where regdNo='${reqData.userid}'`
     connection.query(sql,(err,result)=>{
       if(err)throw(err);
       console.log(result);
@@ -62,7 +62,6 @@ Router.post('/signin',(req,res)=>{
       }
     })
   }
-  
 });
 
 
