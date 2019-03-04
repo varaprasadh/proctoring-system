@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>faculty registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./registerfaculty.css">
+    <script src="./controller.js"></script>
+    <script src="./registernet.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <form class="form">
+                <div class="inputrow photo">
+                    <div class="photopreview">
+                        <img src="./ios-person.svg" alt="photopreview" class="previewimg">
+                        <div class="overlay"></div>
+                        <div class="add">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M368.5 240H272v-96.5c0-8.8-7.2-16-16-16s-16 7.2-16 16V240h-96.5c-8.8 0-16 7.2-16 16 0 4.4 1.8 8.4 4.7 11.3 2.9 2.9 6.9 4.7 11.3 4.7H240v96.5c0 4.4 1.8 8.4 4.7 11.3 2.9 2.9 6.9 4.7 11.3 4.7 8.8 0 16-7.2 16-16V272h96.5c8.8 0 16-7.2 16-16s-7.2-16-16-16z" />
+                                </svg>
+                        </div>
+                    </div>
+                    <input type="file" name="file" id="file">
+                    <label for="file">Upload photo</label>
+                    <div class="error">please select image less then 1mb</div>
+                </div>
+                <div class="inputrow">
+                    <label>name</label>
+                    <input type="text" placeholder="enter name" name="name" id="name" class="inputs">
+                    <div class="error">please enter valid name</div>
+                </div>
+                <div class="inputrow">
+                    <label>regd No</label>
+                    <input type="text" class="inputs" placeholder="enter anits registration number" name="regdNo" id="regdNo">
+                    <div class="error">please enter valid registration id</div>
+                </div>
+                <div class="inputrow">
+                    <label>department</label>
+                    <select name="department" id="department">
+                        <option value="">select</option>
+                        <option value="cse">cse</option>
+                        <option value="ece">mech</option>
+                        <option value="eee">eee</option>
+                        <option value="eee">eee</option>
+                    </select>
+                    <div class="error">please select department</div>
+                </div>
+                <div class="inputrow">
+                    <label>mobile</label>
+                    <input type="number" class="inputs" placeholder="enter mobile number" name="mobile" id="mobile">
+                    <div class="error">enter valid mobile number</div>
+                </div>
+                <div class="inputrow">
+                    <label>email</label>
+                    <input type="email" class="inputs" placeholder="enter email id" name="email" id="email">
+                    <div class="error">enter valid email address</div>
+                </div>
+                <div class="inputrow">
+                    <label>create password</label>
+                    <input type="password" class="inputs" placeholder="enter password" name="password" id="password">
+                    <div class="error">password should contain atleast one special character ,one digit </div>
+                </div>
+                <div class="inputrow">
+                    <label>confirm password</label>
+                    <input type="password" class="c-password" placeholder="re-enter password" name="cpassword">
+                    <div class="error">passwrod missmatch</div>
+                </div>
+                <div class="submitcontrolls">
+                    <div class="submit">Submit</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
