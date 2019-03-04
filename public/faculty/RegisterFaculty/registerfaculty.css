@@ -16,15 +16,16 @@ html {
 
 nav {
     height: 80px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     position: fixed;
     top: 0;
     left: 0;
     align-items: center;
-    background: white;
+    background: rgb(255, 255, 255);
     z-index: 999;
     filter: drop-shadow(1px 5px 10px black);
+    justify-content: space-between;
 }
 
 nav .label {
@@ -32,6 +33,54 @@ nav .label {
     font-size: 2em;
     margin-left: 10px;
     text-transform: capitalize;
+}
+
+.container {
+    margin-top: 80px;
+    height: 100%;
+}
+
+.controls {
+    display: flex;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.home {
+    color: blue;
+    padding: 5px 20px;
+}
+
+.home:hover {
+    filter: brightness(10%);
+}
+
+.login {
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    background: red;
+    filter: drop-shadow(5px 5px 10px black);
+}
+
+.login a {
+    color: white;
+}
+
+.login:hover {
+    filter: drop-shadow(1px 1px 1px black);
 }
 
 form {

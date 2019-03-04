@@ -12,17 +12,69 @@ body {
     overflow: hidden;
 }
 
-.container>.header {
+nav {
     height: 80px;
-    background: linear-gradient(to right, #FC354C 10%, #0ABFBC);
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    filter: drop-shadow(1px 5px 10px black);
+    justify-content: space-between;
 }
 
-.container>.header {
+nav .label {
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+.container {
+    margin-top: 80px;
+    height: 100%;
+}
+
+.controls {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 30px;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.home {
+    color: blue;
+    padding: 5px 20px;
+}
+
+.home:hover {
+    filter: brightness(10%);
+}
+
+.logout {
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    background: red;
+    filter: drop-shadow(5px 5px 10px black);
+}
+
+.logout:hover {
+    filter: drop-shadow(1px 1px 1px black);
 }
 
 .container>.admin-options {

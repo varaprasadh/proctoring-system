@@ -4,8 +4,12 @@ var regex = {
 var old = false,
     p1 = false,
     p2 = false;
+var passwordForm;
 window.onload = function() {
-
+    // fetches user data and display it on screen;
+    fetchData_UpdateUI();
+    //as usual
+    var userConfig = JSON.parse(localStorage.getItem('auth'));
     var logoutbtn = document.querySelector('.logout');
     logoutbtn.addEventListener('click', e => {
         localStorage.removeItem('auth');
@@ -13,7 +17,7 @@ window.onload = function() {
         window.location.assign("../../index/index.html");
     });
     var changepassBtn = document.querySelector('.password');
-    var passwordForm = document.querySelector('.password-form');
+    passwordForm = document.querySelector('.password-form');
     changepassBtn.addEventListener('click', e => {
         passwordForm.style.height = "100%";
     })
@@ -59,15 +63,33 @@ window.onload = function() {
     var updateBtn = document.querySelector('.update');
     updateBtn.addEventListener('click', e => {
         if (old && p1 && p2) {
-            var regdNo = localStorage.getItem('regdNo');
+
             var newpassword = passone.value;
+            var regdNo = userConfig.regdNo;
+            var oldpassword = oldpass.value;
             //send a post request to server
             updatePassword({
                 regdNo,
+                oldpassword,
                 newpassword
             });
+        } else {
+            alert("fill all the details");
         }
     })
+}
 
-
+function showUpdateStatus(data) {
+    switch (data.error) {
+        case "nothing":
+            passwordForm.style.height = "0px";
+            alert("password updated...");
+            break;
+        case "missmatch":
+            alert("entered old password is wrong try again..");
+            break;
+        case "something":
+            alert("something went wrong try again..");
+            break;
+    }
 }

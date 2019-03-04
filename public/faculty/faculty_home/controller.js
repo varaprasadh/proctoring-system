@@ -1,4 +1,5 @@
 window.onload = function() {
+    fetchData_UpdateUI();
     var studentItems = document.querySelectorAll('.student-item');
     studentItems.forEach(student => {
         student.addEventListener('click', e => {

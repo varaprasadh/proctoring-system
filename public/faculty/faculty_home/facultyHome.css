@@ -89,6 +89,10 @@ nav .label {
     flex-basis: 250px;
 }
 
+.fac-img {
+    max-width: 250px;
+}
+
 .details-wrapper {
     margin-left: 30px;
 }

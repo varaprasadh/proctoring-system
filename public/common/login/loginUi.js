@@ -1,7 +1,16 @@
 console.log("from ui!");
 var user;
+const admin_home_url = "../../admin/admin_home/admin_home.html";
+const faculty_home_url = "../../faculty/faculty_home/facultyHome.html";
 window.onload = function() {
     //initially populate the user selection page
+    if(localStorage.getItem('auth')!=undefined){
+        var authData=JSON.parse(localStorage.getItem('auth'))
+        if(authData.regdNo){
+            url=(authData.type=="faculty")?faculty_home_url:admin_home_url;
+            window.location.assign(url);
+        }
+    }
     populate_user_select_form();
 
 }
@@ -62,9 +71,14 @@ function populate_login_form() {
            //add cookie {preffered}
            //localstorage
            console.log("succeed");
-           console.log(res);
+           res.regdNo=uid;
            localStorage.setItem('auth',JSON.stringify(res));
-           location.assign("../../faculty/faculty_home/facultyHome.html");   
+           if(user=="faculty"){
+               location.assign(faculty_home_url);
+           }else{
+               location.assign(admin_home_url);
+           }
+              
         }
         else{
             console.log("cat cat");
