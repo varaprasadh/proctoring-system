@@ -19,7 +19,7 @@ Router.get('/faculty/:name_or_id/:dep',(req,res)=>{
     var name_or_id=req.params.name_or_id;
     var dep=req.params.dep;
     console.log(name_or_id,dep);
-    var sql = `select * from faculty where (name='${name_or_id}' or reg_no='${name_or_id}') or department='${dep}'  `
+    var sql = `select * from faculty where (name='${name_or_id}' or regdNO='${name_or_id}') or department='${dep}'  `
     connection.query(sql,(err,result)=>{
         if(err) console.log(err);
         console.log(result);

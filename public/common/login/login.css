@@ -206,28 +206,59 @@ input:focus+.border-line {
     margin-top: -20px;
 }
 
-
-/* 
-.navbar {
-    position: absolute;
+nav {
     height: 80px;
-    width: 100vw;
+    width: 100%;
     display: flex;
-    background: white;
-    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
     align-items: center;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    filter: drop-shadow(1px 5px 10px black);
+    justify-content: space-between;
 }
 
-.navbar .logo {
-    color: green;
-    flex: 1 0 300px;
-    font-size: 2em;
+nav .label {
     font-weight: bold;
+    font-size: 2em;
+    margin-left: 10px;
+    text-transform: capitalize;
+    color: rgb(0, 0, 22);
 }
 
-.navbar .controls {
-    margin-right: -10px;
-} */
+.controls {
+    display: flex;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.logout {
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    background: rgb(0, 189, 25);
+    filter: drop-shadow(5px 5px 10px black);
+    display: block;
+    margin-right: 20px;
+}
+
+.logout:hover {
+    filter: drop-shadow(1px 1px 1px black);
+}
 
 .back {
     position: absolute;

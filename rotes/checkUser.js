@@ -69,7 +69,7 @@ Router.post('/checkUser',(req,res)=>{
         var sql = `select email from faculty where regdNo='${reqData.userid}'`
         connection.query(sql, (err, result) => { 
          console.log(result);
-         
+          
            if(result && result[0].email){
                if (err) throw (err)
                var email_ = result[0].email;

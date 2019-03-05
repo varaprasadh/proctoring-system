@@ -4,5 +4,5 @@ window.onload=function(){
         localStorage.removeItem('auth');
         //take to index url;
         window.location.assign("../../index/index.html");
-    });
+    })
 }

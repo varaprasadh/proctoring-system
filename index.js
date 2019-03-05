@@ -14,6 +14,7 @@ const RegisterUser=require('./rotes/RegisterUser');
 const ProfilePic=require('./rotes/ProfilePic');
 const updatePassword=require('./rotes/updatePassword');
 const FacultyInfo=require('./rotes/FacultyInfo');
+const CsvUploader=require('./rotes/CsvUploader');
 
 const port=process.env.port||9999;
 app.use(cors());
@@ -36,12 +37,14 @@ app.use(RegisterUser); //faculty registration
 app.use(ProfilePic); //servers profilepics
 app.use(updatePassword); //password update 
 app.use(FacultyInfo); //servers the faculty information
-
+app.use(CsvUploader);
 
 app.listen(port, "localhost",() => {
-  console.log("listening at lol " + port);
+  console.log("listening at port: " + port);
 });
    
 
 //sdinisha.16.cse@anits.edu.in
 //Anits@2018
+
+
