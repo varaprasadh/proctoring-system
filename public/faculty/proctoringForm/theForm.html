@@ -6,11 +6,176 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Proctoring Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="./theForm.css">
+    <script src="./controller.js"></script>
+    <script src="./AttendenceHandler.js"></script>
 </head>
 
 <body>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rem est expedita dolorem quaerat similique distinctio quibusdam neque suscipit eligendi, possimus aut itaque inventore! Consequatur repellendus omnis est vel nobis!
+    <nav>
+        <div class="label">online Proctoring System</div>
+        <div class="controls">
+            <div class="home"><a href="../faculty_home/facultyHome.html">Home</a></div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="student-window">
+            <div class="student-details-wrapper">
+                <div class="student-details">
+                    <div class="photo">
+                        <img src="./man.svg" alt="">
+                    </div>
+                    <div class="details">
+                        <div class="name">varaprasadh alajangi</div>
+                        <div class="regdNo">316126510201</div>
+                        <div class="year-wrapper"><span class="year">3 </span> year</div>
+                        <div class="section-wrapper"><span class="section">c</span> section</div>
+                        <div class="department-wrapper"><span class="department">cse</span> department</div>
+                        <div class="mobile">8106492369</div>
+                        <div class="email">varaprasadh.a@gmail.com</div>
+                        <div class="address-wrapper">
+                            <div class="label">Address:</div>
+                            <address class="address">Tagarapuvalasa,vizag,Andhrapradesh,</address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="proc-form-wrapper">
+                <div class="proc-form">
+                    <div class="attendence-wrapper">
+                        <div class="attendence-label">Attendence</div>
+                        <div class="attendence-tables">
+                            <!-- added with javascript -->
+                        </div>
+                    </div>
+                    <!--end of attendence-wrapper-->
+                    <div class="grades-wrapper">
+                        <div class="grades-label">Grades</div>
+                        <div class="grade-tables">
+                            <div class="grade-table-year">
+                                <div class="year-label">1st year</div>
+                                <div class="grade-table">
+                                    <div class="semester-label">1st semester</div>
+                                    <div class="semester-grades">
+                                        <div class="grade-input-col">
+                                            <div class="subcode">Subject Code</div>
+                                            <div class="subgrade">Subject Grade</div>
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                        <div class="grade-input-col">
+                                            <input type="text" placeholder="enter subcode" class="subcode">
+                                            <input type="text" placeholder="enter subgrade" class="subgrade">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grade-table-year"></div>
+                            <div class="grade-table-year"></div>
+                            <div class="grade-table-year"></div>
+                            <div class="grade-table-year"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    <template class="year-attendence-template">
+        <div class="year-attendence">
+            <div class="year-label">1st year</div>
+            <div class="year-attendence-sems">
+                <div class="semister">
+                    <div class="sem-label">1st Semester</div>
+                    <div class="sem-attendence">
+                        <div class="atd-inputrow">
+                            <label>August</label>
+                            <input placeholder="enter percentage" type="text" id="AugustEnd" class="atd">
+                        </div>
+                        <div class="atd-inputrow">
+                            <label>September</label>
+                            <input placeholder="enter percentage" type="text" id="SeptemberEnd" class="atd">
+                        </div>
+                        <div class="atd-inputrow">
+                            <label>October</label>
+                            <input placeholder="enter percentage" type="text" id="OctoberEnd" class="atd">
+                        </div>
+                        <div class="atd-inputrow">
+                            <label>Semister End</label>
+                            <input placeholder="enter percentage" type="text" id="one_SemisterEnd" class="atd">
+                        </div>
+                    </div>
+                </div>
+                <div class="semister">
+                    <div class="sem-label">2nd Semester</div>
+                    <div class="sem-attendence">
+                        <div class="atd-inputrow">
+                            <label>January</label>
+                            <input placeholder="enter percentage" type="text" id="JanuaryEnd",class="atd">
+                        </div>
+                        <div class="atd-inputrow">
+                            <label>February</label>
+                            <input placeholder="enter percentage" type="text" id="FebruaryEnd" class="atd">
+                        </div>
+                        <div class="atd-inputrow">
+                            <label>March</label>
+                            <input placeholder="enter percentage" type="text" id="MarchEnd" class="atd">
+                        </div>
+                        <div class="atd-inputrow">
+                            <label>Semister End</label>
+                            <input placeholder="enter percentage" type="text" id="two_SemisterEnd" class="atd">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </template>
 </body>
 
 </html>
+<!-- 
+regdNo     
+name        
+year        
+section     
+department  
+fathername  
+mobile      
+email       
+localAddress
+------------
+ -->

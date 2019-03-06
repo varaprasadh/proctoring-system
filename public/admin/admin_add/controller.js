@@ -56,6 +56,7 @@
          if (isValid()) {
              console.log("skjfnls");
              console.log(regData);
+             registerStudent(regData)
          } else {
              console.log("wrong");
          }

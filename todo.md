@@ -157,4 +157,19 @@ create table
    );
 
 
+**CGPA TABLE**
+
+create table CGPA
+     (
+     regdNo     varchar(20) primary key,
+     one_one    varchar(4) ,
+     one_two    varchar(4) ,
+     two_one    varchar(4) ,
+     two_two    varchar(4) ,
+     three_one  varchar(4) ,
+     three_two  varchar(4) , 
+     four_one   varchar(4) , 
+     four_two   varchar(4) 
+     );    
+
 

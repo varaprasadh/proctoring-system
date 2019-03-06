@@ -1,5 +1,5 @@
 const file_upload_url ='http://localhost:9999/csvfiles';
-const register_student_url ="http://localhost:9999/";
+const register_student_url ="http://localhost:9999/register/student";
 function uploadFile(file){
     var formData=new FormData();
     var filename=file.name;
@@ -26,6 +26,8 @@ function registerStudent(data){
         headers:{
             "content-Type":"application/json"
         }
+    }).then(res=>res.json()).then(resData=>{
+        console.log(resData);
     })
 }
 

@@ -59,4 +59,5 @@ Router.post('/register/faculty', (req, res) => {
 
 });
 
+
 module.exports = Router;
