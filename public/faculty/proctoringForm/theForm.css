@@ -4,6 +4,20 @@ html {
     padding: 0;
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+    background: white;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(26, 0, 26);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(255, 0, 191);
+    border-radius: 20px;
+}
+
 nav {
     height: 80px;
     width: 100%;
@@ -276,34 +290,46 @@ nav .label {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background: cyan;
-}
-
-.semester-grades {
-    display: flex;
-    padding: 20px;
-    flex-basis: 100px;
-    background: red;
+    background: rgb(6, 9, 39);
+    border: 2px solid purple;
 }
 
 .semester-label {
     font-weight: bold;
     font-size: 1.2em;
     padding: 10px 30px;
+    color: cyan;
+}
+
+.semester-grades {
+    display: flex;
+    flex-basis: 100px;
+    align-items: center;
+    border: 2px solid cadetblue;
 }
 
 .grade-input-col {
     display: flex;
+    flex: 1;
     flex-direction: column;
     background: white;
     /* border: 2px solid; */
+    padding: 0px 2px;
     width: 100px;
+    align-self: stretch;
+    justify-content: center;
 }
 
 .grade-input-col>input {
     border: none;
     outline: none;
-    /* border-bottom: 2px solid black; */
+    border-bottom: 2px solid rgb(0, 247, 255);
+    font-weight: bold;
+    color: red;
+}
+
+.grade-input-col>input:placeholder-shown {
+    font-size: .8em;
 }
 
 .grade-input-col>* {
@@ -311,4 +337,12 @@ nav .label {
     margin-top: 10px;
 }
 
-.subcode {}
+.grade-input-col>div {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+.grade-input-col:first-child {
+    border-right: 2px solid cyan;
+}

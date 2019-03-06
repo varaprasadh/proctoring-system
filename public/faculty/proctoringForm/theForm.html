@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./theForm.css">
     <script src="./controller.js"></script>
     <script src="./AttendenceHandler.js"></script>
+    <script src="./gradeTableHandler.js"></script>
 </head>
 
 <body>
@@ -52,54 +53,7 @@
                     <div class="grades-wrapper">
                         <div class="grades-label">Grades</div>
                         <div class="grade-tables">
-                            <div class="grade-table-year">
-                                <div class="year-label">1st year</div>
-                                <div class="grade-table">
-                                    <div class="semester-label">1st semester</div>
-                                    <div class="semester-grades">
-                                        <div class="grade-input-col">
-                                            <div class="subcode">Subject Code</div>
-                                            <div class="subgrade">Subject Grade</div>
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                        <div class="grade-input-col">
-                                            <input type="text" placeholder="enter subcode" class="subcode">
-                                            <input type="text" placeholder="enter subgrade" class="subgrade">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="grade-table-year"></div>
                             <div class="grade-table-year"></div>
                             <div class="grade-table-year"></div>
@@ -144,7 +98,7 @@
                     <div class="sem-attendence">
                         <div class="atd-inputrow">
                             <label>January</label>
-                            <input placeholder="enter percentage" type="text" id="JanuaryEnd",class="atd">
+                            <input placeholder="enter percentage" type="text" id="JanuaryEnd" class="atd">
                         </div>
                         <div class="atd-inputrow">
                             <label>February</label>
@@ -163,6 +117,101 @@
             </div>
         </div>
 
+    </template>
+    <template class="grade-table-template">
+    <div class="grade-table-year">
+        <div class="year-label">1st year</div>
+        <div class="grade-table">
+            <div class="semester-label">1st semester</div>
+            <div class="semester-grades">
+                <div class="grade-input-col">
+                    <div class="subcode">Subject Code</div>
+                    <div class="subgrade">Subject Grade</div>
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode1" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade1" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode2" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade2" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode3" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade3" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode4" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade4" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode5" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade5" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode6" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade6" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode7" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade7" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode8" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade8" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="one_subcode9" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="one_subgrade9" class="subgrade">
+                </div>
+            </div>
+        </div>
+        <div class="grade-table">
+            <div class="semester-label">2nd semester</div>
+            <div class="semester-grades">
+                <div class="grade-input-col">
+                    <div class="subcode">Subject Code</div>
+                    <div class="subgrade">Subject Grade</div>
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode1" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade1" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode2" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade2" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode3" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade3" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode4" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade4" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode5" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade5" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode6" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade6" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode7" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade7" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode8" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade8" class="subgrade">
+                </div>
+                <div class="grade-input-col">
+                    <input type="text" placeholder="enter subcode"  id="two_subcode9" class="subcode">
+                    <input type="text" placeholder="enter subgrade" id="two_subgrade9" class="subgrade">
+                </div>
+            </div>
+        </div>
+    </div>
     </template>
 </body>
 
