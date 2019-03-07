@@ -59,7 +59,6 @@ function AddStudent(data, res) {
                             _resolve("added to table:" + table);
                         }
                     });
-
                 });
                 tablesPromises.push(added_to_table);
             });
@@ -106,9 +105,7 @@ function removeLastEntry(regdNo) {
             console.log("removed from", table);
         })
     })
-
 }
-
 function clearTables() {
     //all student tables
     var allTables = [...TableConfig.tables_to_init, TableConfig.map_table, TableConfig.legacy_table];

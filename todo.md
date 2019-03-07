@@ -1,17 +1,21 @@
  **faculty side**
 - facultyProfile/populate students
 - facultyProfile/profilepage
-- proctroring Form 
+- facultyProfile/profilepage/proctoringFrom- export to pdf;
+- facultyProfile/profilepage/proctoringFrom/subject code;
+- facultyProfile/profilepage/proctoringFrom-connect database
+- facultyProfile/profilepage/proctoringFrom/issuetable/headingline;
+
 
 **admin side**
-- tune admin homepage
-- student adding page 
-   - url will be /add/
    - it will have import more number of students by csv files;
    - can add a single student;
 - modifypage
   - can delete a faculty;
   - can delete a student;
+-  add student profile photo provision
+**database**
+- remove unneccessary subject code tables; 
 
 
 

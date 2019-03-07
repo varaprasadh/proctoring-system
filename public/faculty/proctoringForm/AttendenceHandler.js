@@ -2,7 +2,6 @@ var percent_format = /^(100|\d{1,2}|\d{1,2}\.\d|)$/;
 var attendenceData = {};
 
 function PopulateAttendenceTables() {
-
     var atd_template = document.querySelector('.year-attendence-template');
     var atd_element = document.importNode(atd_template.content, true);
     console.log(atd_element);
@@ -41,9 +40,9 @@ function AttendenceEventHandler() {
     attendenceinputs.forEach(input => {
         input.addEventListener('input', e => {
             var value = input.value;
-            //need to select id ;
+            var id=input.id;
             if (percent_format.test(value)) {
-                //attendencedata[id]=value;
+                attendenceData[id] = value;
                 input.classList.remove('error');
             } else {
                 input.classList.add('error');
@@ -63,11 +62,6 @@ function tweakId(node, year) {
 }
 
 function getAttendenceDataFromTable() {
-    var attendenceinputs = document.querySelectorAll('.atd');
-    attendenceinputs.forEach(input => {
-        var id = input.id;
-        attendenceData[id] = input.value;
-    });
     return attendenceData;
 }
 

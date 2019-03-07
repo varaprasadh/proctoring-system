@@ -10,6 +10,7 @@
     <script src="./controller.js"></script>
     <script src="./AttendenceHandler.js"></script>
     <script src="./gradeTableHandler.js"></script>
+    <script src="./issueTableHandler.js"></script>
 </head>
 
 <body>
@@ -53,20 +54,22 @@
                     <div class="grades-wrapper">
                         <div class="grades-label">Grades</div>
                         <div class="grade-tables">
-
-                            <div class="grade-table-year"></div>
-                            <div class="grade-table-year"></div>
-                            <div class="grade-table-year"></div>
-                            <div class="grade-table-year"></div>
+                            <!-- added with javascript -->
+                        </div>
+                    </div>
+                    <!-- end of grade-table-wrapper -->
+                    <div class="issues-wrapper">
+                        <div class="issue-label">Issues</div>
+                        <div class="issue-tables">
+                            <!-- added with javascript -->
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>
+    </div>
 
-    </div>
-    </div>
 
     <template class="year-attendence-template">
         <div class="year-attendence">
@@ -116,7 +119,6 @@
                 </div>
             </div>
         </div>
-
     </template>
     <template class="grade-table-template">
     <div class="grade-table-year">
@@ -212,6 +214,115 @@
             </div>
         </div>
     </div>
+    </template>
+    <template class="issues-table-template">
+        <div class="issue-year">
+            <div class="year-label">
+                <div>first year</div>
+            </div>
+            <div class="issue-table">
+                <div class="issue-semister">
+                    <div class="semister-label">first Semester</div>
+                    <div class="semister-session-one">
+                        <div class="session-label">sesson-1</div>
+                        <div class="semister-issues">
+                            <div class="academic-issues-wrapper">
+                                <div class="academic-issues">
+                                    <div class="academic-issue-content">
+                                        <div class="paper">
+                                            <div class="paper-content">
+                                                <textarea placeholder="enter academic issue of student..." autofocus></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="academic-issue-remarks">
+                                        <div class="paper">
+                                            <div class="paper-content">
+                                                <textarea placeholder="enter remarks here..." autofocus></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                    <div class="semister-session-two">
+                        <div class="session-label">sesson-2</div>
+                        <div class="semister-issues">
+                            <div class="academic-issues-wrapper">
+                                <div class="academic-issues">
+                                    <div class="academic-issue-content">
+                                        <div class="paper">
+                                            <div class="paper-content">
+                                                <textarea placeholder="enter academic issue of student..." autofocus></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="academic-issue-remarks">
+                                        <div class="paper">
+                                            <div class="paper-content">
+                                                <textarea placeholder="enter remarks here..." autofocus></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="issue-semister">
+                    <div class="semister-label">second Semester</div>
+                    <div class="semister-session-one">
+                        <div class="session-label">sesson-1</div>
+                        <div class="semister-issues">
+                            <div class="academic-issues-wrapper">
+                                <div class="academic-issues">
+                                    <div class="academic-issue-content">
+                                        <div class="paper">
+                                            <div class="paper-content">
+                                                <textarea placeholder="enter academic issue of student..." autofocus></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="academic-issue-remarks">
+                                        <div class="paper">
+                                            <div class="paper-content">
+                                                <textarea placeholder="enter remarks here..." autofocus></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="semister-session-two">
+                        <div class="session-label">sesson-2</div>
+                        <div class="semister-issues">
+                            <div class="academic-issues-wrapper">
+                                <div class="academic-issues">
+                                    <div class="academic-issue-content">
+                                        <div class="paper">
+                                            <div class="paper-content">
+                                                <textarea placeholder="enter academic issue of student..." autofocus></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="academic-issue-remarks">
+                                        <div class="paper">
+                                            <div class="paper-content">
+                                                <textarea placeholder="enter remarks here..." autofocus></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </template>
 </body>
 
