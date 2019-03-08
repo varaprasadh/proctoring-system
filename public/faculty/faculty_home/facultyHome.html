@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./facultyHome.css">
     <script src="./controller.js"></script>
-    <script src="./UIDataFetcher.js"></script>
+    <script src="./FacultyDataHandler.js"></script>
+    <script src="./StudentDataHandler.js"></script>
 </head>
 
 <body>
@@ -36,27 +37,28 @@
         <div class="student-list-wrapper">
             <div class="label">Your Students</div>
             <div class="student-list">
-                <div class="student-item">
-                    <div class="student-img">
-                        <img src="./ios-person.svg" alt="">
-                    </div>
-                    <div class="st-details">
-                        <div class="name">Varaprasadh Alajangi</div>
-                        <div class="regdNo">31612610201</div>
-                        <div class="year-wrapper"><span class="year">3</span> year</div>
-                        <div class="section-wrapper"><span class="section">C</span> Section</div>
-                    </div>
-                </div>
-                <div class="student-item"></div>
-                <div class="student-item"></div>
-                <div class="student-item"></div>
-                <div class="student-item"></div>
+
             </div>
         </div>
         <div class="footer">
             <div class="copyright">copyrights reserved</div>
         </div>
     </div>
+    <template class="student-item-template">
+        <div class="student-item" id="regdno">
+            <div class="student-img">
+                <img src="./ios-person.svg" alt="">
+            </div>
+            <div class="st-details">
+                <div class="name">Varaprasadh Alajangi</div>
+                <div class="regdNo">31612610201</div>
+                <div class="year-wrapper"><span class="year">3</span> year</div>
+                <div class="section-wrapper"><span class="section">C</span> Section</div>
+                <div class="department">computer Science</div>
+            </div>
+        </div>
+    </template>
+
 </body>
 
 </html>

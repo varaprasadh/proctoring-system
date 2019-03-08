@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -36,12 +37,12 @@ nav>div>a {
 
 .container>div {
     text-align: center;
-    background: linear-gradient(45deg, blue, red);
+    background: linear-gradient(45deg, rgb(15, 15, 41), rgb(0, 28, 105));
 }
 
 .fac-controller {
     display: flex;
-    background: linear-gradient(45deg, blue, red);
+    background: linear-gradient(45deg, rgb(8, 8, 48), rgb(0, 50, 73));
     flex-direction: column;
 }
 
@@ -140,11 +141,12 @@ select option {
     border-radius: 20px;
     filter: drop-shadow(1px 1px 10px black);
     width: 200px;
-    background: rgb(84, 161, 84);
-    color: black;
+    background: rgb(255, 187, 0);
+    color: rgb(0, 13, 43);
     padding: 10px 10px;
     font-size: 1em;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .fac-search>#fac-id:focus,
@@ -249,15 +251,17 @@ select option {
     position: absolute;
     top: 10%;
     left: 50%;
-    background: rgb(236, 236, 236);
-    transform: translate(-50%, 0%);
     width: 100px;
     height: 100px;
+    padding: 10px;
     border-radius: 50%;
+    background: rgb(0, 5, 20);
+    transform: translate(-50%, 0%);
     filter: drop-shadow(5px 5px 10px black);
-    /* border: 2px solid green; */
-    animation: anime 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .map:hover {
@@ -265,7 +269,8 @@ select option {
 }
 
 .map svg {
-    fill: green;
+    fill: rgb(0, 217, 255);
+    flex: 1;
 }
 
 @keyframes anime {
@@ -294,7 +299,8 @@ select option {
 }
 
 .studentSelected {
-    background: blueviolet;
+    background: rgb(28, 1, 51);
+    border: 2px solid white;
     color: white !important;
 }
 

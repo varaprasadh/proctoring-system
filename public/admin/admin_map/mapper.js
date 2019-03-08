@@ -88,9 +88,18 @@ mapBtn.addEventListener('click', (e) => {
 
 
     if (fac_id  && student_ids.length > 0) {
-        fetch(`http://localhost:9999/map/${body}`).then(res => {
-            alert("woolah");
-        }).catch(err => console.log(err));
+        fetch(`http://localhost:9999/map`,{
+              method:"PUT",
+              mode:"cors",
+              body:body,
+              headers:{
+                  "Content-Type":"application/json"
+              }
+        }).then(res =>res.json())
+        .then(data=>{
+           alert(data.status);
+        })
+        .catch(err => console.log(err));
     } else {
         alert('check the fields');
     }

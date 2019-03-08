@@ -7,36 +7,53 @@ function parseResult(result, wrapper) {
     result.forEach(obj => {
         wrapper.data.push({
             name: obj.name,
-            reg_no: obj.reg_no,
+            regdNo: obj.regdNo,
             department: obj.department,
+            section:obj.section,
+            year:obj.year
         });
     });
 }
-Router.get('/map/:body',(req,res)=>{
-    // console.log(req.body);
-    // console.log(req);
-    var body=JSON.parse(req.params.body);
+
+Router.put('/map',(req,res)=>{
+    var body=req.body;
     console.log(body);
-    var sql =`insert into map_fac_to_student set ?`;
-    body.students.forEach(student=>{
-        var values = {
-            fac_id: body.faculty,
-            student_id:student
-        }
-        connection.query(sql, values, (err, result) => {
-            if (err) throw (err);
-            console.log(result);
+    var students = body.students;
+    var faculty=body.faculty;
+   //for each student assign that selected faculty;
+     var promises=[];
+     students.forEach(student=>{
+       var promise=new Promise((resolve,reject)=>{
+           var sql = `update map_fac_to_student set f_regdNo = '${faculty}' where s_regdNo = '${student}'`;
+           connection.query(sql, (err, result) => {
+               if (err) {
+                   reject(err.msg);
+               }
+               else{
+                   resolve("done");
+               }
+           });
+       });
+       promises.push(promise);
+    });
+    Promise.all(promises).then(logs=>{
+      res.json({
+          status:"success"
+      })
+    }).catch(err=>{
+        console.log(err);
+        res.json({
+            status:"failed"
         })
     })
-   
-    res.end("hello");
-
-    
+      
 });
+
+//returns the list of students under a faculty;
 Router.get('/mapped/:id',(req,res)=>{
     var id=req.params.id;
-    sql =`select * from students where reg_no in
-              (select student_id  from map_fac_to_student where fac_id='${id}')`;
+    sql =`select * from students where regdNo in
+              (select s_regdNo  from map_fac_to_student where f_regdNo='${id}')`;
     connection.query(sql,(err,result)=>{
         if(err) throw err;
         var resObj = {
@@ -44,7 +61,6 @@ Router.get('/mapped/:id',(req,res)=>{
         };
         console.log(result);
         
-
         parseResult(result,resObj);
         res.json(resObj);
         res.end("");

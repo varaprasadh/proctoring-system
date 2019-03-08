@@ -1,4 +1,4 @@
-function fetchData_UpdateUI() {
+function fetchFaculty_UpdateUI() {
     const authData = JSON.parse(localStorage.getItem('auth'));
     var regdNo = authData.regdNo;
     const infourl = "http://localhost:9999/getFacultyInfo/" + regdNo;

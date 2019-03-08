@@ -1,4 +1,3 @@
-console.log("hello wrslkvsv");
 
 var f_search_btn = document.querySelector('#fac-search-btn');
 var f_dpt = document.querySelector('.f-dept');
@@ -58,9 +57,9 @@ s_search_btn.addEventListener('click', (e) => {
 
 function populateFacultyList(dataobjs) {
     dataobjs.forEach(obj => {
-        var element = `<div data-id=${obj.reg_no} class="fac-item card">
+        var element = `<div data-id=${obj.regdNo} class="fac-item card">
                         <div class="fac-name">${obj.name}</div>
-                        <div class="fac-id">${obj.reg_no}</div>
+                        <div class="fac-id">${obj.regdNo}</div>
                     </div>`
         console.log(element);
         fac_list.innerHTML += element;
@@ -70,10 +69,10 @@ function populateFacultyList(dataobjs) {
 
 function populateStudentList(objs) {
     objs.forEach(obj => {
-        var element = ` <div data-id=${obj.reg_no} class="student-item student-card">
+        var element = ` <div data-id=${obj.regdNo} class="student-item student-card">
                             <div  class="student-data">
                                 <div class="student-name">${obj.name}</div>
-                                <div class="student-id">${obj.reg_no}</div>
+                                <div class="student-id">${obj.regdNo}</div>
                             </div>
                             <input type="checkbox" id="std-selected">
                        </div>`
@@ -81,3 +80,4 @@ function populateStudentList(objs) {
     });
     initListEventHandlers.studentEventHandler();
 }
+

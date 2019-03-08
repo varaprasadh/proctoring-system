@@ -10,7 +10,7 @@ function parseResult(result,wrapper){
     result.forEach(obj => {
         wrapper.data.push({
             name: obj.name,
-            reg_no: obj.reg_no,
+            regdNo: obj.regdNo,
             department: obj.department,
         });
     });
@@ -23,6 +23,8 @@ Router.get('/faculty/:name_or_id/:dep',(req,res)=>{
     connection.query(sql,(err,result)=>{
         if(err) console.log(err);
         console.log(result);
+
+    
         var facultydata={
             data:[]
         };
