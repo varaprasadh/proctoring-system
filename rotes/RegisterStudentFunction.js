@@ -15,7 +15,7 @@ function AddStudent(data, res) {
         localAddress: data.address
     };
     //add this to map table
-    var map_init_obj = {
+    var map_init_obj = { 
         s_regdNo: data.regdNo
     };
     //add this to init_tables
@@ -23,15 +23,20 @@ function AddStudent(data, res) {
         regdNo: data.regdNo
     }
     //insert into students table;
-    var sql = `insert into ${TableConfig.legacy_table} set ?`;
-    connection.query(sql, studentobj, async (err, result) => {
-        if (err) {
-            //if error send response and then return;
-            res.json({
-                status: "failed"
-            });
-            return;
-        }
+      var addedtoStudentTable=new Promise((resolve,reject)=>{
+          var sql = `insert into ${TableConfig.legacy_table} set ?`;
+          connection.query(sql, studentobj, async (err, result) => {
+              if (err) {
+                  //if error send response and then return;
+                  reject(new Error(err.msg))
+              } 
+              else{
+                 resolve({
+                     status:"success"
+                 })
+              }
+      });
+    });
         //initialize map table;
 
         var added_to_map_table = new Promise((resolve, reject) => {
@@ -73,18 +78,19 @@ function AddStudent(data, res) {
             })
         });
 
-        var Added_to_all_studentTables = Promise.all([added_to_map_table, Added_to_tables_to_init]);
-        Added_to_all_studentTables
-            .then(msgs => {
-                // msgs.forEach(msg=>{console.log(msg);
-                console.log("added student");
-                res.json({ status: "success" });
-            })
-            .catch(err => {
-                removeLastEntry(studentobj.regdNo);
-                res.json({ satus: "failed" })
-            })
-    });
+      addedtoStudentTable.then(next=>{
+          var Added_to_all_studentTables = Promise.all([added_to_map_table, Added_to_tables_to_init]);
+          Added_to_all_studentTables
+              .then(msgs => {
+                  // msgs.forEach(msg=>{console.log(msg);
+                  console.log("added student");
+                  res.json({ status: "success" });
+              })
+              .catch(err => {
+                  removeLastEntry(studentobj.regdNo);
+                  res.json({ satus: "failed" })
+              })
+        }).catch(err=>err);
 }
 
 function removeLastEntry(regdNo) {

@@ -11,6 +11,7 @@
     <script src="./AttendenceHandler.js"></script>
     <script src="./gradeTableHandler.js"></script>
     <script src="./issueTableHandler.js"></script>
+    <script src="./dataHandler.js"></script>
 </head>
 
 <body>
@@ -40,7 +41,11 @@
                             <address class="address">Tagarapuvalasa,vizag,Andhrapradesh,</address>
                         </div>
                     </div>
+                    <div class="export-btn">
+                        <div class="text">Export as Pdf</div>
+                    </div>
                 </div>
+
             </div>
             <div class="proc-form-wrapper">
                 <div class="proc-form">
@@ -65,6 +70,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="submitForm-btn">
+                    <div class="text">Submit</div>
+                </div>
             </div>
         </div>
     </div>
@@ -80,19 +88,19 @@
                     <div class="sem-attendence">
                         <div class="atd-inputrow">
                             <label>August</label>
-                            <input placeholder="enter percentage" type="text" id="AugustEnd" class="atd">
+                            <input id="August" placeholder="enter percentage" type="text"  class="atd">
                         </div>
                         <div class="atd-inputrow">
                             <label>September</label>
-                            <input placeholder="enter percentage" type="text" id="SeptemberEnd" class="atd">
+                            <input id="September" placeholder="enter percentage" type="text"  class="atd">
                         </div>
                         <div class="atd-inputrow">
                             <label>October</label>
-                            <input placeholder="enter percentage" type="text" id="OctoberEnd" class="atd">
+                            <input id="October" placeholder="enter percentage" type="text" class="atd">
                         </div>
                         <div class="atd-inputrow">
                             <label>Semister End</label>
-                            <input placeholder="enter percentage" type="text" id="one_SemisterEnd" class="atd">
+                            <input id="FirstSemEnd" placeholder="enter percentage" type="text" class="atd">
                         </div>
                     </div>
                 </div>
@@ -101,19 +109,19 @@
                     <div class="sem-attendence">
                         <div class="atd-inputrow">
                             <label>January</label>
-                            <input placeholder="enter percentage" type="text" id="JanuaryEnd" class="atd">
+                            <input id="January" placeholder="enter percentage" type="text" class="atd">
                         </div>
                         <div class="atd-inputrow">
                             <label>February</label>
-                            <input placeholder="enter percentage" type="text" id="FebruaryEnd" class="atd">
+                            <input id="February" placeholder="enter percentage" type="text"  class="atd">
                         </div>
                         <div class="atd-inputrow">
                             <label>March</label>
-                            <input placeholder="enter percentage" type="text" id="MarchEnd" class="atd">
+                            <input id="March" placeholder="enter percentage" type="text" class="atd">
                         </div>
                         <div class="atd-inputrow">
                             <label>Semister End</label>
-                            <input placeholder="enter percentage" type="text" id="two_SemisterEnd" class="atd">
+                            <input id="SecondSemEnd" placeholder="enter percentage" type="text"  class="atd">
                         </div>
                     </div>
                 </div>
@@ -122,8 +130,8 @@
     </template>
     <template class="grade-table-template">
     <div class="grade-table-year">
-        <div class="year-label">1st year</div>
-        <div class="grade-table">
+        <div class="year-label" >1st year</div>
+        <div class="grade-table" data-semister="1">
             <div class="semester-label">1st semester</div>
             <div class="semester-grades">
                 <div class="grade-input-col">
@@ -131,85 +139,93 @@
                     <div class="subgrade">Subject Grade</div>
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode1" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade1" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="one_subcode1" class="subcode">
+                    <input type="text" placeholder="subgrade" id="one_subgrade1" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode2" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade2" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="one_subcode2" class="subcode">
+                    <input type="text" placeholder="subgrade" id="one_subgrade2" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode3" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade3" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="one_subcode3" class="subcode">
+                    <input type="text" placeholder="subgrade" id="one_subgrade3" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode4" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade4" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="one_subcode4" class="subcode">
+                    <input type="text" placeholder="subgrade" id="one_subgrade4" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode5" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade5" class="subgrade">
+                    <input type="text" placeholder="subcode"  class="subcode">
+                    <input type="text" placeholder="subgrade"  class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode6" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade6" class="subgrade">
+                    <input type="text" placeholder="subcode"  class="subcode">
+                    <input type="text" placeholder="subgrade"  class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode7" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade7" class="subgrade">
+                    <input type="text" placeholder="subcode"  class="subcode">
+                    <input type="text" placeholder="subgrade"  class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode8" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade8" class="subgrade">
+                    <input type="text" placeholder="subcode"  class="subcode">
+                    <input type="text" placeholder="subgrade"  class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="one_subcode9" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="one_subgrade9" class="subgrade">
+                    <input type="text" placeholder="subcode"  class="subcode">
+                    <input type="text" placeholder="subgrade"  class="subgrade">
+                </div>
+                <div class="grade-input-col cgpa-col">
+                    <div class="cgpa">CGPA</div>
+                    <input type="text" id="1CGPA" placeholder="cgpa"  class="gpa">
                 </div>
             </div>
         </div>
-        <div class="grade-table">
-            <div class="semester-label">2nd semester</div>
+        <div class="grade-table" data-semister="2">
+            <div class="semester-label" >2nd semester</div>
             <div class="semester-grades">
                 <div class="grade-input-col">
                     <div class="subcode">Subject Code</div>
                     <div class="subgrade">Subject Grade</div>
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode1" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade1" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode1" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade1" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode2" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade2" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode2" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade2" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode3" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade3" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode3" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade3" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode4" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade4" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode4" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade4" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode5" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade5" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode5" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade5" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode6" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade6" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode6" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade6" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode7" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade7" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode7" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade7" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode8" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade8" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode8" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade8" class="subgrade">
                 </div>
                 <div class="grade-input-col">
-                    <input type="text" placeholder="enter subcode"  id="two_subcode9" class="subcode">
-                    <input type="text" placeholder="enter subgrade" id="two_subgrade9" class="subgrade">
+                    <input type="text" placeholder="subcode"  id="two_subcode9" class="subcode">
+                    <input type="text" placeholder="subgrade" id="two_subgrade9" class="subgrade">
+                </div>
+                <div class="grade-input-col cgpa-col">
+                     <div class="cgpa">CGPA</div>
+                    <input type="text" id="2CGPA" placeholder="cgpa" id="two_subgrade9" class="gpa">
                 </div>
             </div>
         </div>
@@ -231,14 +247,14 @@
                                     <div class="academic-issue-content">
                                         <div class="paper">
                                             <div class="paper-content">
-                                                <textarea placeholder="enter academic issue of student..." autofocus></textarea>
+                                                <textarea id="11" class="issue" placeholder="enter academic issue of student..." ></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="academic-issue-remarks">
-                                        <div class="paper">
+                                        <div class="paper" >
                                             <div class="paper-content">
-                                                <textarea placeholder="enter remarks here..." autofocus></textarea>
+                                                <textarea id="11" class="remark" placeholder="enter remarks here..." ></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -255,14 +271,14 @@
                                     <div class="academic-issue-content">
                                         <div class="paper">
                                             <div class="paper-content">
-                                                <textarea placeholder="enter academic issue of student..." autofocus></textarea>
+                                                <textarea id="12" class="issue" placeholder="enter academic issue of student..." ></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="academic-issue-remarks">
                                         <div class="paper">
                                             <div class="paper-content">
-                                                <textarea placeholder="enter remarks here..." autofocus></textarea>
+                                                <textarea id="12" class="remark" placeholder="enter remarks here..."></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -281,14 +297,14 @@
                                     <div class="academic-issue-content">
                                         <div class="paper">
                                             <div class="paper-content">
-                                                <textarea placeholder="enter academic issue of student..." autofocus></textarea>
+                                                <textarea id="21" class="issue" placeholder="enter academic issue of student..." ></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="academic-issue-remarks">
                                         <div class="paper">
                                             <div class="paper-content">
-                                                <textarea placeholder="enter remarks here..." autofocus></textarea>
+                                                <textarea id="21" class="remark" placeholder="enter remarks here..." ></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -304,14 +320,14 @@
                                     <div class="academic-issue-content">
                                         <div class="paper">
                                             <div class="paper-content">
-                                                <textarea placeholder="enter academic issue of student..." autofocus></textarea>
+                                                <textarea id="22" class="issue" placeholder="enter academic issue of student..." ></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="academic-issue-remarks">
                                         <div class="paper">
                                             <div class="paper-content">
-                                                <textarea placeholder="enter remarks here..." autofocus></textarea>
+                                                <textarea id="22" class="remark" placeholder="enter remarks here..." ></textarea>
                                             </div>
                                         </div>
                                     </div>

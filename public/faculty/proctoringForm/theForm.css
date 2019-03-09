@@ -61,14 +61,31 @@ nav .label {
 }
 
 .home {
-    color: white;
-    background: green;
-    padding: 10px 30px;
-    filter: drop-shadow(2px 2px 10px black);
+    color: blue;
+    padding: 10px 0px;
+    margin: 0px 30px;
+    width: 4em;
+    position: relative;
 }
 
 .home:hover {
-    filter: brightness(80%);
+    color: green;
+}
+
+.home::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: rgb(255, 0, 242);
+    height: 3px;
+    bottom: 0;
+    transform: scaleX(1);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.home:hover::after {
+    transform: scaleX(0);
 }
 
 .container {
@@ -80,9 +97,9 @@ nav .label {
 .student-window {
     width: 100%;
     min-height: 100vh;
-    background: green;
+    background: rgb(0, 7, 44);
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 300px 6fr;
 }
 
 .student-details-wrapper {
@@ -92,7 +109,7 @@ nav .label {
     align-items: center;
     position: fixed;
     top: 0px;
-    width: 400px;
+    width: 300px;
     padding: 30px 0px;
     height: 100%;
     z-index: 99;
@@ -156,6 +173,7 @@ nav .label {
 .proc-form-wrapper {
     grid-column: 2;
     width: 100%;
+    padding-bottom: 4em;
 }
 
 .proc-form {
@@ -319,7 +337,7 @@ nav .label {
     background: white;
     /* border: 2px solid; */
     padding: 0px 2px;
-    width: 100px;
+    width: 50px;
     align-self: stretch;
     justify-content: center;
 }
@@ -499,3 +517,67 @@ nav .label {
     background: rgb(255, 174, 0);
     border-radius: 10px;
 }
+
+.cgpa {
+    font-weight: bold;
+    color: blue;
+    border-bottom: 2px solid cyan;
+}
+
+.cgpa-col {
+    border: 2px solid cyan !important;
+}
+
+.submitForm-btn {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 255, 0);
+    padding: 10px 50px;
+    color: rgb(0, 27, 63);
+    border-radius: 20px;
+    filter: drop-shadow(5px 5px 10px black);
+    cursor: pointer;
+}
+
+.submitForm-btn:hover {
+    background: orange;
+    color: white;
+}
+
+.submitForm-btn .text {
+    font-size: 1.5em;
+}
+
+.export-btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: orange;
+    padding: 10px 30px;
+    color: rgb(3, 0, 8);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    filter: drop-shadow(5px 5px 10px black);
+    cursor: pointer;
+}
+
+.export-btn:hover {
+    animation: giggle 1s cubic-bezier(0.165, 0.84, 0.44, 1) 1;
+}
+
+@keyframes giggle {
+    0% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(1.2, 1);
+    }
+}
+
+.export-btn .text {}

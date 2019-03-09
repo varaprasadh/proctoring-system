@@ -1,8 +1,10 @@
+ delete unnecessary tables and queries
+ 
  **faculty side**
-- facultyProfile/populate students
-- facultyProfile/profilepage
+<!-- - facultyProfile/populate students -->
+<!-- - facultyProfile/profilepage -->
 - facultyProfile/profilepage/proctoringFrom- export to pdf;
-- facultyProfile/profilepage/proctoringFrom/subject code;
+<!-- - facultyProfile/profilepage/proctoringFrom/subject code; -->
 - facultyProfile/profilepage/proctoringFrom-connect database
 - facultyProfile/profilepage/proctoringFrom/issuetable/headingline;
 

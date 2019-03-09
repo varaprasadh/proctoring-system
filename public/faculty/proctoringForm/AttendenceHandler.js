@@ -1,36 +1,100 @@
 var percent_format = /^(100|\d{1,2}|\d{1,2}\.\d|)$/;
 var attendenceData = {};
 
-function PopulateAttendenceTables() {
-    var atd_template = document.querySelector('.year-attendence-template');
-    var atd_element = document.importNode(atd_template.content, true);
-    console.log(atd_element);
-    var tables_container = document.querySelector('.attendence-tables');
-    var tableyearrfields = [
-        "1st Year", "2nd Year", "3rd Year", "4th Year"
-    ]
-    for (var i = 0; i < 4; i++) {
-        var node = atd_element.cloneNode(true);
-        node.querySelector('.year-label').innerHTML = tableyearrfields[i];
-        console.log(node);
-        tweakId(node, i + 1);
-        tables_container.appendChild(node);
-    };
-    AttendenceEventHandler();
+AttendenceIDs = [
+    "1August",
+    "1February",
+    "1FirstSemEnd",
+    "1January",
+    "1March",
+    "1October",
+    "1SecondSemEnd",
+    "1September",
+    "2August",
+    "2February",
+    "2FirstSemEnd",
+    "2January",
+    "2March",
+    "2October",
+    "2SecondSemEnd",
+    "2September",
+    "3August",
+    "3February",
+    "3FirstSemEnd",
+    "3January",
+    "3March",
+    "3October",
+    "3SecondSemEnd",
+    "3September",
+    "4August",
+    "4February",
+    "4FirstSemEnd",
+    "4January",
+    "4March",
+    "4October",
+    "4SecondSemEnd",
+    "4September"
+];
+
+function PopulateAttendenceTables(regdNo) {
+    new Promise((resolve,reject)=>{
+        var atd_template = document.querySelector('.year-attendence-template');
+        var atd_element = document.importNode(atd_template.content, true);
+        // console.log(atd_element);
+        var tables_container = document.querySelector('.attendence-tables');
+        var tableyearrfields = [
+            "1st Year", "2nd Year", "3rd Year", "4th Year"
+        ]
+        for (var year = 1; year <= 4; year++) {
+            var node = atd_element.cloneNode(true);
+            node.querySelector('.year-label').innerHTML = tableyearrfields[year - 1];
+             console.log(node);
+            tweakId(node, year);
+            tables_container.appendChild(node);
+        };
+        AttendenceEventHandler();
+        resolve();
+    }).then(_=>{
+        FetchAttendence(regdNo);
+    })
+  
+    
 }
+
+function FetchAttendence(regdNo) {
+    console.log("Attendencedebug");
+    fetch('/ProcData/Attendence/' + regdNo).then(res => res.json())
+        .then(data => {
+            console.log("attendence",data);
+            console.log(AttendenceIDs);
+            AttendenceIDs.forEach(id=>{
+                var node=document.getElementById(id);
+                // console.log(node);
+                // console.log("data:",data[id]);
+                node.value=(data[id]!=undefined)?data[id]:'';
+            })
+            
+        })
+        .catch(err => err);
+}
+
+
+
+
 //toCheck whether the attendence are right or wrong?
 function isAttendenceValid() {
     var attendenceinputs = document.querySelectorAll('.atd');
     var valid = false;
-    attendenceinputs.forEach(input => {
-        var value = input.value;
-        if (percent_format.test(value)) {
-            valid = true;
-        } else {
-            valid = false;
+    AllNodes = [...attendenceinputs];
+    for (i = 0; i < AllNodes.length; i++) {
+        if (AllNodes[i].classList.contains('error')) {
+            return false;
         }
-    })
-    return valid;
+        else {
+            valid = true;
+        }
+    }
+    return valid;  
 }
 /*
  */
@@ -42,7 +106,9 @@ function AttendenceEventHandler() {
             var value = input.value;
             var id=input.id;
             if (percent_format.test(value)) {
-                attendenceData[id] = value;
+                if(value!=''){
+                    attendenceData[id] = value;
+                }
                 input.classList.remove('error');
             } else {
                 input.classList.add('error');
@@ -55,10 +121,9 @@ function tweakId(node, year) {
     var inputs = node.querySelectorAll('.atd');
     inputs.forEach(input => {
         var id = input.id;
-        var newid = year + "_" + id;
-        console.log(newid, end = " ");
+        input.id=year+id;
     })
-    console.log("--------")
+
 }
 
 function getAttendenceDataFromTable() {
