@@ -1,16 +1,17 @@
 var registrationData = {};
 var submitButton;
+var regex = {
+    name: /^[A-Za-z]+\s{1,2}[A-Za-z]+$/,
+    regdNo: /^anit\d{3,3}$/,
+    email: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+    mobile: /^\d{10,10}$/,
+    department: /\w/,
+    password: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+}
 window.onload = function() {
     console.log("hello world");
 
-    var regex = {
-        name: /^[A-Za-z]+\s{1,2}[A-Za-z]+$/,
-        regdNo: /^anit\d{3,3}$/,
-        email: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-        mobile: /^\d{10,10}$/,
-        department: /\w/,
-        password: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
-    }
+    
     var photopreview = document.querySelector('.photopreview');
     photopreview.addEventListener('click', e => {
         document.querySelector('#file').click();
@@ -71,44 +72,45 @@ window.onload = function() {
         } else {
             fileinput.parentNode.querySelector('.error').style.display = "block";
         }
-
     })
     submitButton = document.querySelector('.submit');
     submitButton.addEventListener('click', e => {
-        var regexKeys = Object.keys(regex);
-        var allpresent = false;
-        regexKeys.forEach(key => {
-            if (regex[key].test(registrationData[key])) {
-                allpresent = true;
-            } else {
-                allpresent = false;
-            }
-        });
-        if (allpresent) {
-            submitButton.innerHTML = "please wait..."
-            submitButton.classList.add('loading');
-            console.log(registrationData);
-            registerUser(registrationData);
+        
+        if (isvalid()) {
+          submitButton.innerHTML = "please wait...";
+          submitButton.classList.add("loading");
+          console.log(registrationData);
+          registerUser(registrationData);
         } else {
-            alert("check the details once");
+          alert("check the details once");
         }
     })
 }
-
+function isvalid(){
+    var regexKeys = Object.keys(regex);
+    var allpresent = false;
+      for(let i=0;i<regexKeys.length;i++){
+        if (regex[regexKeys[i]].test(registrationData[regexKeys[i]])) {
+            allpresent = true;
+        } else {
+            return false;
+        }
+    };
+    var selectvalue=document.querySelector('#department').value;
+    if(!regex["department"].test(selectvalue)){
+        return false;
+    }else{
+        allpresent=true;
+    }
+    return allpresent;
+}
 function updateUi(data) {
     console.log("update ui");
-
-    if (data.status == "succeed") {
-
-        localStorage.setItem('auth', JSON.stringify({
-            regdNo: registrationData.regdNo
-        }));
-        //redirect
-        window.location.assign('../fac_home/faculty_home/faculty_home.html');
+    if (data.status == "success") {
+        //popup need to be displayed.
+        alert('requested for an account ....');
+        window.location.assign('/index');
     } else {
         alert("something went wrong..please try again");
-        submitButton.classList.remove('loading');
-        submitButton.innerHTML = "submit"
-
     }
 }

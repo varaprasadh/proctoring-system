@@ -1,0 +1,203 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    filter: drop-shadow(1px 5px 10px black);
+    justify-content: space-between;
+}
+
+nav .label {
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 10px;
+    text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.controls {
+    display: flex;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.home {
+    color: blue;
+    padding: 10px 0px;
+    margin: 0px 30px;
+    width: 4em;
+    position: relative;
+}
+
+.home:hover {
+    color: green;
+}
+
+.home::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: rgb(255, 0, 242);
+    height: 3px;
+    bottom: 0;
+    transform: scaleX(1);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.home:hover::after {
+    transform: scaleX(0);
+}
+
+.container {
+    padding-top: 80px;
+    width: 100%;
+    height: 100%;
+}
+
+.pending-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(212, 212, 212);
+}
+
+.pending-wrapper .header {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+    padding: 20px;
+    color: rgb(15, 0, 41);
+}
+
+.pending-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-height: 500px;
+    justify-content: center;
+}
+
+.list-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    /*put flex when list empty*/
+    justify-content: center;
+    align-items: center;
+    background: rgb(5, 2, 32);
+    color: rgb(0, 255, 255);
+    font-weight: bold;
+    font-size: 3em;
+    border: 2px solid green;
+    box-sizing: border-box;
+}
+
+.faculty-item {
+    background: rgb(3, 0, 17);
+    min-height: 250px;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: Arial, Helvetica;
+    filter: drop-shadow(5px 5px 10px black);
+    border-radius: 10px;
+}
+
+.faculty-item img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.faculty-item .controls {
+    display: flex;
+    font-size: 1.2em;
+    align-self: stretch;
+    justify-content: space-around;
+}
+
+.faculty-item .details {
+    margin: 20px;
+    font-size: 1.2em;
+}
+
+.faculty-item .details>div {
+    margin-top: 10px;
+}
+
+.faculty-item .controls>div {
+    padding: 10px 20px;
+}
+
+.faculty-item .controls .accept {
+    border: 2px solid green;
+}
+
+.faculty-item .controls .accept:hover {
+    background: green;
+}
+
+.faculty-item .controls .reject {
+    border: 2px solid red;
+}
+
+.faculty-item .controls .reject:hover {
+    background: red;
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 80px;
+    background: rgb(1, 1, 8);
+    color: white;
+}
+
+.fadeout {
+    animation: gone 1s linear;
+}
+
+@keyframes gone {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

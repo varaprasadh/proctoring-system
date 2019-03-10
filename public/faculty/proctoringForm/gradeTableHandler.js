@@ -37,7 +37,7 @@ function putSubjectCodes(node,year){
         if(count>9){
             count=1;
         }
-        subcodeinput.parentNode.querySelector('.subgrade').id=code;
+        subcodeinput.parentNode.querySelector('.subgrade').id="G"+code; //matched with table column name
         subcodeinput.value=code;
         //  console.log(code); 
     });
@@ -77,7 +77,7 @@ function putgpaCodes(node,year){
     var gpas=node.querySelectorAll('.gpa');
     gpas.forEach(gpa=>{
         var id=gpa.id;
-        gpa.id=year+id;
+        gpa.id=year+id+"CGPA";
     })
 }
 

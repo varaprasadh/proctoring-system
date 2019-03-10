@@ -567,6 +567,10 @@ nav .label {
     cursor: pointer;
 }
 
+.subcode {
+    color: rgb(18, 63, 0) !important;
+}
+
 .export-btn:hover {
     animation: giggle 1s cubic-bezier(0.165, 0.84, 0.44, 1) 1;
 }

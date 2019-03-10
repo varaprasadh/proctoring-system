@@ -1,6 +1,8 @@
 var payload;
 window.onload = function() {
     // window.scrollTo(0,0);
+    var auth = JSON.parse(localStorage.getItem('auth'));
+    var fac_id = auth.regdNo; //faculty regdNo
     var student_data_url = '/Student/';
     var regdNo = new URL(window.location.href).searchParams.get('regdNo');
     console.log("got:", regdNo);
@@ -18,26 +20,32 @@ window.onload = function() {
             populateIssuesTable(year, regdNo);
 
         })
-        .catch(err => err)
+        .catch(err => err);
+
+    //submit button
     document.querySelector(".submitForm-btn").addEventListener('click', e => {
         if (isAttendenceValid() && isGradeTableValid()) {
             //add loader
             payload = {
                 "regdNo": regdNo,
+                "faculty": fac_id,
                 "Attendence": getAttendenceDataFromTable(),
                 "grades": getGradeDataFromTable(),
-                "IssueRemarks": getIssueTableData()
+                "IssueRemarks": getIssueTableData(),
+
             }
             console.log(payload);
             fetch('/updateProcData', {
-                method: "POST",
-                body: JSON.stringify(payload),
-                headers: {
-                    'content-Type': "application/json"
-                }
-            }).then(res => {
-                console.log(res);
-            })
+                    method: "POST",
+                    body: JSON.stringify(payload),
+                    headers: {
+                        'content-Type': "application/json"
+                    }
+                })
+                .then(res => {
+                    console.log(res);
+                    alert("success");
+                }).catch(err => err);
         } else {
             alert("something wrong");
         }

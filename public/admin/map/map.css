@@ -1,0 +1,528 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    filter: drop-shadow(1px 5px 10px black);
+    justify-content: space-between;
+}
+
+nav .label {
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 10px;
+    text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.controls {
+    display: flex;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.home {
+    color: blue;
+    padding: 10px 0px;
+    margin: 0px 30px;
+    width: 4em;
+    position: relative;
+}
+
+.home:hover {
+    color: green;
+}
+
+.home::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: rgb(255, 0, 242);
+    height: 3px;
+    bottom: 0;
+    transform: scaleX(1);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.home:hover::after {
+    transform: scaleX(0);
+}
+
+.container {
+    /* padding-top: 80px; */
+}
+
+.map-container {
+    display: flex;
+    min-height: 600px;
+    background: green;
+    width: 100%;
+}
+
+.map-container>div {
+    align-self: stretch;
+}
+
+.faculty-chooser {
+    flex: 1;
+    background: rgb(1, 0, 51);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faculty-search,
+.student-search {
+    align-self: stretch;
+    background: rgb(38, 50, 117);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.faculty-search-input,
+.student-search-input {
+    border: none;
+    outline: none;
+    align-self: stretch;
+    padding: 5px 20px;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 162, 255);
+}
+
+.faculty-search-input::placeholder,
+.student-search-input::placeholder {
+    color: gray;
+    font-size: .8em;
+}
+
+.fac-dept-select,
+.student-section-select,
+.student-dept-select {
+    align-self: stretch;
+    display: flex;
+    border: 2px solid cyan;
+}
+
+.fac-dept-select select,
+.student-dept-select select,
+.student-section-select select {
+    flex: 1;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.fac-dept-select select option,
+.student-dept-select select option,
+.student-section-select option {
+    font-weight: bold;
+    background: rgb(7, 7, 32);
+    color: white;
+    font-size: 1.2em;
+    padding: 5px 0px;
+}
+
+.f-submit,
+.s-submit {
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.f-submit .text,
+.s-submit .text {
+    padding: 10px 50px;
+    background: rgb(0, 168, 0);
+    color: white;
+    filter: drop-shadow(5px 5px 10px black);
+}
+
+.f-submit .text:hover,
+.s-submit .text:hover {
+    filter: drop-shadow(1px 1px 2px black);
+}
+
+.student-chooser {
+    flex: 1;
+    background: rgb(1, 0, 37);
+}
+
+.map-area {
+    flex: 1;
+    background: rgb(219, 219, 219);
+}
+
+.fac-list {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+}
+
+.fac-list .fac-item {
+    align-self: stretch;
+    background: white;
+    padding: 20px;
+    margin: 5px 0px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    filter: drop-shadow(1px 2px black);
+}
+
+.fac-list .fac-item:hover {
+    filter: brightness(80%);
+}
+
+.fac-list .fac-item .name {
+    font-size: 1.3em;
+}
+
+.fac-item .branch-details {
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.fac-item .branch-details>div {
+    margin-right: 10px;
+}
+
+.student-list {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 125px));
+    grid-template-rows: repeat(auto-fill, minmax(100px, 125px));
+    grid-auto-rows: minmax(100px, 125px);
+    /* box-sizing: border-box; */
+    padding: 10px 10px;
+    grid-gap: 30px;
+}
+
+.fac-list,
+.student-list {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.student-item {
+    height: 100%;
+    width: 100%;
+    background: rgb(248, 248, 248);
+    filter: drop-shadow(5px 5px 10px black);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.student-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    top: 0%;
+    left: -100%;
+    transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+    color: white;
+}
+
+.student-overlay .select-icon {
+    width: 50px;
+    height: 50px;
+    fill: white;
+}
+
+.student-overlay .text {}
+
+.student-item:hover .student-overlay {
+    left: 0%;
+}
+
+.student-item .name {
+    margin-bottom: 5px;
+}
+
+.fac-item {
+    min-height: 20px;
+    padding: 20px 0px;
+}
+
+.fac-list::-webkit-scrollbar,
+.student-list::-webkit-scrollbar {
+    width: 2px;
+}
+
+.map-area {
+    display: grid;
+    border: 3px solid rgb(3, 5, 27);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    justify-content: space-between;
+    /* height: 100vh; */
+}
+
+.map-area .mapped-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+.mapped-student {
+    background: white;
+    min-height: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    filter: drop-shadow(1px 5px 5px black);
+}
+
+.mapped-student .unmap {
+    width: 50px;
+    cursor: pointer;
+    justify-self: flex-end;
+    fill: red;
+}
+
+.mapped-student .unmap:hover {
+    transform: scale(1.2);
+}
+
+.ProcessStatus {
+    align-self: end;
+    height: 150px;
+    background: rgb(3, 0, 34);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: cyan;
+    filter: drop-shadow(2px 5px 10px black);
+}
+
+.ProcessStatus .icon {
+    height: 50px;
+    width: 50px;
+}
+
+.ProcessStatus .icon svg {
+    fill: rgb(0, 255, 255);
+}
+
+.mapped-list {
+    overflow-y: scroll;
+}
+
+.mapped-list::-webkit-scrollbar {
+    width: 2px;
+}
+
+.load {
+    animation: rotatelikeloader 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes rotatelikeloader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.switch {
+    margin-top: 10px;
+    display: block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    background-color: rgb(81, 255, 0);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked+.slider {
+    background-color: #ff0000;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.note {
+    color: rgb(255, 174, 0);
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fac-list {
+    position: relative;
+}
+
+.facultyList-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1em;
+}
+
+.mapped-list {
+    position: relative;
+    min-height: 500px;
+}
+
+.maplist-overlay,
+.studentList-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: rgb(7, 0, 48);
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    align-items: center;
+    font-weight: bold;
+}
+
+.studentList-overlay {
+    color: white;
+}
+
+.student-list {
+    position: relative;
+}
+
+.maplist-overlay .guide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+}
+
+.fac-search-rule {
+    display: flex;
+    align-items: center;
+}
+
+.fac-search-rule svg {
+    width: 100px;
+    height: 100px;
+    fill: green;
+}
+
+.student-search-rule {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.student-search-rule svg {
+    width: 100px;
+    height: 100px;
+    fill: green;
+}
+
+.main-rule {
+    padding: 50px;
+}
+
+.trash svg {
+    fill: red;
+    width: 25px;
+    height: 25px;
+}
+
+.active {
+    background: green !important;
+    color: white;
+}

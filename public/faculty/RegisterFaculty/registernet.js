@@ -1,6 +1,7 @@
 function registerUser(data) {
     console.log(data);
-    var url = "http://localhost:9999/register/faculty";
+    var url = "/PendingFaculty";
+    console.log(data);
     fetch(url, {
             method: "POST",
             mode: "cors",
@@ -10,8 +11,8 @@ function registerUser(data) {
                 // "Content-Type": "application/x-www-form-urlencoded",
             }
         }).then(res => res.json()).then(resData => {
-            console.log(resData);
-            updateUi(resData);
+          console.log(resData);  
+          updateUi(resData)  ;
         })
         .catch(err => err);
 }

@@ -23,6 +23,9 @@ const RegisterStudent=require('./rotes/RegisterStudent');
 const ProcData=require('./rotes/ProcData');
 const StudentDataSender=require('./rotes/studentDataSender');
 const ProcDataToDB=require('./rotes/ProcDataToDB');
+const PendingFaculty=require('./rotes/PendingFaculty');
+const MappingSupporter=require('./rotes/MappingSupporter');
+
 const port=process.env.port||9999;
 app.use(cors());
 // app.use(body_parser.urlencoded({extended:true}));
@@ -38,8 +41,8 @@ app.use(express_fileupload());
 
 app.use(Auth); //actual authentication checkes id and password and returns status
 app.use(checkUser); //email verification link thing
-app.use(dataSender); //servers data for the mapping 
-app.use(mapHandler); //puts the mapped data;
+// app.use(dataSender); //servers data for the mapping 
+// app.use(mapHandler); //puts the mapped data;
 app.use(RegisterUser); //faculty registration
 app.use(ProfilePic); //servers profilepics
 app.use(updatePassword); //password update 
@@ -49,6 +52,8 @@ app.use(RegisterStudent);
 app.use(ProcData);
 app.use(StudentDataSender);
 app.use(ProcDataToDB);
+app.use(PendingFaculty);
+app.use(MappingSupporter); //useful when mapping major use
 
 app.use(express.static('public'));
 

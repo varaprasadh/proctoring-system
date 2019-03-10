@@ -7,33 +7,32 @@ const connection = require('../dbconnection').connection;
 Router.get('/profilepic/faculty/:regdNo',(req,res)=>{
 
     var regdNo=req.params.regdNo;
-    var sql =`select filetype,fileData from faculty_profilepics where regdNo='${regdNo}'`;
-    connection.query(sql,(err,result)=>{
-        if(err) throw err;
-        var data=result[0];
-       if(result && (data.filetype != '' && data.filetype != undefined && data.filetype!=null)){
-           console.log("filedata");
-           var base64String = data.fileData.toString();
-
-           resObject={
-               dataUrl:`data:${data.filetype};base64,${base64String}`
+    var sql =`select file from faculty_profilepics where regdNo='${regdNo}'`;
+    new Promise((resolve,reject)=>{
+        connection.query(sql,(err,result)=>{
+            if(err){
+                reject(new Error(err.sqlMessage));
+            }
+           if(result.length){
+               console.log(result);
+               
+               resolve(result[0].file.toString());
            }
-           res.json(resObject);
-       }
-       else{
-        res.json({
-            dataUrl:null
+           else{
+               resolve('');
+           }
         })
-            
-       }
-        
+    }).then(fileData=>{
+        res.json({
+            dataUrl:fileData
+        })
     })
 })
 //need to test this out
 Router.get('/profilepic/student/:regdNo',(req,res)=>{
 
     var regdNo=req.params.regdNo;
-    var sql =`select filetype,fileData from student_profilepics where regdNo='${regdNo}'`;
+    var sql =`select fileData from student_profilepics where regdNo='${regdNo}'`;
     new Promise((resolve,reject)=>{
         connection.query(sql,(err,result)=>{
             if(err){

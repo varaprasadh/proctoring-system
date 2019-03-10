@@ -24,6 +24,77 @@ body {
     overflow-x: hidden;
 }
 
+nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    filter: drop-shadow(1px 5px 10px black);
+    justify-content: space-between;
+}
+
+nav .label {
+    color: rgb(2, 2, 22);
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 10px;
+    text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.controls {
+    display: flex;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.home {
+    color: blue;
+    padding: 10px 0px;
+    margin: 0px 30px;
+    width: 4em;
+    position: relative;
+}
+
+.home:hover {
+    color: green;
+}
+
+.home::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: rgb(255, 0, 242);
+    height: 3px;
+    bottom: 0;
+    transform: scaleX(1);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.home:hover::after {
+    transform: scaleX(0);
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -153,10 +224,6 @@ img {
     filter: drop-shadow(1px 1px 5px black);
 }
 
-.login:hover {
-    filter: drop-shadow(1px 1px 2px black);
-}
-
 .forget {
     color: rgb(255, 1, 1);
     background: none;
@@ -204,60 +271,6 @@ input:focus+.border-line {
     filter: drop-shadow(1px 1px 5px black);
     padding: 5px;
     margin-top: -20px;
-}
-
-nav {
-    height: 80px;
-    width: 100%;
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    align-items: center;
-    background: rgb(255, 255, 255);
-    z-index: 999;
-    filter: drop-shadow(1px 5px 10px black);
-    justify-content: space-between;
-}
-
-nav .label {
-    font-weight: bold;
-    font-size: 2em;
-    margin-left: 10px;
-    text-transform: capitalize;
-    color: rgb(0, 0, 22);
-}
-
-.controls {
-    display: flex;
-    /* justify-self: flex-end; */
-    justify-content: end;
-    font-size: 1.5em;
-}
-
-.controls a {
-    text-decoration: none;
-}
-
-.controls>div {
-    margin: 0 10px;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 2px;
-    cursor: pointer;
-}
-
-.logout {
-    color: rgb(255, 255, 255);
-    padding: 5px 20px;
-    background: rgb(0, 189, 25);
-    filter: drop-shadow(5px 5px 10px black);
-    display: block;
-    margin-right: 20px;
-}
-
-.logout:hover {
-    filter: drop-shadow(1px 1px 1px black);
 }
 
 .back {

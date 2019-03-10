@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PendingRegistrations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./controller.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="label">online Proctoring System</div>
+        <div class="controls">
+            <div class="home"><a href="../admin_home/admin_home.html">Home</a></div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="pending-wrapper">
+            <div class="header">Pending Faculty Registrations</div>
+            <div class="pending-list">
+                <div class="list-overlay">
+                    <div class="text">No Pending Registration Requests</div>
+                </div>
+                <!-- here fac-items will appended -->
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="text">Copyrights reserved</div>
+    </footer>
+    <template class="faculty-template">
+    <div class="faculty-item">
+        <div class="img">
+            <img src="./man.svg" alt="profilepic" class="profilepic">
+        </div>
+        <div class="details">
+            <div class="name">Varaprasadh alajangi</div>
+            <div class="regdNo">Anil999</div>
+            <div class="department">CSE</div>
+        </div>
+        <div class="controls">
+            <div class="reject">Decline</div>
+            <div class="accept">Accept</div>
+        </div>
+    </div>
+    </template>
+</body>
+
+</html>

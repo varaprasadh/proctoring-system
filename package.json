@@ -20,6 +20,8 @@
         "express-fileupload": "^1.1.1-alpha.3",
         "mysql": "^2.16.0",
         "node-xlsx": "^0.14.1",
+        "nodemailer": "^5.1.1",
+        "sendmail": "^1.4.1",
         "streamifier": "^0.1.1",
         "xls-parser": "^3.0.0"
     }
