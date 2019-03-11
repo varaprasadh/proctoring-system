@@ -22,7 +22,7 @@ function updateInfo(data) {
 }
 
 function updatePic(data) {
-    if (data.dataUrl != undefined) {
+    if (data.dataUrl !=null) {
         document.querySelector('.fac-img').src = data.dataUrl;
     }
 }

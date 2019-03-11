@@ -29,7 +29,7 @@ function addStudentItem(container, node, obj) {
     console.log(node);
     console.log("debug:", obj.regdNo);
 
-    node.querySelectorAll('.name').innerHTML = obj.name;
+    node.querySelector('.name').innerHTML = obj.name;
     node.querySelector('.regdNo').innerHTML = obj.regdNo;
     node.querySelector('.regdNo').dataset.regdNo = obj.regdNo;
     node.querySelector(".year").innerHTML = ["first year", "second year", "third year", "fouth year"][obj.year - 1];

@@ -10,15 +10,11 @@ body {
 }
 
 nav {
-    height: 80px;
+    height: 60px;
     width: 100%;
     display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
     align-items: center;
     background: rgb(255, 255, 255);
-    z-index: 999;
     filter: drop-shadow(1px 5px 10px black);
     justify-content: space-between;
 }
@@ -80,7 +76,7 @@ nav .label {
 }
 
 .container {
-    /* padding-top: 80px; */
+    /* padding-top: 60px; */
 }
 
 .map-container {
@@ -121,8 +117,8 @@ nav .label {
     padding: 5px 20px;
     font-weight: bold;
     font-size: 1.5em;
-    border-radius: 10px;
-    border: 2px solid rgb(0, 162, 255);
+    border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 .faculty-search-input::placeholder,
@@ -198,6 +194,7 @@ nav .label {
 }
 
 .fac-list .fac-item {
+    position: relative;
     align-self: stretch;
     background: white;
     padding: 20px;
@@ -206,7 +203,21 @@ nav .label {
     font-size: 1em;
     cursor: pointer;
     display: flex;
+    text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
     filter: drop-shadow(1px 2px black);
+    animation: slidein 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1;
+}
+
+.fac-item.slidein {}
+
+@keyframes slidein {
+    from {
+        transform: translate(100%, 0%);
+    }
+    to {
+        transform: translate(0%, 0%);
+    }
 }
 
 .fac-list .fac-item:hover {
@@ -317,7 +328,7 @@ nav .label {
 
 .mapped-student {
     background: white;
-    min-height: 50px;
+    min-height: 100px;
     border-radius: 10px;
     padding: 20px;
     margin-top: 10px;
@@ -325,6 +336,7 @@ nav .label {
     justify-content: space-between;
     align-items: center;
     filter: drop-shadow(1px 5px 5px black);
+    animation: slidein 1s cubic-bezier(0.19, 1, 0.22, 1) 1;
 }
 
 .mapped-student .unmap {
@@ -355,10 +367,26 @@ nav .label {
 .ProcessStatus .icon {
     height: 50px;
     width: 50px;
+    animation: rotateAlways 1s linear infinite;
+}
+
+@keyframes rotateAlways {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .ProcessStatus .icon svg {
     fill: rgb(0, 255, 255);
+}
+
+.ProcessStatus .notifier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .mapped-list {

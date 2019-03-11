@@ -8,6 +8,7 @@ var student_item_template,
 var loadingIcon;
 var maplistoverlay, studentListoverlay, facultyListoverlay;
 var override = false; //to override mapping
+var overRideNode;
 window.onload = function() {
     loadingIcon = document.querySelector('.ProcessStatus .icon');
     student_item_template = document.querySelector('.student-item-template');
@@ -25,8 +26,18 @@ window.onload = function() {
     facultyListoverlay = document.querySelector('.facultyList-overlay');
     // populateFaculty(faculty_data);
     // populateStudents(student_data);
-    submitHandle();
+    overRideNode = document.querySelector('.override');
 
+    submitHandle();
+    overRiderEventHandler();
+
+}
+
+function overRiderEventHandler() {
+    overRideNode.addEventListener('click', e => {
+        console.log(overRideNode.checked);
+        session.override = overRideNode.checked;
+    })
 }
 
 function hidemaplistoverlay(bool) {
@@ -53,6 +64,14 @@ function resetFacultyListContainer() {
 
 function resetMapContainer() {
     mapped_Student_container.innerHTML = '';
+}
+
+function statuslog(msg) {
+    var logger = document.querySelector('.logmsg');
+    logger.innerHTML = msg;
+    setTimeout(() => {
+        logger.innerHTML = 'running..';
+    }, 1500);
 }
 /**
  * <div class="student-data">

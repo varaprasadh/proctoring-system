@@ -13,7 +13,7 @@ function populateStudents(studentData) {
             node.querySelector('.regdNo').id = dataobj.regdNo;
             node.querySelector('.name').innerHTML = dataobj.name;
             node.querySelector('.regdNo').innerHTML = dataobj.regdNo;
-            node.querySelector('.year').innerHTML= dataobj.year+" year";
+            node.querySelector('.year').innerHTML = dataobj.year + " year";
             node.querySelector('.section').innerHTML = dataobj.section;
             node.querySelector('.department').innerHTML = dataobj.department;
             var student_item = node.querySelector('.student-item');
@@ -28,25 +28,31 @@ function addStudentSelectHandler(node) {
     node.addEventListener('click', e => {
         //addtomapped table; network request
         loadingIcon.classList.add('load');
-        
-        if (mapped_Student_container.childElementCount >= 15 && !override) {
+
+        if (mapped_Student_container.childElementCount >= 15 && !session.override) {
             //dont add item to the container 
             alert("you can override");
         } else {
-            var data = JSON.parse(node.querySelector('.dataholder').dataset.stData);
-            console.log(data);
-            fetch(`/map/${session.faculty}/${data.regdNo}`)
-            .then(res=>res.json()).then(log=>{
-                console.log(log);
-                if(log.status=='done'){
-                    console.log("fireship:", data);
-                    node.remove();
-                    populateMappedStudents([data])
-                }else{
-                    alert("something went wrong");
-                }
-            })
-      
+
+            if (session.faculty) {
+                var data = JSON.parse(node.querySelector('.dataholder').dataset.stData);
+                console.log(data);
+                fetch(`/map/${session.faculty}/${data.regdNo}`)
+                    .then(res => res.json()).then(log => {
+                        console.log(log);
+                        if (log.status == 'done') {
+                            console.log("mapped:", data);
+                            statuslog(`mapped student:${data.regdNo} with faculty:${session.faculty}`);
+                            node.remove();
+                            populateMappedStudents([data])
+                        } else {
+                            alert("something went wrong");
+                        }
+                    })
+            } else {
+                alert("select a faculty")
+            }
+
         }
 
     });

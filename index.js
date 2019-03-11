@@ -42,7 +42,7 @@ app.use(express_fileupload());
 app.use(Auth); //actual authentication checkes id and password and returns status
 app.use(checkUser); //email verification link thing
 // app.use(dataSender); //servers data for the mapping 
-// app.use(mapHandler); //puts the mapped data;
+app.use(mapHandler); //puts the mapped data; 
 app.use(RegisterUser); //faculty registration
 app.use(ProfilePic); //servers profilepics
 app.use(updatePassword); //password update 
@@ -61,4 +61,5 @@ app.use(express.static('public'));
 app.listen(port, "localhost",() => {
   console.log("listening at port: " + port);
 });
+
 

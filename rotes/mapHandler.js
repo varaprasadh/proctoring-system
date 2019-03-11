@@ -15,39 +15,39 @@ function parseResult(result, wrapper) {
     });
 }
 
-Router.put('/map',(req,res)=>{
-    var body=req.body;
-    console.log(body);
-    var students = body.students;
-    var faculty=body.faculty;
-   //for each student assign that selected faculty;
-     var promises=[];
-     students.forEach(student=>{
-       var promise=new Promise((resolve,reject)=>{
-           var sql = `update map_fac_to_student set f_regdNo = '${faculty}' where s_regdNo = '${student}'`;
-           connection.query(sql, (err, result) => {
-               if (err) {
-                   reject(err.msg);
-               }
-               else{
-                   resolve("done");
-               }
-           });
-       });
-       promises.push(promise);
-    });
-    Promise.all(promises).then(logs=>{
-      res.json({
-          status:"success"
-      })
-    }).catch(err=>{
-        console.log(err);
-        res.json({
-            status:"failed"
-        })
-    })
+// Router.put('/map',(req,res)=>{
+//     var body=req.body;
+//     console.log(body);
+//     var students = body.students;
+//     var faculty=body.faculty;
+//    //for each student assign that selected faculty;
+//      var promises=[];
+//      students.forEach(student=>{
+//        var promise=new Promise((resolve,reject)=>{
+//            var sql = `update map_fac_to_student set f_regdNo = '${faculty}' where s_regdNo = '${student}'`;
+//            connection.query(sql, (err, result) => {
+//                if (err) {
+//                    reject(err.msg);
+//                }
+//                else{
+//                    resolve("done");
+//                }
+//            });
+//        });
+//        promises.push(promise);
+//     });
+//     Promise.all(promises).then(logs=>{
+//       res.json({
+//           status:"success"
+//       })
+//     }).catch(err=>{
+//         console.log(err);
+//         res.json({
+//             status:"failed"
+//         })
+//     })
       
-});
+// });
 
 //returns the list of students under a faculty;
 Router.get('/mapped/:id',(req,res)=>{
@@ -64,7 +64,6 @@ Router.get('/mapped/:id',(req,res)=>{
         parseResult(result,resObj);
         res.json(resObj);
         res.end("");
-
     })
 })
 module.exports=Router;

@@ -5,7 +5,7 @@ const connection = require('../dbconnection').connection;
 // Router.get('/hello',(req,res)=>{
 //     res.end("hellow");
 // });
-
+ 
 function parseResult(result,wrapper){
     result.forEach(obj => {
         wrapper.data.push({

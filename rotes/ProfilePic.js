@@ -4,63 +4,60 @@ const path = require('path');
 const connection = require('../dbconnection').connection;
 
 
-Router.get('/profilepic/faculty/:regdNo',(req,res)=>{
+Router.get('/profilepic/faculty/:regdNo', (req, res) => {
 
-    var regdNo=req.params.regdNo;
-    var sql =`select file from faculty_profilepics where regdNo='${regdNo}'`;
-    new Promise((resolve,reject)=>{
-        connection.query(sql,(err,result)=>{
-            if(err){
-                reject(new Error(err.sqlMessage));
-            }
-           if(result.length){
-               console.log(result);
-               
-               resolve(result[0].file.toString());
-           }
-           else{
-               resolve('');
-           }
-        })
-    }).then(fileData=>{
-        res.json({
-            dataUrl:fileData
+        var regdNo = req.params.regdNo;
+        var sql = `select file from faculty_profilepics where regdNo='${regdNo}'`;
+        new Promise((resolve, reject) => {
+            connection.query(sql, (err, result) => {
+                if (err) {
+                    reject(new Error(err.sqlMessage));
+                }
+                console.log(result);
+                if (result.length && result[0].file != null) {
+                    console.log(result);
+                    resolve(result[0].file.toString());
+                } else {
+                    resolve(null);
+                }
+            })
+        }).then(fileData => {
+            res.json({
+                dataUrl: fileData
+            })
         })
     })
-})
-//need to test this out
-Router.get('/profilepic/student/:regdNo',(req,res)=>{
+    //need to test this out
+Router.get('/profilepic/student/:regdNo', (req, res) => {
 
-    var regdNo=req.params.regdNo;
-    var sql =`select fileData from student_profilepics where regdNo='${regdNo}'`;
-    new Promise((resolve,reject)=>{
-        connection.query(sql,(err,result)=>{
-            if(err){
+    var regdNo = req.params.regdNo;
+    var sql = `select fileData from student_profilepics where regdNo='${regdNo}'`;
+    new Promise((resolve, reject) => {
+        connection.query(sql, (err, result) => {
+            if (err) {
                 reject("something went wrong");
-            }
-            else{
+            } else {
                 console.log(result); //[] or [{null,null}]
-                if(result[0] != undefined && result[0].filetype!=null && result[0].filetype!=null ){
+                if (result[0] != undefined && result[0].filetype != null && result[0].filetype != null) {
                     var base64String = data.fileData.toString();
                     resObject = {
                         dataUrl: `data:${data.filetype};base64,${base64String}`
                     }
                     resolve(resObject);
-                }
-                else{
+                } else {
                     reject("somethin error with photo");
                 }
-               
+
             }
         })
-    }).then(obj=>{
+    }).then(obj => {
         res.json(resObject);
-    }).catch(err=>{
-        res.json({ })
+    }).catch(err => {
+        res.json({})
     });
 })
 
-module.exports=Router;
+module.exports = Router;
 
 
 /**

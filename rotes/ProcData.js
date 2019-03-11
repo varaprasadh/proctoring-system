@@ -4,22 +4,21 @@ const path = require('path');
 const connection = require('../dbconnection').connection;
 
 // Router.get('/ProcData/:regdNo',(req,res)=>{
-  
+
 // })
 
-function JsonHandler(sql,res){
+function JsonHandler(sql, res) {
     new Promise((resolve, reject) => {
         connection.query(sql, (err, result) => {
             if (err) {
                 reject(new Error("cant fetch attendence"));
-            }
-            else {
+            } else {
 
-                if(result && result[0]!=undefined){
+                console.log(result);
+                if (result && result[0] != undefined) {
                     resolve(result[0]);
-                }
-                else{
-                    resolve({data:null});
+                } else {
+                    resolve({ data: null });
                 }
             }
         });
@@ -29,37 +28,38 @@ function JsonHandler(sql,res){
     }).catch(err => err);
 
 }
-Router.get('/ProcData/Attendence/:regdNo',(req,res)=>{
+Router.get('/ProcData/Attendence/:regdNo', (req, res) => {
     var regdNo = req.params.regdNo;
     sql = `select * from attendence where regdNo=${regdNo}`;
-    JsonHandler(sql,res);
-})
-Router.get('/ProcData/Grades/:regdNo',(req,res)=>{
-    var regdNo = req.params.regdNo;
-    var sql=`select * from grades where regdNo=${regdNo}`;
     JsonHandler(sql, res);
 })
-Router.get('/ProcData/CGPA/:regdNo',(req,res)=>{
+Router.get('/ProcData/Grades/:regdNo', (req, res) => {
     var regdNo = req.params.regdNo;
-    var sql=`select * from cgpa where regdNo=${regdNo}`;
-    JsonHandler(sql,res);
+    var sql = `select * from grades where regdNo=${regdNo}`;
+    JsonHandler(sql, res);
 })
-Router.get('/ProcData/Remarks/:year/:regdNo',(req,res)=>{
+Router.get('/ProcData/CGPA/:regdNo', (req, res) => {
     var regdNo = req.params.regdNo;
-    var year=req.params.year;
+    var sql = `select * from cgpa where regdNo=${regdNo}`;
+    JsonHandler(sql, res);
+})
+Router.get('/ProcData/Remarks/:year/:regdNo', (req, res) => {
+    var regdNo = req.params.regdNo;
+    var year = req.params.year;
     var colstr = `Remark${year}11, Remark${year}12,Remark${year}21, Remark${year}22`;
-    var sql=`select ${colstr} from remarks where regdNo=${regdNo}`;
-    JsonHandler(sql,res)
+    var sql = `select ${colstr} from remarks where regdNo=${regdNo}`;
+    JsonHandler(sql, res)
 })
 
-Router.get('/ProcData/Issues/:year/:regdNo',(req,res)=>{
+Router.get('/ProcData/Issues/:year/:regdNo', (req, res) => {
     var regdNo = req.params.regdNo;
     var year = req.params.year;
     var colstr = `Issue${year}11, Issue${year}12,Issue${year}21, Issue${year}22`;
     var Procstr = `Issue${year}11, Issue${year}12,Issue${year}21, Issue${year}22`;
-    var sql=`select ${colstr,Procstr} from Issues where regdNo=${regdNo}`;
-    JsonHandler(sql,res);
+    var sql = `select ${colstr,Procstr} from Issues where regdNo=${regdNo}`;
+    JsonHandler(sql, res);
 });
+
 
 /**
  * +-----------+-------------+------+-----+---------+-------+
@@ -85,4 +85,4 @@ Router.get('/ProcData/Issues/:year/:regdNo',(req,res)=>{
  *
  */
 
-module.exports=Router;
+module.exports = Router;
