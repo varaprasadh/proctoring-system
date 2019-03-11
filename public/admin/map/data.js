@@ -4,11 +4,8 @@ var student_data = [{
     section: "c",
     department: "cse"
 },{
-
-//           311,
-//           325,411 - oe
-//           ,414  pe-2 415 pe -3
-//           421 pe-4 422 pe-5 
+                                                                                                                          
+//                                                             
 
     name: "bean boy",
     regdNo: "00000002",

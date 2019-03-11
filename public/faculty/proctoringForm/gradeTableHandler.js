@@ -1,8 +1,20 @@
 var grade_format = /^([A,B]{1,1}\+?|C|F|P|O|I|)$/;
 var code_format = /^(\d\d\d|)$/;
-var cgpaFormat = /^([0-9]\.\d|\d)$/;
+var cgpaFormat = /^([0-9]\.\d|\d{1,2}|)$/;
 var gradeData = {};
 var CgpaData={};
+/**
+                  *   311  open elective 1
+                      325  departmental elective1
+                      411  open elective 2
+                      414  departmental elective2
+                      415  departmental elective3
+                      421  departmental elective4
+                      422  departmental elective5 
+                      424  open elective;
+                  */
+
+
 function populateGradeTables(regdNo) {
     var grade_table_template = document.querySelector('.grade-table-template');
     var grade_table_node = document.importNode(grade_table_template.content, true);
@@ -10,6 +22,7 @@ function populateGradeTables(regdNo) {
     var tableyearrfields = [
         "1st Year", "2nd Year", "3rd Year", "4th Year"
     ];
+    
     for (var year = 1; year <= 4; year++) {
         var node = grade_table_node.cloneNode(true);
         node.querySelector('.year-label').innerHTML = tableyearrfields[year-1];
@@ -33,10 +46,20 @@ function putSubjectCodes(node,year){
         //console.log(subcodeinput,index);
         
         var code=year+''+semister+""+count;
+
         count++;
         if(count>9){
             count=1;
         }
+        //check whether node is the open elective subject or not?
+        electiveCodes.forEach(_code=>{
+            if(_code.code != Number(code)){
+                console.log(">>>>>>>",Number(code),">>",_code.code);
+                
+                subcodeinput.disabled="true";
+            }
+        })
+
         subcodeinput.parentNode.querySelector('.subgrade').id="G"+code; //matched with table column name
         subcodeinput.value=code;
         //  console.log(code); 

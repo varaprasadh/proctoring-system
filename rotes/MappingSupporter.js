@@ -4,12 +4,27 @@ const path = require("path");
 const connection = require("../dbconnection").connection;
 
 //aux can be id or name
-Router.get('/getfaculty/either/:aux', (req, res) => {
-    var aux_value = req.params.aux;
-    var sql = `select name,regdNo from faculty where name = '${aux_value}' or regdNo='${aux_value}'`;
+
+Router.get('/getfaculty/:payload', (req, res) => {
+    var payload = JSON.parse(req.params.payload);
+    var aux = payload.aux;
+    var department = payload.department;
+    console.log(payload);
+    var sql = null;
+    var cols = `name,regdNo`;
+    if (aux != '') {
+        sql = `select ${cols} from faculty where (name like '%${aux}%' or regdNo='${aux}')`;
+    } else if (aux == '') {
+        sql = `select ${cols} from faculty where department='${department}'`;
+    } else {
+        sql = `select ${cols} from faculty where (name like '%${aux}%' or regdNo='${aux}') and department=${department}`
+    }
     new Promise((resolve, reject) => {
             connection.query(sql, (err, result) => {
                 if (err) {
+
+                    console.log(err.sqlMessage);
+
                     reject(new Error(err.sqlMessage));
                 }
                 console.log(result);
@@ -19,45 +34,9 @@ Router.get('/getfaculty/either/:aux', (req, res) => {
             res.json(data);
         })
         .catch(err => {
-            res.json(500, "i dont know");
+            res.json(err);
         });
-
 })
-Router.get('/getfaculty/department/:dep', (req, res) => {
-    var dep = req.params.dep;
-    var sql = `select name,regdNo from faculty where department='${dep}'`;
-    new Promise((resolve, reject) => {
-        connection.query(sql, (err, result) => {
-            if (err) {
-                reject(new Error(err.sqlMessage));
-            }
-            console.log(result);
-            resolve(result);
-        })
-    }).then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.json(500, "i still dont know");
-    })
-})
-Router.get("/getfaculty/both/:aux/:dep", (req, res) => {
-    var dep = req.params.dep;
-    var aux = req.params.aux;
-    var sql = `select name,regdNo from faculty where ( name='${aux}' or regdNo='${aux}') and department='${dep}'`;
-    new Promise((resolve, reject) => {
-        connection.query(sql, (err, result) => {
-            if (err) {
-                reject(new Error(err.sqlMessage));
-            }
-            console.log(result);
-            resolve(result);
-        })
-    }).then(data => {
-        res.json(data)
-    }).catch(err => {
-        res.json(500, 'i still dont have');
-    })
-});
 
 ///--------------------------returns mapped students-----------
 
@@ -145,8 +124,36 @@ Router.get("/getStudents/:payload", (req, res) => {
     var cols = `regdNo,name,year,section,department`;
     // var sql=`select ${cols} from students where name = '${aux}' or regdNo='${aux}' or (department='${department}' and section='${section}')
     //   where regdNo in (select s_regdNo from map_fac_to_student where f_regdNo=null)`;
-    var sql = `select ${cols} from students`;
-    console.log(sql);
+    var sql = null;
+    if (aux.trim() != '') {
+        //only search with aux
+        sql = `select ${cols} from students where regdNo in 
+        (
+            select regdNo from students where ( name like '%${aux}%' or regdNo='${aux}') 
+            and regdNo in (
+                select s_regdNo from map_fac_to_student where f_regdNo is null
+            )
+        )`;
+        console.log(sql);
+    } else if (aux.trim() == '') {
+        //search with department and section
+        sql = `select ${cols} from students where regdNo in 
+        (
+            select regdNo from students where ( department='${department}' and section ='${section}') 
+            and regdNo in (
+                select s_regdNo from map_fac_to_student where f_regdNo is null
+            )
+        )`;
+    } else {
+        sql = `select ${cols} from students where regdNo in 
+        (
+            select regdNo from students where ( ( name like '%${aux}%' or regdNo='${aux}') and department='${department}' and section ='${section}') 
+            and regdNo in (
+                select s_regdNo from map_fac_to_student where f_regdNo is null
+            )
+        )`;
+    }
+
     new Promise((resolve, reject) => {
             connection.query(sql, (err, result) => {
                 if (err) {

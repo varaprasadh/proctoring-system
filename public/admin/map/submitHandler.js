@@ -6,28 +6,21 @@ function submitHandle() {
         var fac_input_value = document.querySelector('.faculty-search .faculty-search-input').value;
         var fac_dept_value = document.querySelector('.faculty-search .department').value;
         console.log("input", fac_input_value, fac_dept_value);
-        var url = null;
-        if (fac_input_value.length && fac_dept_value.length) {
-            //getfaculty/both/:aux/:dep
-            url = `/getfaculty/both/${fac_input_value}/${fac_dept_value}`;
-        } else if (fac_input_value.length && fac_dept_value == '') {
-            url = `/getfaculty/either/${fac_input_value}`;
-        } else if (fac_input_value == '' && fac_dept_value != '') {
-            url = `/getfaculty/department/${fac_dept_value}`;
+        var payload = {
+            aux: fac_input_value,
+            department: fac_dept_value
         }
-        console.log(url);
+        var payload_str = JSON.stringify(payload);
+        fetch(`/getfaculty/${payload_str}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                hidefacultyListoverlay(true);
+                resetFacultyListContainer();
+                populateFaculty(data);
+            })
+            .catch(err => err)
 
-        if (url != null) {
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    hidefacultyListoverlay(true);
-                    resetFacultyListContainer();
-                    populateFaculty(data);
-                })
-                .catch(err => err)
-        }
     });
 
 

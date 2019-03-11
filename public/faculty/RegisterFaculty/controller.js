@@ -1,7 +1,7 @@
 var registrationData = {};
 var submitButton;
 var regex = {
-    name: /^[A-Za-z]+\s{1,2}[A-Za-z]+$/,
+    name: /^[^0-9_'@#$*\^\(\)\!&]+$/,
     regdNo: /^anit\d{3,3}$/,
     email: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
     mobile: /^\d{10,10}$/,

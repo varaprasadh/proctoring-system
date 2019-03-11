@@ -1,12 +1,18 @@
- delete unnecessary tables and queries
+mark this codes as electives and ask faculty to enter manually 
+  311 ,                                          
+  325,411 - oe                                         
+  ,414  pe-2 415 pe -3                                               
+  421 pe-4 422 pe-5   mapcounter   pdf excell     
  
+ <!-- delete unnecessary tables and queries
+  -->
  **faculty side**
 <!-- - facultyProfile/populate students -->
 <!-- - facultyProfile/profilepage -->
 - facultyProfile/profilepage/proctoringFrom- export to pdf;
 <!-- - facultyProfile/profilepage/proctoringFrom/subject code; -->
-- facultyProfile/profilepage/proctoringFrom-connect database
-- facultyProfile/profilepage/proctoringFrom/issuetable/headingline;
+<!-- - facultyProfile/profilepage/proctoringFrom-connect database -->
+<!-- - facultyProfile/profilepage/proctoringFrom/issuetable/headingline; -->
 
 
 **admin side**
@@ -17,7 +23,10 @@
   - can delete a student;
 -  add student profile photo provision
 **database**
-- remove unneccessary subject code tables; 
+ -   remove unneccessary subject code tables; 
+
+- [ ]
+- []
 
 
 

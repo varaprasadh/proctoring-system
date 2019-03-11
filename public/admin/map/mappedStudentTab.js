@@ -15,6 +15,8 @@ function populateMappedStudents(data) {
       var mapped_st_item = node.querySelector(".mapped-student");
       addMappedStudentEventHandler(mapped_st_item);
       container.appendChild(node);
+      //auto scroll
+      container.scrollTop=container.scrollHeight;
     });
   }
 }
