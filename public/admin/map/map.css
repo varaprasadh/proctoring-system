@@ -380,7 +380,7 @@ nav .label {
 
 .ProcessStatus .icon svg {
     fill: rgb(0, 255, 255);
-    animation: rotateAlways 1s linear infinite;
+    /* animation: rotateAlways 1s linear infinite; */
 }
 
 .ProcessStatus .notifier {
