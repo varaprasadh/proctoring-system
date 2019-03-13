@@ -12,13 +12,14 @@ Router.post('/updateProcData', (req, res) => {
     var gradesBody = data.grades;
     var IssueRemarksBody = data.IssueRemarks;
     var subGrades = gradesBody.gradeData;
-    var cgpa = gradesBody.cgpaData;
+    var cgpa = gradesBody.CgpaData;
     var issues = IssueRemarksBody.Issues;
     var remarks = IssueRemarksBody.Remarks;
     console.log("incoming Request");
-    console.log(req.body);
-    //to add issuefaculty to the issues
-    //Issue412 | 412IssueFaculty     
+    // console.log(req.body);
+
+
+    console.log("debug cgpa", cgpa);
     var _keys = Object.keys(issues);
     _keys.map(key => {
         code = key.substr(-3) + "IssueFaculty";
@@ -35,9 +36,11 @@ Router.post('/updateProcData', (req, res) => {
                     reject(err.message);
                 }
                 resolve("success")
-                console.log("Attendence_", result);
+                console.log("Attendence_done");
 
             })
+        } else {
+            resolve("success");
         }
     });
     var subjectGrades_ = new Promise((resolve, reject) => {
@@ -48,11 +51,14 @@ Router.post('/updateProcData', (req, res) => {
                     reject(err.message);
                 }
                 resolve("success")
-                console.log("subjectGrades_", result);
+                console.log("subjectGrades_done");
             })
+        } else {
+            resolve("success");
         }
     })
     var cgpa_ = new Promise((resolve, reject) => {
+
         if (Object.entries(cgpa).length) {
             sql = `update cgpa set ? where regdNo='${regdNo}'`;
             connection.query(sql, cgpa, (err, result) => {
@@ -60,11 +66,12 @@ Router.post('/updateProcData', (req, res) => {
                     reject(err.message);
                 }
                 resolve("success")
-                console.log("cgpa_", result);
+                console.log("cgpa_done");
             })
+        } else {
+            resolve("success");
         }
     })
-
 
     var issues_ = new Promise((resolve, reject) => {
         if (Object.entries(issues).length) {
@@ -74,9 +81,10 @@ Router.post('/updateProcData', (req, res) => {
                     reject(err.message);
                 }
                 resolve("success")
-                console.log("issues_", result);
+                console.log("issues_done");
             })
-
+        } else {
+            resolve("success");
         }
     })
     var remarks_ = new Promise((resolve, reject) => {
@@ -87,17 +95,21 @@ Router.post('/updateProcData', (req, res) => {
                     reject(new Error(err.msg));
                 }
                 resolve("success")
-                console.log("remarks", result);
+                console.log("remarks_done");
             })
+        } else {
+            resolve("success");
         }
     })
     Promise.all([Attendence_, subjectGrades_, cgpa_, issues_, remarks_])
         .then(logs => {
+            console.log(logs);
+            console.log("wilson debug");
             res.json({
                 status: "success"
             })
         }).catch(err => {
-            console.log(err);
+            console.log("error", err);
             res.json({
                 status: "failed"
             })

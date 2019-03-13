@@ -1,8 +1,8 @@
-const connection=require('./dbconnection').connection;
+const connection = require('./init');
 
 function createCGPATable(){
     cols=[];
-    connection.query('use ost_project',(err,result)=>{
+
         for(year=1;year<=4;year++){
             for(semister=1;semister<=2;semister++){
               cols.push(`${year}${semister}CGPA varchar(2)`);
@@ -17,6 +17,5 @@ function createCGPATable(){
             if(err) throw err;
             console.log(res);
         })
-    })
 }
 module.exports=createCGPATable;

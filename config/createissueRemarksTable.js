@@ -1,4 +1,4 @@
-const connection=require('./dbconnection').connection;
+const connection = require('./init');
 
 function createIssueTable(){
     var cols=[];
@@ -11,17 +11,16 @@ function createIssueTable(){
         }
     }
     console.log(cols);
-    connection.query('use ost_project',(err,result)=>{
+
         str=cols.join();
         sql=`create table issues (
             regdNo varchar(20) primary key,
             ${str}
         )`
-        connection.query(sql,(err,res)=>{
+        connection.query(sql,(err,result)=>{
             if(err) throw err;
             console.log(result);
         })
-    })
     
 }
 function createRemarksTable(){
@@ -35,17 +34,15 @@ function createRemarksTable(){
         }
     }
     console.log(cols);
-    connection.query('use ost_project',(err,result)=>{
         str=cols.join();
         sql=`create table Remarks (
             regdNo varchar(20) primary key,
             ${str}
         )`
-        connection.query(sql,(err,res)=>{
+        connection.query(sql,(err,result)=>{
             if(err) throw err;
             console.log(result);
         })
-    })
     
 }
 

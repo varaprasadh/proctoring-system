@@ -1,21 +1,19 @@
-const connection=require('./dbconnection').connection;
+const connection = require('./init');
 
 
-function create(){
+function createsubGradesTable(){
   var str=gradecols.join();
   console.log(str);
   sql=`create table grades (
   ${str}
   )`
-  connection.query('use ost_project',(err,res)=>{
       connection.query(sql, (err, res) => {
           if (err) throw err;
-          console.log(res);
+        console.log("createsubGradesTable",res);
       })
-  })
 }
 const gradecols = [
-  "regdNo varchar(20)",
+  "regdNo varchar(20) primary key",
  " G111 varchar(2)", 
  " G112 varchar(2)" , 
  " G113 varchar(2)" , 
@@ -89,4 +87,4 @@ const gradecols = [
  " G428 varchar(2)" , 
  " G429 varchar(2)"
 ]
-module.exports=create;    
+module.exports=createsubGradesTable;    

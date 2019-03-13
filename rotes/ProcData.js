@@ -11,7 +11,7 @@ function JsonHandler(sql, res) {
     new Promise((resolve, reject) => {
         connection.query(sql, (err, result) => {
             if (err) {
-                reject(new Error("cant fetch attendence"));
+                reject(new Error("cant fetch ",sql));
             } else {
 
                 console.log(result);

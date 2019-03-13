@@ -585,3 +585,7 @@ nav .label {
 }
 
 .export-btn .text {}
+
+.DontEdit {
+    background: orange;
+}

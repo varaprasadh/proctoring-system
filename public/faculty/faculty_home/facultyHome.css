@@ -90,10 +90,21 @@ nav .label {
 
 .faculty-photo-wrapper {
     flex-basis: 250px;
+    overflow: hidden;
 }
 
 .fac-img {
     max-width: 250px;
+    animation: anime 2s cubic-bezier(0.215, 0.610, 0.355, 1) 1;
+}
+
+@keyframes anime {
+    0% {
+        transform: translate(-100%, 0%);
+    }
+    100% {
+        transform: translate(0%, 0%);
+    }
 }
 
 .details-wrapper {
@@ -126,7 +137,7 @@ nav .label {
 .student-list-wrapper {
     display: flex;
     flex-direction: column;
-    background: rgb(120, 138, 155);
+    background: rgb(254, 255, 255);
     padding: 20px;
 }
 
@@ -142,12 +153,12 @@ nav .label {
     margin: 20px 0px;
     font-weight: bold;
     font-size: 2em;
-    color: rgb(8, 2, 41);
+    color: rgb(9, 1, 53);
 }
 
 .student-item {
     margin: 0 10px;
-    background: rgb(8, 4, 27);
+    background: rgba(14, 2, 46, 0.918);
     min-height: 250px;
     display: flex;
     align-items: center;

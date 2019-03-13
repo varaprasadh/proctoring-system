@@ -18,7 +18,7 @@ window.onload = function() {
             PopulateAttendenceTables(regdNo);
             populateGradeTables(regdNo);
             populateIssuesTable(year, regdNo);
-
+            HandleOpenElectives();
         })
         .catch(err => err);
 
@@ -45,7 +45,9 @@ window.onload = function() {
                 .then(res => {
                     console.log(res);
                     alert("success");
-                }).catch(err => err);
+                }).catch(err => {
+                    console.log("front end debug")
+                });
         } else {
             alert("something wrong");
         }
