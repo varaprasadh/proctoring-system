@@ -60,6 +60,16 @@ Router.get('/ProcData/Issues/:year/:regdNo', (req, res) => {
     JsonHandler(sql, res);
 });
 
+Router.get("/ProcData/electives/:regdNo",(req,res)=>{
+    var regdNo=req.params.regdNo;
+    var sql=`select * from electives where regdNo='${regdNo}'`;
+    JsonHandler(sql,res);
+});
+
+
+module.exports = Router;
+
+
 
 /**
  * +-----------+-------------+------+-----+---------+-------+
@@ -80,9 +90,5 @@ Router.get('/ProcData/Issues/:year/:regdNo', (req, res) => {
 | Remark412 | text        | YES  |     | NULL    |       |
 | Remark421 | text        | YES  |     | NULL    |       |
 | Remark422 | text        | YES  |     | NULL    |       |
- * 
- * 
- *
- */
 
-module.exports = Router;
+ */

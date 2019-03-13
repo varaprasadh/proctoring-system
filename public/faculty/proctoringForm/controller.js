@@ -1,5 +1,8 @@
 var payload;
+var electivepopuptemplate,electivepopup;
 window.onload = function() {
+    electivepopuptemplate = document.querySelector(".elective-popup-template");
+    electivepopup=document.importNode(electivepopuptemplate.content,true);
     // window.scrollTo(0,0);
     var auth = JSON.parse(localStorage.getItem('auth'));
     var fac_id = auth.regdNo; //faculty regdNo
@@ -19,12 +22,14 @@ window.onload = function() {
             populateGradeTables(regdNo);
             populateIssuesTable(year, regdNo);
             HandleOpenElectives();
+            electiveInputHanlder();
+            updateElectiveCodes(regdNo);
         })
         .catch(err => err);
 
     //submit button
     document.querySelector(".submitForm-btn").addEventListener('click', e => {
-        if (isAttendenceValid() && isGradeTableValid()) {
+        if (isAttendenceValid() && isGradeTableValid() && isvalidElective()) {
             //add loader
             payload = {
                 "regdNo": regdNo,
@@ -32,6 +37,7 @@ window.onload = function() {
                 "Attendence": getAttendenceDataFromTable(),
                 "grades": getGradeDataFromTable(),
                 "IssueRemarks": getIssueTableData(),
+                "ElectiveCodes":getElectiveCodes()
 
             }
             console.log(payload);

@@ -55,7 +55,7 @@
      submitBtn.addEventListener('click', e => {
          if (isValid()) {
              console.log("skjfnls");
-             console.log(regData);
+            //  console.log(regData);
              registerStudent(regData)
          } else {
              console.log("wrong");

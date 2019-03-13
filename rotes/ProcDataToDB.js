@@ -12,6 +12,7 @@ Router.post('/updateProcData', (req, res) => {
     var gradesBody = data.grades;
     var IssueRemarksBody = data.IssueRemarks;
     var subGrades = gradesBody.gradeData;
+    var electiveCodes = data.ElectiveCodes;
     var cgpa = gradesBody.CgpaData;
     var issues = IssueRemarksBody.Issues;
     var remarks = IssueRemarksBody.Remarks;
@@ -19,7 +20,7 @@ Router.post('/updateProcData', (req, res) => {
     // console.log(req.body);
 
 
-    console.log("debug cgpa", cgpa);
+    console.log("debug electives", electiveCodes);
     var _keys = Object.keys(issues);
     _keys.map(key => {
         code = key.substr(-3) + "IssueFaculty";
@@ -55,6 +56,20 @@ Router.post('/updateProcData', (req, res) => {
             })
         } else {
             resolve("success");
+        }
+    })
+    var electives_=new Promise((resolve,reject)=>{
+        if(Object.entries(electiveCodes).length){
+            sql=`update electives set ? where regdNo='${regdNo}'`;
+            connection.query(sql,electiveCodes,(err,result)=>{
+                if(err){
+                    reject(err.sqlMessage);
+                }
+                console.log("electiveSubject codes done");
+                resolve("success");
+                
+                
+            })
         }
     })
     var cgpa_ = new Promise((resolve, reject) => {
@@ -101,7 +116,7 @@ Router.post('/updateProcData', (req, res) => {
             resolve("success");
         }
     })
-    Promise.all([Attendence_, subjectGrades_, cgpa_, issues_, remarks_])
+    Promise.all([Attendence_, subjectGrades_, electives_, cgpa_, issues_, remarks_])
         .then(logs => {
             console.log(logs);
             console.log("wilson debug");
@@ -118,3 +133,4 @@ Router.post('/updateProcData', (req, res) => {
 
 
 module.exports = Router;
+

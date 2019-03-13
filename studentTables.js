@@ -1,10 +1,11 @@
-const _tables = [ 
-"attendence"  ,            
-"cgpa"         ,              
-"grades"        ,             
-"issues"         ,                  
-"remarks"            ,        
-"student_profilepics"            
+const _tables = [
+  "attendence",
+  "cgpa",
+  "grades",
+  "electives",
+  "issues",
+  "remarks",
+  "student_profilepics"
 ];
 
 

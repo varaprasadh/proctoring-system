@@ -42,6 +42,7 @@ function putSubjectCodes(node, year) {
     var subcodeinputs = node.querySelectorAll('.subcode:not(div)');
     var count = 1;
     subcodeinputs.forEach((subcodeinput, index) => {
+        subcodeinput.disabled="true";
         var semister = subcodeinput.closest('.grade-table').dataset.semister;
         //console.log(subcodeinput,index);
         var code = year + '' + semister + "" + count;
@@ -50,9 +51,7 @@ function putSubjectCodes(node, year) {
         if (count > 9) {
             count = 1;
         }
-   
         subcodeinput.id="G"+code;
-
         subcodeinput.parentNode.querySelector('.subgrade').id = "G" + code; //matched with table column name
         subcodeinput.value = code;
         //  console.log(code); 
