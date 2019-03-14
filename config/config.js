@@ -13,7 +13,7 @@ const tablefunctions=[
     require('./passwordResetPending'),
     require('./studentProfilepics'),
     require('./pendingFaculty'),
-     require('./ElectiveTable');
+     require('./ElectiveTable')
 ];
 
 
