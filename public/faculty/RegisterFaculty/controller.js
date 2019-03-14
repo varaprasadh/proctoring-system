@@ -2,7 +2,7 @@ var registrationData = {};
 var submitButton;
 var regex = {
     name: /^[^0-9_'@#$*\^\(\)\!&]+$/,
-    regdNo: /^anit\d{3,3}$/,
+    regdNo: /^anil\d{4,4}$/i,
     email: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
     mobile: /^\d{10,10}$/,
     department: /\w/,
@@ -10,8 +10,7 @@ var regex = {
 }
 window.onload = function() {
     console.log("hello world");
-
-    
+        
     var photopreview = document.querySelector('.photopreview');
     photopreview.addEventListener('click', e => {
         document.querySelector('#file').click();

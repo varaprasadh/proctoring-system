@@ -28,6 +28,7 @@ nav .label {
     font-size: 2em;
     margin-left: 10px;
     text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .controls {
@@ -39,6 +40,7 @@ nav .label {
 
 .controls a {
     text-decoration: none;
+    color: inherit;
 }
 
 .controls>div {
@@ -51,22 +53,30 @@ nav .label {
 
 .home {
     color: blue;
-    padding: 5px 20px;
+    padding: 10px 0px;
+    margin: 0px 30px;
+    width: 4em;
+    position: relative;
 }
 
 .home:hover {
-    filter: brightness(10%);
+    color: green;
 }
 
-.logout {
-    color: rgb(255, 255, 255);
-    padding: 5px 20px;
-    background: red;
-    filter: drop-shadow(5px 5px 10px black);
+.home::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: rgb(255, 0, 242);
+    height: 3px;
+    bottom: 0;
+    transform: scaleX(1);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.logout:hover {
-    filter: drop-shadow(1px 1px 1px black);
+.home:hover::after {
+    transform: scaleX(0);
 }
 
 .container {

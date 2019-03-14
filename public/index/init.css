@@ -26,18 +26,28 @@ nav {
     top: 0;
     left: 0;
     align-items: center;
-    background: rgb(255, 255, 255);
+    /* background: rgb(255, 255, 255); */
     z-index: 999;
-    filter: drop-shadow(1px 5px 10px black);
     justify-content: space-between;
+    animation: slidedown 2s cubic-bezier(0.215, 0.610, 0.355, 1) 1;
+}
+
+@keyframes slidedown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
 
 nav .label {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 3em;
     margin-left: 10px;
     text-transform: capitalize;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 
 .controls {
@@ -119,6 +129,19 @@ nav .label {
     padding: 2em;
     flex-direction: column;
     transform: scale(.6);
+    animation: slideRight 2s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1;
+    transition: all 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-600px) scale(0.6);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0px) scale(0.6);
+        opacity: 1;
+    }
 }
 
 .content {
@@ -144,8 +167,9 @@ nav .label {
     width: 25vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.5em;
+    transform-origin: right;
     transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
-    animation: dpShadow 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
+    animation: dpShadow 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 }
 
 @keyframes dpShadow {
@@ -158,7 +182,7 @@ nav .label {
 }
 
 .card:hover {
-    transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(0deg) scale(1.2);
 }
 
 a {
@@ -167,7 +191,7 @@ a {
 }
 
 .sign-in {
-    padding: 10px;
+    padding: 10px 30px;
     background: green;
     font-size: 1.2em;
     border-radius: 20px;
@@ -267,7 +291,7 @@ a {
     border-radius: 20px;
     stroke-dasharray: 2000px;
     stroke-dashoffset: 2000px;
-    transition: all 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     animation: linestroke 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 }
 

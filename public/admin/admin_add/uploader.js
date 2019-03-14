@@ -12,12 +12,17 @@ function uploadFile(file){
         // headers: {
         //     "content-Type": "multipart/form-data"
         // }
-    }).then(res=>{
-        console.log(res);
-    })
-          
-    
+    }).then(res=>res.json()).then(data=>{
+        if(data.status=='succes')
+        {
+        alert("successfully added");
+        }else{
+            alert("wrong happened");
+        }
+    });
 }
+    
+    
 function registerStudent(data){
     fetch(register_student_url,{
         method:"POST",
@@ -28,7 +33,28 @@ function registerStudent(data){
         }
     }).then(res=>res.json()).then(resData=>{
         console.log(resData);
-    })
+        if (resData.status=='success') {
+            alert("student added successfully...");
+        }else{
+            alert("something wrong happened")
+        }
+    }).catch(err=>err);
 }
 
+function uploadPhotos(files){
+    var formdata=new FormData();
+    formdata.append('files',files);
+    fetch("/uploadStudentPics", {
+      method: "POST",
+      body: formdata,
+    //   headers:{
+    //       'content-Type':'multipart/form-data'
+    //   }
+    })
+      .then(res => res.json())
+      .then(status => {
+        console.log(status);
+      })
+      .catch(err => console.log(err));
+}
 //application/csv

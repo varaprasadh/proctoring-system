@@ -1,8 +1,8 @@
 var payload;
-var electivepopuptemplate,electivepopup;
+var electivepopuptemplate, electivepopup;
 window.onload = function() {
     electivepopuptemplate = document.querySelector(".elective-popup-template");
-    electivepopup=document.importNode(electivepopuptemplate.content,true);
+    electivepopup = document.importNode(electivepopuptemplate.content, true);
     // window.scrollTo(0,0);
     var auth = JSON.parse(localStorage.getItem('auth'));
     var fac_id = auth.regdNo; //faculty regdNo
@@ -37,7 +37,7 @@ window.onload = function() {
                 "Attendence": getAttendenceDataFromTable(),
                 "grades": getGradeDataFromTable(),
                 "IssueRemarks": getIssueTableData(),
-                "ElectiveCodes":getElectiveCodes()
+                "ElectiveCodes": getElectiveCodes()
 
             }
             console.log(payload);
@@ -58,6 +58,18 @@ window.onload = function() {
             alert("something wrong");
         }
     });
+    document.querySelector('.export-btn').addEventListener('click', e => {
+        // html2canvas(document.body, {
+        //     onrendered: function(canvas) {
+        //         console.log(canvas);
+        //         var doc = new jsPDF();
+        //         var img = canvas.toDataURL();
+        //         doc.addImage(img, 'jpeg', 20, 20);
+        //         doc.save('test.pdf');
+        //     }
+        // })
+      window.print();
+    })
 }
 
 function updateStudentProfilePic(regdNo) {
@@ -82,16 +94,3 @@ function updateStudentDetails(details) {
     document.querySelector('.email').innerHTML = details.email ? details.email : "";
     document.querySelector('.address').innerHTML = details.localAddress ? details.localAddress : "";
 }
-
-
-/*
- *
- * /profilepic/student/:regdNo
- * /Student/:regdNo
- *
- * /ProcData/Attendence/:regdNo
- * /ProcData/Grades/:regdNo'
- * /ProcData/CGPA/:regdNo
- * /ProcData/Remarks/:year/:regdNo'
- * /ProcData/Issues/:year/:regdNo'
- */

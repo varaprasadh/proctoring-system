@@ -1,5 +1,5 @@
  var regex = {
-     name: /^[A-Za-z]+\s{1,2}[A-Za-z]+$/,
+     name: /^[^0-9_'@#$*\^\(\)\!&]+$/,
      regdNo: /^\d{12,12}$/,
      email: /^([a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*|)$/,
      mobile: /^(\d{10,10}|)$/,
@@ -12,12 +12,7 @@
 
  var filestatus = false;
  window.onload = function() {
-     var logoutbtn = document.querySelector('.logout');
-     logoutbtn.addEventListener('click', e => {
-         localStorage.removeItem('auth');
-         //take to index url;
-         window.location.assign("../../index/index.html");
-     });
+
 
      var inputElements = document.querySelectorAll('input:not([type="file"]),select');
      console.log(inputElements);
@@ -37,7 +32,7 @@
          })
      })
 
-     var importbtn = document.querySelector('.import-wrapper');
+     var importbtn = document.querySelector(".data-input");
      var filebtn = document.querySelector('#file');
      importbtn.addEventListener('click', e => {
          filebtn.click();
@@ -45,12 +40,36 @@
      filebtn.addEventListener('change', e => {
          //confirm upload popup;
          filestatus = true;
-         var file = filebtn.files[0];
-         console.log(file);
-
-         console.log(file);
-         uploadFile(file);
+         var _confirm=confirm("confirm to upload file");
+        if(_confirm){
+            var file = filebtn.files[0];
+            console.log(file);
+            console.log(file);
+            uploadFile(file);
+        }
+        else{
+            alert("file uploading cancelled");
+        }
      })
+
+     //to handle photos 
+     var photoimport = document.querySelector('.photo-input');
+    var picsinput=document.querySelector('#pics');
+     photoimport.addEventListener("click", e => {
+        pics.click();
+     });
+     pics.addEventListener('change',e=>{
+         var photos=pics.files;
+         var _confirm = confirm("confirm uploading files");
+         if(_confirm){
+             uploadPhotos(photos);
+         }
+         else{
+             alert("uploading photos cancelled");
+         }
+     })
+     
+
      var submitBtn = document.querySelector('.submit');
      submitBtn.addEventListener('click', e => {
          if (isValid()) {

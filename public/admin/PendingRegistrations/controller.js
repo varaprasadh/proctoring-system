@@ -17,14 +17,14 @@ function populateFacultyItems(container, faculty_node, data) {
         data.forEach(obj => {
             var node = faculty_node.cloneNode(true);
             //set regdno as id 
-            node.id = obj.regdNo;
+            node.querySelector('.faculty-item').id=obj.regdNo;
             node.querySelector('.name').innerHTML = obj.name;
             node.querySelector('.regdNo').innerHTML = obj.regdNo;
             node.querySelector('.department').innerHTML = obj.department;
             if (obj.file != null) { node.querySelector('.profilepic').src = obj.file }
-            addEventHandler(node);
             container.appendChild(node);
         })
+        addHandlers();
     }
     else{
         
@@ -32,13 +32,29 @@ function populateFacultyItems(container, faculty_node, data) {
     }
     
 }
+function addHandlers(){
+    var cards = document.querySelectorAll('.faculty-item');
+    console.log("dfdggffsf",cards);
+    
+    cards.forEach(card=>{
+        // console.log("dfdggffsf", card);
+        addEventHandler(card);
+    })
+}
+
+
 function addEventHandler(node){
   node.querySelector('.accept').addEventListener('click',e=>{
       var regdNo=node.id;
       fetch(`/PendingFaculty/accept/${regdNo}`).then(res=>res.json()).then(_res=>{
          if(_res.status=='success'){
+             alert("accepted the faculty");
+
              animateAndRemoveNode(node);
+           
          }
+        console.log(_res);
+        
 
       }).catch(err=>err);
     
@@ -47,9 +63,13 @@ function addEventHandler(node){
       var regdNo=node.id;
       fetch(`/PendingFaculty/reject/${regdNo}`).then(res=>res.json()).then(data=>{
          if(data.status=="success"){
-
+             alert("deleted successfully");
              animateAndRemoveNode(node);
+    
+
          }
+        console.log(_res);
+        
       }).catch(err=>err);
 
   })
@@ -61,6 +81,12 @@ function animateAndRemoveNode(node){
     setTimeout(() => {
         card.remove();
     }, 1000);
+    updateUI();
 }
 
+function updateUI(){
+    if (document.querySelector('.pending-list').childElementCount<=1){
+        document.querySelector('.list-overlay').style.display = "flex";
+    }
+}
    

@@ -12,7 +12,8 @@ const tablefunctions=[
     require('./maptable'),
     require('./passwordResetPending'),
     require('./studentProfilepics'),
-    require('./pendingFaculty')
+    require('./pendingFaculty'),
+     require('./ElectiveTable');
 ];
 
 

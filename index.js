@@ -25,6 +25,7 @@ const StudentDataSender=require('./rotes/studentDataSender');
 const ProcDataToDB=require('./rotes/ProcDataToDB');
 const PendingFaculty=require('./rotes/PendingFaculty');
 const MappingSupporter=require('./rotes/MappingSupporter');
+const uploadStudentProfilePics=require('./rotes/uploadStudentProfilePics');
 
 const port=process.env.port||9999;
 app.use(cors());
@@ -54,7 +55,7 @@ app.use(StudentDataSender);
 app.use(ProcDataToDB);
 app.use(PendingFaculty);
 app.use(MappingSupporter); //useful when mapping major use
-
+app.use(uploadStudentProfilePics);
 app.use(express.static('public'));
 
 

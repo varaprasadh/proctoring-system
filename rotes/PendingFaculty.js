@@ -151,6 +151,7 @@ new Promise((resolve,reject)=>{
     }).catch(err=>{
         res.json({err:"maybe"})
     })
+    
 });
 
 Router.get("/pendingFaculty/reject/:regdNo", (req, res)=>{

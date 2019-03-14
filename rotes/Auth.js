@@ -6,9 +6,10 @@ const connection = require('../dbconnection').connection;
 Router.post('/signin',(req,res)=>{
   console.log(req.body);
   var reqData=req.body;
+  var regdNo = reqData.userid.replace(/'/g,'');
   if(reqData.type==='admin'){
     //search admin in database
-    var sql =`select * from adminData where admin_id='${reqData.userid}'`;
+    var sql = `select * from adminData where admin_id='${regdNo}'`;
     connection.query(sql,(err,result)=>{
       if(err) throw(err);
        var foundUser=result[0];
@@ -36,7 +37,8 @@ Router.post('/signin',(req,res)=>{
     })
   }
   else{
-    var sql = `select * from faculty_passwords where regdNo='${reqData.userid}'`
+  
+    var sql = `select * from faculty_passwords where regdNo='${regdNo}'`;
     connection.query(sql,(err,result)=>{
       if(err)throw(err);
       console.log(result);

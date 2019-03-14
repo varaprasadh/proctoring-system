@@ -1,4 +1,4 @@
-var subcodeRegex = /^([A-Za-z]{2,4}\d\d\d|)$/;
+var subcodeRegex = /^((mech|it|cse|ece|eee)\d\d\d|)$/i;
 var Elective_subject_codes = {};
 var electiveCodes = [{
         code: 311,
@@ -64,8 +64,8 @@ function HandleOpenElectives() {
             });
 
             input.classList.add('elective');
-            var msg = "enter " + ((electiveData.type == 'OE') ? "Open " : "departmental ") + "elective subject code";
-            node.querySelector('.message').innerHTML = `${msg}-${electiveData.seq}`;
+            var msg = "enter " + ((electiveData.type == 'OE') ? "Open " : "departmental ") + `elective-${electiveData.seq} subject code`;
+            node.querySelector('.message').innerHTML = `${msg}`;
             input.parentNode.appendChild(node);
 
 
@@ -81,12 +81,24 @@ function electiveInputHanlder() {
         elective.addEventListener('input', e => {
             var value = elective.value;
             var id = elective.id;
+            console.log("debuggggggingggg");
+            elective.value = value.toUpperCase();
+            console.log(value);
             if (subcodeRegex.test(value)) {
                 //set this as correct code;
+                console.log("cooorerrrrrrrrrrett");
+
                 Elective_subject_codes[id] = value;
-                elective.parentNode.querySelector('.elective-popup').style.display = "none";
+                if(value==''){
+                    elective.parentNode.querySelector('.elective-popup').style.display = "flex";
+                }else{
+                    elective.parentNode.querySelector('.elective-popup').style.display = "none";
+
+                }
                 elective.classList.remove('error');
             } else {
+                console.log("werrronnsdgg");
+
                 elective.parentNode.querySelector('.elective-popup').style.display = "flex";
                 elective.classList.add('error');
             }
@@ -101,6 +113,8 @@ function isvalidElective() {
     for (let i = 0; i < electiveElements.length; i++) {
         var value = electiveElements[i].value;
         if (!subcodeRegex.test(value)) {
+            console.log("debbbbbuuug", electiveElements[i], value);
+            console.log("ffff" + value);
             return false;
         } else {
             valid = true;

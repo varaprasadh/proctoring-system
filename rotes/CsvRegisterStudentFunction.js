@@ -20,12 +20,12 @@ function AddStudent(data, res) {
     };
     //add this to init_tables
     var init_obj = {
-            regdNo: data.regdNo
-        }
-        //insert into students table;
+        regdNo: data.regdNo
+    }
+    //insert into students table;
     var addedtoStudentTable = new Promise((resolve, reject) => {
         var sql = `insert into ${TableConfig.legacy_table} set ?`;
-        connection.query(sql, studentobj, async(err, result) => {
+        connection.query(sql, studentobj, async (err, result) => {
             if (err) {
                 //if error send response and then return;
                 console.log(err);
@@ -40,17 +40,17 @@ function AddStudent(data, res) {
     //initialize map table;
 
     var added_to_map_table = new Promise((resolve, reject) => {
-            var map_init_sql = `insert into ${TableConfig.map_table} set ?`;
-            connection.query(map_init_sql, map_init_obj, (err, result) => {
-                if (err) {
-                    console.log(err);
-                    reject(new Error(err.msg));
-                } else {
-                    resolve('added to map table');
-                }
-            })
+        var map_init_sql = `insert into ${TableConfig.map_table} set ?`;
+        connection.query(map_init_sql, map_init_obj, (err, result) => {
+            if (err) {
+                console.log(err);
+                reject(new Error(err.msg));
+            } else {
+                resolve('added to map table');
+            }
         })
-        //initialize all student tables
+    })
+    //initialize all student tables
 
     var Added_to_tables_to_init = new Promise((resolve, reject) => {
         tablesPromises = [];
@@ -88,13 +88,12 @@ function AddStudent(data, res) {
             .then(msgs => {
                 // msgs.forEach(msg=>{console.log(msg);
                 console.log("added student");
-                res.json({ status: "success" });
+                
             })
             .catch(err => {
                 console.log(err);
                 removeLastEntry(studentobj.regdNo);
-                res.json({ satus: "failed" })
-            })
+                })
     }).catch(err => err);
 }
 

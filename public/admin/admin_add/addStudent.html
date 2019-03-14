@@ -13,41 +13,30 @@
 
 <body>
     <nav>
-        <div class="label">online Proctoring System</div>
+        <div class="label">Proctoring System</div>
         <div class="controls">
-            <div class="logout">Logout</div>
+            <div class="home"><a href="../admin_home/admin_home.html">Home</a></div>
         </div>
     </nav>
     <div class="container">
 
-        <div class="rules">
-            <div class="rulelabel note">Note</div>
-            <ul>
-                <li>You can add multiple students by uploading files</li>
-                <li>
-                    <p>all <span class="sup-files">CSV</span> And
-                        <span class="sup-files">Xls</span> And
-                        <span class="sup-files">Xlsx</span> are supported</p>
-                </li>
-                <li>first line of file should specify fields for the values</li>
-                <li>file should contain
-                    <span class="sup-files">regdNo,name,department,year,section </span>
-                </li>
-                <li>
-                    <span class="sup-files">mobile</span> And
-                    <span class="sup-files">email</span> And
-                    <span class="sup-files">address</span> can be optional.specify them as empty columns
-                </li>
-            </ul>
-        </div>
         <div class="form-wrapper">
             <form>
                 <div class="import-wrapper">
-                    <div class="import-label">
-                        Import from file!
+                    <div class="import-opt data-input">
+                        <div class="import-label">
+                            Import student data file!
+                        </div>
+                        <input type="file" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" name="file" id="file">
                     </div>
-                    <input type="file" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" name="file" id="file">
+                    <div class="import-opt photo-input">
+                        <div class="import-label">
+                            Import student Photos
+                        </div>
+                        <input type="file" accept="image/*" multiple name="pics" id="pics">
+                    </div>
                 </div>
+
                 <div class="or">
                     <div class="txt">or</div>
                 </div>
@@ -120,7 +109,7 @@
                     </div>
                     <div class="inputrow">
                         <label>Address</label>
-                        <input type="text" id="address">
+                        <input type="text" placeholder="enter address" id="address">
                     </div>
                     <div class="inputrow">
                         <div class="submit">
@@ -138,121 +127,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-<!-- 
- adding progress bar;
-
- <!DOCTYPE html>
-<html>
-<head>
-	<title>loading bar {windows}</title>
-	<style type="text/css">
-		*{
-			margin: 0;
-			padding: 0;
-
-		}
-		.container{
-		    position:relative;
-		    background-color: rgba(10,140,250,0.9);
-		    width: 100vw;
-		    height: 100vh;
-
-		}
-		.loader{
-			position:relative;
-			width:100px;
-			height: 100px;
-			left: 50%;
-			top:50%;
-		    transform: translate(-50%,-50%);
-			border-radius: 50%;
-		 }
-		
-		.bubbles{
-			position: absolute;
-			background:rgba(0,0,0,0);
-			width:100px;
-			height: 100px;
-			border-radius: 50%;
-        }
-        .bubbles::before{
-            position: absolute;
-			content:" ";
-			display: block;
-			width: 10px;
-			height:10px;
-			background-color: white;
-			border-radius:50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-						
-
-        }
-        .bub-1{
-           animation: spin 3s linear 0s infinite;
-        }
-       
-         .bub-2{
-           animation: spin 3s linear 0.2s infinite;
-        }
-        .bub-3{
-           animation: spin 3s linear 0.4s infinite;
-        } 
-        .bub-4{
-           animation: spin 3s linear 0.6s infinite;
-        }
-         .bub-5{
-           animation: spin 3s linear 0.8s infinite;
-        } 
-        .bub-6{
-           animation: spin 3s linear 1s infinite;
-        }
-       
-        
-
-
-
-
-		
-
-		@keyframes spin{
-			0% {
-				transform: rotate(0deg);
-			}
-			20%{
-				transform: rotate(200deg);
-	        } 
-	        100%{
-				transform: rotate(360deg);
-			}
-        }
-	
-
-		 
-
-
-
-	</style>
-</head>
-<body>
-   <div class="container">
-     <div class="loader">
-     	<div class="bubbles bub-1"></div>
-     	<div class="bubbles bub-2"></div>
-     	<div class="bubbles bub-3"></div>
-     	<div class="bubbles bub-4"></div>
-     	<div class="bubbles bub-5"></div>
-     	<div class="bubbles bub-6"></div>
-     	
-     </div>   	
-   </div>
-</body>
-</html>  
-
- -->

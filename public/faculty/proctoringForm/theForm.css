@@ -633,3 +633,15 @@ nav .label {
     z-index: 999;
     filter: drop-shadow(3px 2px 1px black);
 }
+
+@media print {
+    .export-btn {
+        display: none !important;
+        opacity: 0 !important;
+    }
+    * {}
+}
+
+@page {
+    size: landscape;
+}
