@@ -59,15 +59,7 @@ window.onload = function() {
         }
     });
     document.querySelector('.export-btn').addEventListener('click', e => {
-        // html2canvas(document.body, {
-        //     onrendered: function(canvas) {
-        //         console.log(canvas);
-        //         var doc = new jsPDF();
-        //         var img = canvas.toDataURL();
-        //         doc.addImage(img, 'jpeg', 20, 20);
-        //         doc.save('test.pdf');
-        //     }
-        // })
+     
       window.print();
     })
 }
@@ -76,8 +68,9 @@ function updateStudentProfilePic(regdNo) {
     fetch('/profilepic/student/' + regdNo)
         .then(res => res.json())
         .then(imgdata => {
-            if (imgdata.dataUrl) {
-                document.querySelector('.student-details .photo > img').src = imgdata;
+            console.log("student img:",imgdata);
+            if (imgdata.datauri) {
+                document.querySelector('.student-details .photo > img').src = imgdata.datauri;
             }
         })
 }

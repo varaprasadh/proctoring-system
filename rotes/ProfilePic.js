@@ -14,16 +14,20 @@ Router.get('/profilepic/faculty/:regdNo', (req, res) => {
                     reject(new Error(err.sqlMessage));
                 }
                 console.log(result);
-                if (result.length && result[0].file != null) {
+                if (result.length ) {
                     console.log(result);
-                    resolve(result[0].file.toString());
+                    resolve(result[0].file);
                 } else {
-                    resolve(null);
+                   reject("null")
                 }
             })
         }).then(fileData => {
             res.json({
-                dataUrl: fileData
+              dataUrl: fileData.toString()
+            });
+        }).catch(err=>{
+            res.json({
+                dataUrl:null
             })
         })
     })
@@ -33,28 +37,26 @@ Router.get('/profilepic/student/:regdNo', (req, res) => {
     var regdNo = req.params.regdNo;
     var sql = `select fileData from student_profilepics where regdNo='${regdNo}'`;
     new Promise((resolve, reject) => {
-        connection.query(sql, (err, result) => {
-            if (err) {
-                reject("something went wrong");
-            } else {
-                console.log(result); //[] or [{null,null}]
-                if (result[0] != undefined && result[0].filetype != null && result[0].filetype != null) {
-                    var base64String = data.fileData.toString();
-                    resObject = {
-                        dataUrl: `data:${data.filetype};base64,${base64String}`
-                    }
-                    resolve(resObject);
-                } else {
-                    reject("somethin error with photo");
-                }
-
+        connection.query(sql,(err,result)=>{
+            if(err){
+                reject(err.sqlMessage);
             }
+           if(result.length){
+               console.log(result[0].fileData);
+               resolve(result[0].fileData);
+           }else{
+               reject('null');
+           }
+        });
+    }).then(datauri=>{
+        res.json({
+            datauri:datauri.toString()
         })
-    }).then(obj => {
-        res.json(resObject);
-    }).catch(err => {
-        res.json({})
-    });
+    }).catch(err=>{
+        res.json({
+            datauri:null
+        })
+    })
 })
 
 module.exports = Router;

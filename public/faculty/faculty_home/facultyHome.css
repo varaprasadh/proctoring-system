@@ -90,7 +90,7 @@ nav .label {
     color: rgb(255, 255, 255);
     width: 100%;
     display: flex;
-    background: rgb(4, 4, 14);
+    background: linear-gradient(45deg, red, blue);
     padding: 10px 0px;
     justify-content: center;
     align-items: center;
@@ -104,6 +104,8 @@ nav .label {
 }
 
 .fac-img {
+    width: 100%;
+    height: 100%;
     max-width: 250px;
     animation: anime 2s cubic-bezier(0.215, 0.610, 0.355, 1) 1;
 }
@@ -157,6 +159,8 @@ nav .label {
     height: 100%;
     grid-gap: 20px;
     min-height: 250px;
+    justify-content: center;
+    align-items: center;
 }
 
 .student-list-wrapper .label {
@@ -168,8 +172,9 @@ nav .label {
 
 .student-item {
     margin: 0 10px;
-    background: rgba(14, 2, 46, 0.918);
+    background: linear-gradient(45deg, black, rgb(65, 58, 58));
     min-height: 250px;
+    max-width: 300px;
     display: flex;
     align-items: center;
     flex-direction: column;

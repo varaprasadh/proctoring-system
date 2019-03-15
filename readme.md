@@ -16,7 +16,7 @@
 | faculty                      |
 | faculty_passwords            |
 | faculty_profilepics          |
-
+  
 
 
 | - four_one_attendence          |

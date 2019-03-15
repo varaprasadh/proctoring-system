@@ -43,7 +43,9 @@ function registerStudent(data){
 
 function uploadPhotos(files){
     var formdata=new FormData();
-    formdata.append('files',files);
+    for(let i=0;i<files.length;i++){
+        formdata.append('file',files[i]);
+    }
     fetch("/uploadStudentPics", {
       method: "POST",
       body: formdata,

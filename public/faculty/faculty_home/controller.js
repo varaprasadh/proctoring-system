@@ -1,6 +1,7 @@
 window.onload = function() {
     fetchFaculty_UpdateUI();
     fetchStudents_updateUI();
+    
     //seems async 
     
     var AccountBtn = document.querySelector('.profile');

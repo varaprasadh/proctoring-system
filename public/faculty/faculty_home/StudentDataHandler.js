@@ -17,10 +17,10 @@ function fetchStudents_updateUI() {
             var node = student_item_node.cloneNode(true);
             console.log(node);
             console.log(obj);
-
             addStudentItem(container, node, obj);
         })
     }).then(() => {
+        updateStudentProfilePics();
         StudentEventHandler();
     }).catch(err => err);
 }
@@ -36,6 +36,24 @@ function addStudentItem(container, node, obj) {
     node.querySelector(".section").innerHTML = obj.section;
     node.querySelector(".department").innerHTML = obj.department;
     container.appendChild(node);
+
+}
+
+function updateStudentProfilePics() {
+    var studentCards = document.querySelectorAll('.student-item');
+    studentCards.forEach(card => {
+        var regdNo = card.querySelector('.regdNo').dataset.regdNo;
+        console.log("something", regdNo);
+
+        fetch(`/profilepic/student/${regdNo}`).then(res => res.json()).then(data => {
+            console.log(data);
+            var datauri = data.datauri;
+            if (datauri != null) {
+                card.querySelector('img').src = datauri;
+            }
+
+        }).catch(err => err)
+    })
 
 }
 

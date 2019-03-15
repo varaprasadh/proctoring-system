@@ -16,7 +16,6 @@ const tablefunctions=[
      require('./ElectiveTable')
 ];
 
-
 function configure(){
        tablefunctions.forEach(fun => {
            fun();

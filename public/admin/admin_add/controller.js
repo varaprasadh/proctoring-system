@@ -62,7 +62,8 @@
          var photos=pics.files;
          var _confirm = confirm("confirm uploading files");
          if(_confirm){
-             uploadPhotos(photos);
+             var validphotos=getValidPhotos(photos);
+             uploadPhotos(validphotos);
          }
          else{
              alert("uploading photos cancelled");
@@ -82,7 +83,16 @@
      })
 
  }
-
+function getValidPhotos(photos){
+    var validphotos=[];
+    for(let i=0;i<photos.length;i++){
+        var photo=photos[i];
+        if(/^\d{12,12}\.\w+$/.test(photo.name)){
+            validphotos.push(photo);
+        }
+    }
+    return validphotos;
+}
  function isValid() {
      var valid = false;
      var inputElements = document.querySelectorAll('input:not([type="file"]),select');

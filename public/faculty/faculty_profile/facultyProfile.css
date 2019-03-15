@@ -74,12 +74,16 @@ nav .label {
     transform: scaleX(0);
 }
 
+.container {
+    padding-top: 80px;
+}
+
 .view-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;
-    background: rgb(10, 10, 29);
+    background: linear-gradient(45deg, rgb(17, 17, 20), rgb(92, 73, 86));
     min-height: 100vh;
 }
 
@@ -165,10 +169,12 @@ input {
     padding: 5px 10px;
     margin-top: 10px;
     border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .8em;
 }
 
 input::placeholder {
-    color: orange;
+    color: rgb(7, 12, 36);
 }
 
 .error {
