@@ -4,6 +4,7 @@
    SET @@global.sql_mode= '';
    it sets the max limit for uploads
 
+<<<<<<< HEAD
    **tables presented in database**
 
 
@@ -120,3 +121,5 @@
 "two_two_sub_codes           " ,
 "two_two_sub_scores          " ,
 "two_two_two_issues_remarks  "  
+=======
+>>>>>>> 1caa0cd1801037be81d516d49952358072a1928e
