@@ -67,7 +67,10 @@ Router.post('/csvfiles', (req, res) => {
             })
             break;
     }
-    res.end();
+    res.json({
+        status:"success"
+    })
+    
 })
 
 function processStudents(students, res) {

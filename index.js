@@ -5,6 +5,7 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const express_fileupload = require('express-fileupload');
+const json2xls=require('json2xls');
 //data
 const Tables = require('./studentTables');
 
@@ -27,6 +28,7 @@ const PendingFaculty = require('./rotes/PendingFaculty');
 const MappingSupporter = require('./rotes/MappingSupporter');
 const uploadStudentProfilePics = require('./rotes/uploadStudentProfilePics');
 const ModifyHandler = require('./rotes/modifyHandler');
+const Downloader=require('./rotes/download');
 const port = process.env.port || 9999;
 app.use(cors());
 // app.use(body_parser.urlencoded({extended:true}));
@@ -36,6 +38,7 @@ app.use(bodyParser.urlencoded({ limit: '2mb', extended: true }))
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express_fileupload());
+app.use(json2xls.middleware);
 //uselessRoutes
 // app.use(getRouter);
 
@@ -57,11 +60,13 @@ app.use(PendingFaculty);
 app.use(MappingSupporter); //useful when mapping major use
 app.use(uploadStudentProfilePics);
 app.use(ModifyHandler);
+app.use(Downloader);
+
 
 app.use(express.static('public'));
 
 
 
 app.listen(port, "localhost", () => {
-    console.log("listening at port: " + port);
+  console.log("listening at port: " + port);
 });

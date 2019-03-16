@@ -90,6 +90,8 @@ function isvalid(){
     var allpresent = false;
       for(let i=0;i<regexKeys.length;i++){
         if (regex[regexKeys[i]].test(registrationData[regexKeys[i]])) {
+            console.log(registrationData[regexKeys[i]]);
+        
             allpresent = true;
         } else {
             return false;

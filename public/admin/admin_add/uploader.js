@@ -35,6 +35,7 @@ function registerStudent(data){
         console.log(resData);
         if (resData.status=='success') {
             alert("student added successfully...");
+            window.location.reload();
         }else{
             alert("something wrong happened")
         }
@@ -54,8 +55,14 @@ function uploadPhotos(files){
     //   }
     })
       .then(res => res.json())
-      .then(status => {
-        console.log(status);
+      .then(log => {
+        console.log(log);
+        if(log.status=='success'){
+            alert("successfully uploaded");
+        }
+        else{
+            alert("something wrong happened");
+        }
       })
       .catch(err => console.log(err));
 }

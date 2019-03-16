@@ -67,9 +67,9 @@ Router.post('/updateProcData', (req, res) => {
                 }
                 console.log("electiveSubject codes done");
                 resolve("success");
-                
-                
             })
+        }else{
+            resolve("success");
         }
     })
     var cgpa_ = new Promise((resolve, reject) => {
@@ -78,7 +78,7 @@ Router.post('/updateProcData', (req, res) => {
             sql = `update cgpa set ? where regdNo='${regdNo}'`;
             connection.query(sql, cgpa, (err, result) => {
                 if (err) {
-                    reject(err.message);
+                    reject(err.sqlMessage);
                 }
                 resolve("success")
                 console.log("cgpa_done");

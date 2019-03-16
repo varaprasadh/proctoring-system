@@ -15,7 +15,7 @@ var CgpaData = {};
                   */
 
 
-function populateGradeTables(regdNo) {
+function populateGradeTables(regdNo,dep) {
     var grade_table_template = document.querySelector('.grade-table-template');
     var grade_table_node = document.importNode(grade_table_template.content, true);
     var grade_table_container = document.querySelector('.grade-tables');
@@ -28,7 +28,7 @@ function populateGradeTables(regdNo) {
         node.querySelector('.year-label').innerHTML = tableyearrfields[year - 1];
         //console.log(node);
         // tweakgradeinputid(node,  year);
-        putSubjectCodes(node, year);
+        putSubjectCodes(node, year,dep);
         putgpaCodes(node, year);
         grade_table_container.appendChild(node);
 
@@ -37,7 +37,7 @@ function populateGradeTables(regdNo) {
     fetchGrades(regdNo);
 }
 //Manually set the values for subjectcodes and id for the subgrade inputs
-function putSubjectCodes(node, year) {
+function putSubjectCodes(node, year,dep) {
     //console.log("putsubcode",node,year);
     var subcodeinputs = node.querySelectorAll('.subcode:not(div)');
     var count = 1;
@@ -53,7 +53,7 @@ function putSubjectCodes(node, year) {
         }
         subcodeinput.id="G"+code;
         subcodeinput.parentNode.querySelector('.subgrade').id = "G" + code; //matched with table column name
-        subcodeinput.value = code;
+        subcodeinput.value = dep+code;
         //  console.log(code); 
     });
 }

@@ -1,0 +1,216 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    justify-content: space-between;
+    animation: slidedown 2s cubic-bezier(0.215, 0.610, 0.355, 1) 1;
+    filter: drop-shadow(2px 2px 10px black);
+}
+
+@keyframes slidedown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+nav .label {
+    font-weight: bold;
+    font-size: 3em;
+    margin-left: 10px;
+    text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(9, 3, 15);
+}
+
+.controls {
+    display: flex;
+    /* justify-self: flex-end; */
+    justify-content: end;
+    font-size: 1.5em;
+}
+
+.controls a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.controls>div {
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.home {
+    color: blue;
+    padding: 10px 0px;
+    margin: 0px 30px;
+    position: relative;
+}
+
+.home:hover {
+    color: green;
+}
+
+.home::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    background: rgb(255, 0, 242);
+    height: 3px;
+    bottom: 0;
+    transform: scaleX(1);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.home:hover::after {
+    transform: scaleX(0);
+}
+
+.container {
+    padding-top: 80px;
+    background: linear-gradient(rgb(8, 8, 27), rgb(5, 15, 32));
+}
+
+.imgshow {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    filter: drop-shadow(5px 5px 10px black);
+}
+
+.layer1,
+.layer2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    background: rgb(12, 12, 37);
+    animation-fill-mode: forwards;
+}
+
+.layer1 {
+    animation: slideright 2s cubic-bezier(0.215, 0.610, 0.355, 1) 1;
+}
+
+.layer2 {
+    top: 100%;
+    left: 0%;
+    /* animation: slideup 2s 2s cubic-bezier(0.47, 0, 0.745, 0.715) 1; */
+}
+
+@keyframes slideright {
+    from {
+        left: 0%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes slideup {
+    from {
+        top: 0%
+    }
+    to {
+        top: -100%;
+    }
+}
+
+.imgshow img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.guides {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.guides>div {
+    margin-left: 30px;
+}
+
+.guidence-header {
+    font-weight: bold;
+    font-size: 3em;
+    padding: 30px;
+    text-transform: capitalize;
+    color: white;
+    animation: anime 1.5s cubic-bezier(0.895, 0.03, 0.685, 0.22) 1;
+}
+
+.guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.guide>div {
+    margin-bottom: 20px;
+}
+
+.details .name {
+    animation: anime 1.5s cubic-bezier(0.895, 0.03, 0.685, 0.22) 1;
+    color: white;
+}
+
+@keyframes anime {
+    from {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
+}
+
+.member {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.member img {
+    width: 250px;
+    height: 250px;
+}
+
+.member .layert {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 100%;
+}

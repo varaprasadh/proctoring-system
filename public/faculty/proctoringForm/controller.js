@@ -12,6 +12,7 @@ window.onload = function() {
 
     fetchStudentData(student_data_url + regdNo).then(data => {
             var year = data.year;
+            var dep=data.department;
             console.log(year);
             var studentDetails = data;
             //update student Details
@@ -19,7 +20,7 @@ window.onload = function() {
             //getStudentphoto
             updateStudentProfilePic(regdNo);
             PopulateAttendenceTables(regdNo);
-            populateGradeTables(regdNo);
+            populateGradeTables(regdNo,dep);
             populateIssuesTable(year, regdNo);
             HandleOpenElectives();
             electiveInputHanlder();
