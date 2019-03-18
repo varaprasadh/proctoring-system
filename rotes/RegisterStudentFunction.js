@@ -62,7 +62,9 @@ function AddStudent(data, res) {
                     if (err) {
                         console.log(err);
                         _reject(new Error("something wrong with table:" + table));
-                        // console.log(err.sqlMessage);
+                         // console.log(err.sqlMessage);   
+
+                         
 
                     } else {
                         _resolve("added to table:" + table);

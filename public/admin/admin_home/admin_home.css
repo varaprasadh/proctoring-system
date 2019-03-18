@@ -17,6 +17,16 @@ nav {
     z-index: 999;
     filter: drop-shadow(1px 5px 10px black);
     justify-content: space-between;
+    animation: slidedown 2s cubic-bezier(0.215, 0.610, 0.355, 1) 1;
+}
+
+@keyframes slidedown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
 
 nav .label {

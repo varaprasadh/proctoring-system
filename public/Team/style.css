@@ -167,13 +167,17 @@ nav .label {
     flex-direction: column;
     align-items: center;
     font-weight: bold;
+    cursor: pointer;
 }
+
+.guide:hover {}
 
 .guide>div {
     margin-bottom: 20px;
 }
 
-.details .name {
+.details .name,
+.details .position {
     animation: anime 1.5s cubic-bezier(0.895, 0.03, 0.685, 0.22) 1;
     color: white;
 }
@@ -189,28 +193,70 @@ nav .label {
     }
 }
 
-.team {
+.team-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    width: 100%;
+    justify-items: center;
+    perspective: 100px;
 }
 
 .member {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    overflow: hidden;
+    width: 300px;
+    filter: grayscale(100%);
+    background: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    filter: drop-shadow(5px 5px 10px black);
+    cursor: pointer;
+    transition: 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+    animation: anime 1.5s cubic-bezier(0.895, 0.03, 0.685, 0.22) 1;
 }
 
 .member img {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    object-fit: cover;
+    height: 300px;
+    object-position: 50% 50%;
+    animation: unblur 1s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
 }
 
-.member .layert {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    left: 100%;
+@keyframes unblur {
+    0% {
+        filter: blur(20px);
+    }
+    100% {
+        filter: blur(0px);
+    }
+}
+
+.pos img {
+    object-position: 50% 0%;
+}
+
+.member:hover {
+    transform: translateZ(10px);
+    z-index: 9;
+}
+
+.team .header {
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    animation: anime 1.5s cubic-bezier(0.895, 0.03, 0.685, 0.22) 1;
+    padding: 20px;
+}
+
+@media screen and (max-width:420px) {
+    .team-list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 }
