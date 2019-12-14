@@ -24,7 +24,7 @@ function createAttendenceTable() {
 
     str=AttendenceTableColumns.join();
     var sql=`
-       create table Attendence (
+       create table attendence (
            regdNo varchar(20) primary key,
           ${str}
        )

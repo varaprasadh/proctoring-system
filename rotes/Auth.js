@@ -9,7 +9,7 @@ Router.post('/signin',(req,res)=>{
   var regdNo = reqData.userid.replace(/'/g,'');
   if(reqData.type==='admin'){
     //search admin in database
-    var sql = `select * from adminData where admin_id='${regdNo}'`;
+    var sql = `select * from admindata where admin_id='${regdNo}'`;
     connection.query(sql,(err,result)=>{
       if(err) throw(err);
        var foundUser=result[0];

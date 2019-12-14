@@ -35,7 +35,7 @@ function createRemarksTable(){
     }
     console.log(cols);
         str=cols.join();
-        sql=`create table Remarks (
+        sql=`create table remarks (
             regdNo varchar(20) primary key,
             ${str}
         )`

@@ -31,7 +31,7 @@ Router.post('/updateProcData', (req, res) => {
     var Attendence_ = new Promise((resolve, reject) => {
 
         if (Object.entries(attendence).length) {
-            sql = `update Attendence set ? where regdNo='${regdNo}'`
+            sql = `update attendence set ? where regdNo='${regdNo}'`
             connection.query(sql, attendence, (err, result) => {
                 if (err) {
                     reject(err.message);

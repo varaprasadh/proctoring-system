@@ -9,7 +9,8 @@ Router.post('/checkUser',(req,res)=>{
         found:0
     }
     if(reqData.type=='admin'){
-        var sql = `select email from adminData where admin_id='${reqData.userid}'`
+        var sql = `select email from admindata where admin_id='${reqData.userid}'`
+       
         connection.query(sql, (err,result)=>{
             if(err)throw(err)
             //if atleast one email found

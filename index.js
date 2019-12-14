@@ -67,6 +67,6 @@ app.use(express.static('public'));
 
 
 
-app.listen(port, "localhost", () => {
+app.listen(port,() => {
   console.log("listening at port: " + port);
 });

@@ -9,7 +9,7 @@ function createCGPATable(){
             }
         }
         str=cols.join();
-        sql=`create table CGPA(
+        sql=`create table cgpa(
             regdNo varchar(20) primary key,
             ${str}
         )`

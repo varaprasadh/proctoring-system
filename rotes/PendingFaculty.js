@@ -31,7 +31,7 @@ Router.post("/PendingFaculty",(req,res)=>{
 });
 Router.get("/pendingFaculty",(req,res)=>{
     new Promise((resolve,reject)=>{
-        sql=`select * from pendingFaculty`;
+        sql=`select * from pendingfaculty`;
         connection.query(sql,(err,result)=>{
             if(err){
                 reject(err.sqlMessage);
@@ -178,31 +178,4 @@ Router.get("/pendingFaculty/reject/:regdNo", (req, res)=>{
 })
 
 
-
-
-
-
-
-
-
-/**
- * name: 'varaprasadh alajangi',
-  mobile: '8106492369',
-  email: 'varaprasadh.a@gmail.com',
-  regdNo: 'anit123',
-  password: 'anit123@',
-  department: 'cse',
-  fileType: 'image/png',
-  fileData:
- * 
-| regdNo     | varchar(10) | NO   | PRI | NULL    |       |
-| name       | varchar(30) | YES  |     | NULL    |       |
-| department | varchar(10) | YES  |     | NULL    |       |
-| mobile     | varchar(10) | YES  |     | NULL    |       |
-| email      | varchar(30) | YES  |     | NULL    |       |
-| file       | blob        | YES  |     | NULL    |       |
-| password   | varchar(20) | YES  |     | NULL    |       |
-+------------+-------------+------+-----+---------+-------+
-
- */
 module.exports=Router;
